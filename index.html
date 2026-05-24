@@ -3,1349 +3,527 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad Híbrida | Divulgación, Rendimiento y Nutrición Real</title>
-    <meta name="description" content="Portal editorial dedicado al entrenamiento de fuerza y resistencia. Análisis científico de suplementación, calzado deportivo de precisión, nutrición real y eventos en España.">
+    <title>Comunidad Híbrida | El Laboratorio del Atleta Completo</title>
     
-    <!-- Google Fonts para tipografía premium, juvenil y enérgica -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Configuración e Integración de MathJax para renderizar fórmulas de forma nativa -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            options: {
-                ignoreHtmlClass: 'tex2jax_ignore',
-                processHtmlClass: 'tex2jax_process'
-            }
-        };
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* SITEMA DE VARIABLES FUTURISTA (ICE LIGHT & CYBER TEAL) */
         :root {
-            --bg-color: #f8fafc; /* Slate-50: Blanco Glaciar Suave */
-            --bg-secondary: #f1f5f9; /* Slate-100 */
-            --card-bg: #ffffff; /* Celdas Bento en Blanco Puro */
-            --text-color: #0f172a; /* Slate-900: Contraste nítido y legible */
-            --text-muted: #64748b; /* Slate-500 */
-            --accent-color: #0284c7; /* Azul Ciano / Glaciar Activo */
-            --accent-glow: rgba(2, 132, 199, 0.05);
-            --border-color: rgba(15, 23, 42, 0.06);
-            --border-hover: #0284c7;
-            --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.02);
-            --shadow-premium: 0 20px 40px rgba(2, 132, 199, 0.06);
-            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --bg-base: #0f172a;       /* Slate 900 - Glaciar Profundo */
+            --bg-surface: #1e293b;    /* Slate 800 - Tarjetas */
+            --bg-accent: #111827;     /* Gris casi negro militar */
+            --text-main: #f8fafc;     /* Blanco Glaciar */
+            --text-muted: #94a3b8;    /* Gris atenuado */
+            --color-teal: #00b4d8;    /* Ciano Eléctrico */
+            --color-gold: #fbbf24;    /* Oro de Rango */
+            --color-green: #10b981;   /* Verde Éxito */
+            --border-spec: rgba(255, 255, 255, 0.08);
+            --glow-teal: rgba(0, 180, 216, 0.4);
+            --transition-hq: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-base);
+            color: var(--text-main);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* NAVEGACIÓN ESTILO APPLE DEPORTIVO CLARO */
-        .navbar {
-            position: sticky;
+        /* BARRA DE NAVEGACIÓN PERMANENTE */
+        nav {
+            position: fixed;
             top: 0;
-            z-index: 100;
-            background-color: rgba(248, 250, 252, 0.85);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.3s;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-spec);
+            z-index: 1000;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .navbar-container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 20px;
-            height: 60px;
+        .brand-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
         }
 
-        .nav-brand {
+        .nav-logo-wrapper {
+            width: 42px;
+            height: 42px;
+            filter: drop-shadow(0 0 8px var(--glow-teal));
+            transition: var(--transition-hq);
+        }
+
+        .brand-text {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 18px;
             font-weight: 700;
-            letter-spacing: -1px;
-            text-decoration: none;
-            color: var(--text-color);
+            letter-spacing: -0.5px;
             text-transform: uppercase;
         }
 
-        .nav-brand span {
-            color: var(--accent-color);
+        .brand-text span {
+            color: var(--color-teal);
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 32px;
+            list-style: none;
         }
 
         .nav-links a {
-            font-size: 12.5px;
             color: var(--text-muted);
             text-decoration: none;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-            position: relative;
-            padding: 4px 0;
+            transition: var(--transition-hq);
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-color);
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--color-teal);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
+        /* SECCIÓN HERO PRINCIPAL */
+        section.hero {
+            padding: 160px 20px 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        .nav-links a.active::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* HERO DE ALTO IMPACTO CLARO */
-        .hero {
-            max-width: 850px;
-            margin: 100px auto 80px;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .hero-tag {
+        .hero-content h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
+            font-size: 56px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--accent-color);
-            background: rgba(2, 132, 199, 0.05);
-            border: 1px solid rgba(2, 132, 199, 0.15);
-            padding: 6px 16px;
-            border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 28px;
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 58px;
-            font-weight: 700;
-            letter-spacing: -2px;
             line-height: 1.1;
-            color: var(--text-color);
-            margin-bottom: 25px;
+            letter-spacing: -2px;
             text-transform: uppercase;
+            margin-bottom: 24px;
         }
 
-        .hero h1 span {
-            display: block;
-            background: linear-gradient(135deg, #0284c7 0%, #00b4d8 100%);
+        .hero-content h1 span {
+            color: var(--color-teal);
+            background: linear-gradient(135deg, #00b4d8 0%, #06b6d4 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-desc {
+        .hero-content p {
             font-size: 18px;
             color: var(--text-muted);
-            font-weight: 400;
-            max-width: 640px;
-            margin: 0 auto;
-            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 40px;
+            max-width: 540px;
         }
 
-        /* DISEÑO DE SECCIÓN */
-        section {
-            padding: 100px 0;
-            border-bottom: 1px solid var(--border-color);
-            overflow: hidden;
-            background-color: var(--bg-color);
+        /* PANEL INTERACTIVO DE LOGOS (DENTRO DEL HERO) */
+        .brand-selector-panel {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-spec);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        section:nth-child(even) {
-            background-color: var(--bg-secondary);
-        }
-
-        .section-container {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* SUB-NAVEGACIÓN INTERNA PARA ARTÍCULOS */
-        .sub-article-nav {
-            display: inline-flex;
-            gap: 20px;
-            margin-bottom: 45px;
-            border-bottom: 1px solid var(--border-color);
-            width: 100%;
-            padding-bottom: 10px;
-        }
-
-        .sub-nav-btn {
-            background: none;
-            border: none;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
-            color: var(--text-muted);
-            cursor: pointer;
-            padding-bottom: 10px;
-            position: relative;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.25s ease;
-        }
-
-        .sub-nav-btn:hover,
-        .sub-nav-btn.active {
-            color: var(--accent-color);
-        }
-
-        .sub-nav-btn::after {
-            content: '';
-            position: absolute;
-            bottom: -11px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--accent-color);
-            transform: scaleX(0);
-            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .sub-nav-btn.active::after {
-            transform: scaleX(1);
-        }
-
-        .article-wrapper {
-            display: none;
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .article-wrapper.active {
-            display: block;
-        }
-
-        /* ARTÍCULOS EDITORIALES ENÉRGICOS */
-        .article-meta {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .article-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 38px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .article-body {
-            font-size: 16px;
-            color: #334155; /* Slate-700 */
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .article-body p {
-            margin-bottom: 28px;
-        }
-
-        .article-body p:first-of-type::first-letter {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem;
-            float: left;
-            line-height: 0.8;
-            padding-right: 12px;
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-
-        /* MOSTRAR IMÁGENES CON ESTILO TECNOLÓGICO CLARO */
-        .image-showcase {
-            background-color: #e2e8f0; /* Slate-200 */
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            height: 380px;
+        .showcase-display {
+            width: 200px;
+            height: 200px;
+            background: var(--bg-base);
+            border: 1px solid var(--border-spec);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 40px 0 50px;
+            margin-bottom: 24px;
+            filter: drop-shadow(0 0 15px var(--glow-teal));
+        }
+
+        .selector-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .btn-select {
+            background: var(--bg-base);
+            border: 1px solid var(--border-spec);
             color: var(--text-muted);
+            padding: 12px;
+            border-radius: 12px;
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: var(--transition-smooth);
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 0 30px rgba(15, 23, 42, 0.02);
+            cursor: pointer;
+            transition: var(--transition-hq);
         }
 
-        .image-showcase span {
-            position: relative;
-            z-index: 2;
-            transition: var(--transition-smooth);
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--text-color);
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: var(--shadow-subtle);
+        .btn-select.active {
+            border-color: var(--color-teal);
+            color: var(--color-teal);
+            background: rgba(0, 180, 216, 0.05);
         }
 
-        .image-showcase::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(2, 132, 199, 0.02) 0%, rgba(0, 229, 255, 0.02) 100%);
-            z-index: 1;
-            transition: var(--transition-smooth);
+        /* SECCIÓN DE LA CALCULADORA FIORE / ATLETA MILITAR */
+        section.laboratorio {
+            background: var(--bg-accent);
+            border-top: 1px solid var(--border-spec);
+            border-bottom: 1px solid var(--border-spec);
+            padding: 100px 20px;
         }
 
-        .image-showcase:hover {
-            border-color: var(--accent-color);
-            box-shadow: var(--shadow-premium);
-        }
-
-        .image-showcase:hover span {
-            transform: scale(1.05);
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-        }
-
-        /* GRID EDITORIAL (BENTO LAYOUT) */
-        .product-grid {
+        .lab-container {
+            max-width: 1100px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 24px;
-            margin: 50px 0;
-            transition: var(--transition-smooth);
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
         }
 
-        /* Atenuación Bento coordinada para mayor inmersión */
-        .product-grid:hover .product-card {
-            opacity: 0.5;
-            transform: scale(0.985);
+        .lab-info h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
         }
 
-        .product-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: var(--transition-smooth);
-            box-shadow: var(--shadow-subtle);
+        .lab-info h2 span { color: var(--color-teal); }
+
+        .lab-info p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 24px;
+            font-weight: 300;
         }
 
-        .product-grid .product-card:hover {
-            opacity: 1 !important;
-            transform: scale(1.015) translateY(-4px);
-            border-color: var(--accent-color);
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.08);
-        }
-
-        .prod-tag {
+        .badge-militar {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--color-gold);
             font-family: 'Space Grotesk', sans-serif;
             font-size: 10px;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            margin-bottom: 14px;
-            display: block;
-        }
-
-        .product-card h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .prod-desc {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 24px;
-            font-weight: 400;
-        }
-
-        .prod-specs {
-            background-color: var(--bg-secondary);
-            border-radius: 10px;
-            padding: 18px;
-            margin-bottom: 24px;
-            font-size: 13px;
-            border: 1px solid rgba(15, 23, 42, 0.02);
-            font-weight: 400;
-        }
-
-        .prod-specs strong {
-            display: block;
-            color: var(--text-color);
-            margin-bottom: 6px;
-            font-size: 9px;
+            padding: 6px 14px;
+            border-radius: 30px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        /* BOTONES JUVENILES Y EQUILIBRADOS */
-        .btn-premium {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 11px 24px;
+        /* FORMULARIO Y CALCULADORA */
+        .calc-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-spec);
             border-radius: 20px;
-            font-family: 'Space Grotesk', sans-serif;
+            padding: 32px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
             font-size: 12px;
-            font-weight: 700;
-            display: inline-block;
-            text-align: center;
             text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-weight: 600;
             letter-spacing: 0.5px;
-            transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
         }
 
-        .btn-premium:hover {
-            background-color: var(--text-color);
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+        .input-group input, .input-group select {
+            width: 100%;
+            background: var(--bg-base);
+            border: 1px solid var(--border-spec);
+            color: var(--text-main);
+            padding: 14px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+            transition: var(--transition-hq);
         }
 
-        .btn-secondary-link {
-            color: var(--accent-color);
-            text-decoration: none;
+        .input-group input:focus, .input-group select:focus {
+            border-color: var(--color-teal);
+            box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
+        }
+
+        /* PANEL DE RESULTADOS MACROS */
+        .results-panel {
+            margin-top: 24px;
+            background: var(--bg-base);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            display: none;
+        }
+
+        .results-panel h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            color: var(--color-green);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .macros-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .macro-card {
+            background: var(--bg-surface);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-spec);
+        }
+
+        .macro-card span {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .macro-card strong {
+            font-size: 18px;
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .btn-calc {
+            width: 100%;
+            background: var(--color-teal);
+            color: #ffffff;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 13px;
             font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-family: 'Space Grotesk', sans-serif;
             text-transform: uppercase;
-            transition: opacity 0.2s;
+            cursor: pointer;
+            transition: var(--transition-hq);
         }
 
-        .btn-secondary-link:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+        .btn-calc:hover {
+            background: var(--text-main);
+            color: var(--bg-base);
         }
 
-        /* TABLA DE ESPECIFICACIONES CON ESTILO NEÓN ATENUADO */
-        .table-editorial {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 40px 0;
-            font-size: 13.5px;
-        }
-
-        .table-editorial th {
-            text-align: left;
-            padding: 16px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-color);
-            border-bottom: 2px solid rgba(15, 23, 42, 0.05);
-        }
-
-        .table-editorial td {
-            padding: 18px 16px;
-            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-            color: #334155;
-            font-weight: 400;
-        }
-
-        .table-editorial tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* CUADROS DESTACADOS (QUOTE BOX) */
-        .quote-box {
-            background-color: var(--bg-secondary);
-            border-left: 3px solid var(--accent-color);
-            padding: 36px;
-            border-radius: 0 16px 16px 0;
-            margin: 40px 0;
-            font-size: 15px;
-            color: #475569;
-            font-weight: 400;
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .quote-box h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        /* AGENDA DE EVENTOS DEPORTIVOS JUVENIL */
-        .events-agenda {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin-top: 40px;
-        }
-
-        .event-item {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 24px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: var(--transition-smooth);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .event-item:hover {
-            border-color: var(--accent-color);
-            transform: scale(1.015) translateY(-2px);
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.04);
-        }
-
-        .event-left {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .event-date {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 13.5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-color);
-            min-width: 140px;
-        }
-
-        .event-details h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 4px;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .event-details p {
-            font-size: 13.5px;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .event-tag {
-            background-color: var(--bg-secondary);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-color);
-            border: 1px solid rgba(15,23,42,0.05);
-        }
-
-        /* SCROLL REVEAL ANIMATIONS */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* HIGHLIGHT FOR THE ADIZERO BOX (BENTO PREMIUM) */
-        .highlight-banner {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
-            border: 1.5px solid var(--accent-color);
-            box-shadow: 0 15px 40px rgba(2, 132, 199, 0.05);
-        }
-
-        /* FOOTER EDITORIAL */
         footer {
-            max-width: 980px;
-            margin: 100px auto 0;
-            padding: 60px 20px 40px;
-            border-top: 1px solid var(--border-color);
+            padding: 40px;
             text-align: center;
             font-size: 12px;
             color: var(--text-muted);
-            line-height: 1.8;
+            border-top: 1px solid var(--border-spec);
         }
 
-        footer p {
-            margin-bottom: 15px;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 850px) {
-            .hero h1 {
-                font-size: 42px;
-            }
-            .navbar-container {
-                height: auto;
-                flex-direction: column;
-                padding: 12px 20px;
-                gap: 12px;
-            }
-            .nav-links {
-                gap: 18px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .event-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 16px;
-                padding: 24px;
-            }
-            .event-left {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-            .event-date {
-                min-width: auto;
-            }
-            .image-showcase {
-                height: 240px;
-            }
+            section.hero, .lab-container { grid-template-columns: 1fr; gap: 40px; }
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ APPLE-STYLE DEPORTIVO -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="nav-brand">Comunidad<span>Híbrida</span></a>
-            <div class="nav-links">
-                <a href="#zapatillas" id="link-zapatillas">Zapatillas</a>
-                <a href="#relojes" id="link-relojes">Cardio & Zona 2</a>
-                <a href="#suplementacion" id="link-suplementacion">Suplementación</a>
-                <a href="#nutricion" id="link-nutricion">Nutrición Real</a>
-                <a href="#eventos" id="link-eventos">Eventos</a>
-            </div>
-        </div>
+    <nav>
+        <a href="#" class="brand-container">
+            <div class="nav-logo-wrapper" id="nav-logo-target">
+                </div>
+            <div class="brand-text">Comunidad<span>Híbrida</span></div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Laboratorio</a></li>
+            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+            <li><a href="#">Artículos</a></li>
+            <li><a href="#">Muro de Honor</a></li>
+        </ul>
     </nav>
 
-    <!-- INTRODUCCIÓN EDITORIAL -->
-    <header class="hero reveal">
-        <span class="hero-tag">Metodología & Divulgación Científica</span>
-        <h1>Rendimiento <span>Consciente</span></h1>
-        <p class="hero-desc">Análisis independientes sobre biomecánica, fisiología cardiovascular y nutrición adaptados para atletas que se niegan a elegir entre fuerza y resistencia.</p>
-    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Construye Fuerza. <span>Domina el Cardio.</span></h1>
+            <p>Fusión científica de hipertrofia y resistencia de larga distancia. Deja atrás los dogmas obsoletos y conviértete en un atleta completo e inquebrantable.</p>
+            <button class="btn-calc" style="width: auto; padding: 16px 32px;" onclick="document.getElementById('lab-section').scrollIntoView({behavior: 'smooth'});">Configurar mi Perfil Militar</button>
+        </div>
+        
+        <div class="brand-selector-panel">
+            <h3 font-family="Space Grotesk" style="font-size: 12px; text-transform: uppercase; margin-bottom: 16px; color: var(--text-muted);">Identidad de Marca Activa</h3>
+            <div class="showcase-display" id="hero-logo-target">
+                </div>
+            <div class="selector-buttons">
+                <button class="btn-select active" id="btn-logo-1" onclick="cambiarIdentidadGlobal(1)">1. Escudo Hexagonal</button>
+                <button class="btn-select" id="btn-logo-3" onclick="cambiarIdentidadGlobal(3)">3. Infinito Cruzado</button>
+            </div>
+        </div>
+    </section>
 
-    <main>
-
-        <!-- SECCIÓN 1: ZAPATILLAS (SISTEMA DE MÚLTIPLES ARTÍCULOS) -->
-        <section id="zapatillas">
-            <div class="section-container">
+    <section class="laboratorio" id="lab-section">
+        <div class="lab-container">
+            <div class="lab-info">
+                <span class="badge-militar">Fisiología Aplicada // Zona 2</span>
+                <h2>El Algoritmo Nutricional del <span>Atleta Híbrido</span></h2>
+                <p>Un corredor clásico cataboliza masa muscular; un culturista tradicional colapsa a los 3 kilómetros de carrera aeróbica. Tu sistema operativo demanda otra ingeniería.</p>
+                <p>Introduce tus métricas corporales reales. Nuestra calculadora fisiológica determinará el reparto exacto de macronutrientes para proteger tus ganancias de fuerza mientras alimentas tus entrenamientos de resistencia.</p>
+            </div>
+            
+            <div class="calc-box">
+                <div class="input-group">
+                    <label for="calc-peso">Masa Corporal Actual (KG)</label>
+                    <input type="number" id="calc-peso" placeholder="Ej. 82" min="40" max="150">
+                </div>
+                <div class="input-group">
+                    <label for="calc-objetivo">Estrategia de Rendimiento</label>
+                    <select id="calc-objetivo">
+                        <option value="recomposicion">Recomposición (Mantener Fuerza / Quemar Grasa)</option>
+                        <option value="volumen">Volumen Limpio (Construcción Muscular Activa)</option>
+                        <option value="rendimiento">Rendimiento Puro (Enfoque en Competición Maratón/Trail)</option>
+                    </select>
+                </div>
                 
-                <!-- Sub-Navegación Interna de Artículos de Calzado -->
-                <div class="sub-article-nav reveal">
-                    <button class="sub-nav-btn active" onclick="switchArticle('diario')">Gama Diaria & Entrenamiento</button>
-                    <button class="sub-nav-btn" onclick="switchArticle('maraton')">Especial Maratón (Competición)</button>
-                </div>
-
-                <!-- ARTÍCULO 1: GAMA DIARIA (ACTIVO POR DEFECTO) -->
-                <div id="art-diario" class="article-wrapper active">
-                    <div class="reveal">
-                        <span class="article-meta">Biomecánica y Calzado</span>
-                        <h2 class="article-title">La evolución de la pisada: Análisis de la ingeniería de carrera en 2026</h2>
-                        
-                        <div class="article-body">
-                            <p>La búsqueda de la eficiencia mecánica en carrera ha superado la vieja dicotomía entre amortiguación reactiva y estabilidad estructural. Hoy en día, la arquitectura del calzado de running integra espumas de densidades variables tratadas con nitrógeno e hilos de carbono microscópicos destinados a mitigar la fatiga neuromuscular durante esfuerzos continuados.</p>
-                            
-                            <p>Para el atleta que combina entrenamientos concurrentes de fuerza (ej. levantamientos pesados) y resistencia, la elección del calzado no se ciñe exclusivamente a la estética o a las tendencias. Se trata de una variable de protección articular y optimización del coste energético. Los corredores que poseen una masa muscular superior requieren estructuras de mediasuela capaces de tolerar impactos verticales mayores sin colapsar la elasticidad nativa del compuesto.</p>
-                        </div>
-                    </div>
-
-                    <div class="image-showcase reveal">
-                        <span>[Ingeniería de Amortiguación y Compuestos de Zapatilla]</span>
-                    </div>
-
-                    <!-- Tarjetas de Producto Elegantes -->
-                    <div class="product-grid reveal">
-                        
-                        <!-- Nike Pegasus 42 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Nike Running</span>
-                                <h3>Air Zoom Pegasus 42</h3>
-                                <p class="prod-desc">Un diseño de ingeniería refinada que balancea la durabilidad con el retorno de energía mediante la espuma ReactX.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Corredores de hasta $85\text{ kg}$ de pisada neutra. Óptima para rodajes de base y ritmos controlados entre $4:00\text{ y }5:15\text{ min/km}$.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="pegasus42" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- Asics Gel-Nimbus 28 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Asics Premium</span>
-                                <h3>Gel-Nimbus 28</h3>
-                                <p class="prod-desc">Máximo exponente en amortiguación. Mitigación drástica de la carga en asfalto a través de la integración de PureGEL.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Corredores de peso elevado ($>80\text{ kg}$) que requieran máxima absorción de impactos en rodajes regenerativos y tiradas largas.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="nimbus28" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- Adidas Ultraboost 5 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Adidas Performance</span>
-                                <h3>Ultraboost 5</h3>
-                                <p class="prod-desc">La evolución del compuesto elástico Light Boost, garantizando estabilidad superior y excelente agarre Continental.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Atletas híbridos que priorizan la versatilidad de uso mixto en el asfalto y sesiones de acondicionamiento en gimnasio.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="ultraboost5" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- Brooks Ghost 17 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Brooks Running</span>
-                                <h3>Ghost 17</h3>
-                                <p class="prod-desc">Consistencia clásica. Estructura de transición optimizada con su mediasuela infundida con nitrógeno DNA Loft v3.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Corredores que busquen un calzado de gran durabilidad e idóneo para plantillas ortopédicas y talonadores acusados.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="ghost17" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- Hoka Clifton 10 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Hoka Maximalist</span>
-                                <h3>Clifton 10</h3>
-                                <p class="prod-desc">Diseño maximalista ultraligero que redefine la suavidad del ciclo de la marcha mediante su geometría rocker.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Atletas que busquen un correr cómodo sobre acolchado denso a ritmos alegres de entrenamiento continuado.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="clifton10" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- Saucony Triumph 22 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Saucony Comfort</span>
-                                <h3>Triumph 22</h3>
-                                <p class="prod-desc">Suela de poliuretano termoplástico expandido PWRRUN PB que aporta una reactividad elástica insuperable.</p>
-                                <div class="prod-specs">
-                                    <strong>Perfil de Corredor:</strong>
-                                    Corredores de fondo de pisada neutra que demandan máxima transferencia energética por zancada en ritmos maratón.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="triumph22" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- ARTÍCULO 2: ESPECIAL MARATÓN (OCULTO POR DEFECTO) -->
-                <div id="art-maraton" class="article-wrapper">
-                    <div class="reveal">
-                        <span class="article-meta">Competición & Alto Rendimiento</span>
-                        <h2 class="article-title">Especial Maratón: Análisis de los 5 mejores calzados voladores con placa de carbono</h2>
-                        
-                        <div class="article-body">
-                            <p>Enfrentarse a la mítica distancia de los $42.195\text{ km}$ requiere no solo una óptima preparación metabólica y muscular, sino una eficiencia biomecánica superlativa. La irrupción de las placas de fibra de carbono combinadas con espumas de altísima reactividad ha redefinido el coste de oxígeno del corredor, permitiendo ahorrar hasta un $4\%$ de energía por zancada.</p>
-                            
-                            <p>A diferencia de los calzados de entrenamiento diario, los modelos de maratón priorizan el retorno dinámico y la ligereza extrema por encima de la durabilidad estructural. Al correr largas distancias con fatiga acumulada, estas zapatillas reducen drásticamente el daño de los impactos musculares, permitiendo sostener ritmos elevados durante más tiempo y acelerando de forma sustancial la recuperación post-carrera.</p>
-                        </div>
-                    </div>
-
-                    <div class="image-showcase reveal">
-                        <span>[Placas de Carbono e Ingeniería de Alta Competición]</span>
-                    </div>
-
-                    <!-- Grid de las 5 mejores zapatillas para Maratón -->
-                    <div class="product-grid reveal">
-                        
-                        <!-- 1. Adidas Adizero Pro 4 (LA RECOMENDACIÓN ESTRELLA) -->
-                        <div class="product-card highlight-banner">
-                            <div>
-                                <span class="prod-tag">★ Nuestra Elección Definitiva</span>
-                                <h3>Adidas Adizero Pro 4</h3>
-                                <p class="prod-desc">La cima de la ingeniería de competición. Utiliza la espuma de doble densidad Lightstrike Pro optimizada y varillas de carbono integradas EnergyRods 2.0 que imitan la estructura ósea del pie para lograr una transición natural y una propulsión mecánica insuperable.</p>
-                                <div class="prod-specs">
-                                    <strong>Por qué es la mejor:</strong>
-                                    Es la zapatilla que mejor preserva la musculatura de las piernas en los últimos $10\text{ km}$ del maratón. Su suela Continental ofrece un agarre espectacular en asfalto húmedo y su peso es inferior a los $200\text{ g}$.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="adizero4" target="_blank" rel="nofollow noopener" class="btn-premium">Ver disponibilidad →</a>
-                        </div>
-
-                        <!-- 2. Nike Alphafly 3 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Nike Racing</span>
-                                <h3>Nike Air Zoom Alphafly 3</h3>
-                                <p class="prod-desc">La zapatilla de los récords del mundo. Combina la reactividad extrema de la espuma ZoomX, una placa de carbono de longitud completa y dos unidades Air Zoom en el antepié para un efecto de rebote extraordinario.</p>
-                                <div class="prod-specs">
-                                    <strong>Puntos fuertes:</strong>
-                                    La amortiguación más suave y mullida del mercado. Ideal para corredores con una pisada eficiente que busquen un rebote vertical masivo.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="alphafly3" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- 3. Asics Metaspeed Sky Paris -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Asics Racing</span>
-                                <h3>Asics Metaspeed Sky Paris</h3>
-                                <p class="prod-desc">Diseñada específicamente para corredores de zancada (stride) que aumentan su velocidad ampliando el paso. Cuenta con la espuma ultra-reactiva FlyteFoam Blast Turbo y un peso pluma increíble.</p>
-                                <div class="prod-specs">
-                                    <strong>Puntos fuertes:</strong>
-                                    Es una de las zapatillas más ligeras de competición de 2026. Aporta un despegue extremadamente ágil y una suela muy estable.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="metaspeed" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- 4. Saucony Endorphin Pro 4 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Saucony Racing</span>
-                                <h3>Saucony Endorphin Pro 4</h3>
-                                <p class="prod-desc">Fusiona la tecnología de amortiguación PWRRUN HG con la geometría Speedroll para guiar tu pie de forma natural, reduciendo el esfuerzo del tobillo en cada fase del apoyo.</p>
-                                <div class="prod-specs">
-                                    <strong>Puntos fuertes:</strong>
-                                    Es la zapatilla de carbono más cómoda y dócil de correr. No requiere de una técnica de carrera perfecta para beneficiarse de la placa.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="endorphin4" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                        <!-- 5. Puma Deviate Nitro Elite 3 -->
-                        <div class="product-card">
-                            <div>
-                                <span class="prod-tag">Puma Performance</span>
-                                <h3>Puma Deviate Nitro Elite 3</h3>
-                                <p class="prod-desc">Con espuma Nitro Elite infundida con nitrógeno y una placa de fibra de carbono rígida. Su compuesto de suela PumaGrip es indiscutiblemente el rey de la tracción en carrera.</p>
-                                <div class="prod-specs">
-                                    <strong>Puntos fuertes:</strong>
-                                    Excelente estabilidad en curvas y superficies mojadas. Perfecta para circuitos urbanos revirados.
-                                </div>
-                            </div>
-                            <a href="#" data-affiliate="deviate3" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Explorar opciones →</a>
-                        </div>
-
-                    </div>
-
-                    <!-- Análisis en profundidad del ganador -->
-                    <div class="quote-box reveal">
-                        <h4>El Veredicto de la Comunidad: ¿Por qué la Adidas Adizero Pro 4 es la reina indiscutible?</h4>
-                        <p style="margin-bottom: 15px;">
-                            Tras analizar los datos biomecánicos y de rendimiento de corredores en condiciones reales, la **Adidas Adizero Pro 4** destaca como la opción más de confianza y eficiente para maratón por tres pilares fundamentales:
-                        </p>
-                        <p style="margin-bottom: 15px;">
-                            • <strong>Eficiencia metabólica sostenida:</strong> A diferencia de las placas de carbono rígidas tradicionales que pueden sobrecargar el arco del pie tras dos horas de carrera, las varillas *EnergyRods 2.0* flexionan de manera independiente, adaptándose a la dinámica natural de torsión del pie.
-                        </p>
-                        <p style="margin-bottom: 15px;">
-                            • <strong>Estabilidad y confianza en asfalto:</strong> Su suela con caucho de Continental garantiza una tracción soberbia, eliminando cualquier micropatinamiento en giros o zonas húmedas que suponga una pérdida de vatios de potencia.
-                        </p>
-                        <p>
-                            • <strong>Preservación neuromuscular:</strong> La espuma Lightstrike Pro es densa pero sumamente elástica; no solo te impulsa hacia adelante, sino que amortigua de tal manera que reduce las microrroturas musculares de la pantorrilla y el cuádriceps, permitiendo acelerar en el tramo crítico del kilómetro $32\text{ al }42$.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SECCIÓN 2: CARDIO & ZONA 2 -->
-        <section id="relojes">
-            <div class="section-container reveal">
-                <span class="article-meta">Fisiología del Esfuerzo</span>
-                <h2 class="article-title">El motor invisible: Monitorización de frecuencia cardíaca y el poder de la Zona 2</h2>
+                <button class="btn-calc" onclick="ejecutarCalculoFisiologico()">Calcular Requerimientos de Energía</button>
                 
-                <div class="article-body">
-                    <p>En el entrenamiento contemporáneo, monitorizar la intensidad no es una opción estética sino una necesidad fisiológica. La variabilidad de la frecuencia cardíaca (HRV) y las zonas de pulso representan el mapa biológico del atleta. Entre estas zonas, la **Zona 2** ($60\%\text{ a }70\%$ del volumen de consumo de oxígeno máximo o $\text{VO}_2\text{ Max}$) se erige como la base del metabolismo híbrido.</p>
-                    
-                    <p>Entrenar en Zona 2 promueve adaptaciones celulares críticas: aumenta la densidad mitocondrial en las fibras musculares de Tipo I (lentas), eleva la capilarización tisular y mejora la capacidad de utilizar ácidos grasos libres como combustible principal. Esto preserva las reservas de glucógeno muscular para entrenamientos anaeróbicos intensos (ej. sesiones de levantamiento de fuerza o sprints de CrossFit). Monitorear estas pulsaciones evita que las sesiones de carrera de baja intensidad degeneren en esfuerzos grises que arruinen la recuperación de la fuerza muscular.</p>
-                </div>
-
-                <div class="image-showcase reveal">
-                    <span>[Control de Pulsaciones e Índices de Variabilidad de Ritmo Cardíaco]</span>
-                </div>
-
-                <!-- Recomendaciones sutiles de Herramientas de Cardio -->
-                <div class="product-grid reveal">
-                    
-                    <div class="product-card">
-                        <div>
-                            <span class="prod-tag">Monitorización de Muñeca</span>
-                            <h3>Coros Pace 3 / Garmin 165</h3>
-                            <p class="prod-desc">Dispositivos compactos y de peso pluma. Sobresalen por la precisión de sus chips de geolocalización satelital y lectura óptica continuada.</p>
+                <div class="results-panel" id="lab-results">
+                    <h4>Asignación Protegida de Macronutrientes</h4>
+                    <div class="macros-grid">
+                        <div class="macro-card">
+                            <span>Proteína (Fuerza)</span>
+                            <strong id="res-prot">-- g</strong>
                         </div>
-                        <a href="#" data-affiliate="corospace3" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Revisar detalles técnicos →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div>
-                            <span class="prod-tag">Suunto Performance</span>
-                            <h3>Suunto Race S</h3>
-                            <p class="prod-desc">Precisión en montaña y asfalto con mapas detallados offline y pantalla AMOLED de alta visibilidad para tiradas largas.</p>
+                        <div class="macro-card">
+                            <span>Carbohidratos</span>
+                            <strong id="res-carbs">-- g</strong>
                         </div>
-                        <a href="#" data-affiliate="suuntoraces" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Revisar detalles técnicos →</a>
-                    </div>
-
-                    <div class="product-card">
-                        <div>
-                            <span class="prod-tag">Precisión Torácica</span>
-                            <h3>Polar H10</h3>
-                            <p class="prod-desc">Banda pectoral de referencia médica. Imprescindible para evitar el retraso o imprecisión en lecturas de pulso de alta intensidad.</p>
+                        <div class="macro-card">
+                            <span>Grasas</span>
+                            <strong id="res-grasas">-- g</strong>
                         </div>
-                        <a href="#" data-affiliate="polarh10" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Revisar detalles técnicos →</a>
                     </div>
-
-                </div>
-
-                <div class="quote-box reveal">
-                    <h4>Un consejo para el atleta de fuerza</h4>
-                    <p>Al entrenar hipertrofia o fuerza pesada, la tensión muscular continuada bloquea la precisión de los sensores ópticos del reloj de muñeca. Para lecturas fiables del estrés metabólico real, el uso de bandas pectorales o brazaletes específicos de lectura de pulso es esencial.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-
-        <!-- SECCIÓN 3: SUPLEMENTACIÓN CIENTÍFICA -->
-        <section id="suplementacion">
-            <div class="section-container reveal">
-                <span class="article-meta">Ciencia Nutricional</span>
-                <h2 class="article-title">Evidencia frente a dogma: Lo que la ciencia dice sobre la creatina y la proteína</h2>
-                
-                <div class="article-body">
-                    <p>La literatura científica es implacable con los mitos comerciales. En un ecosistema saturado de marketing, la **Creatina Monohidrato** y la **Proteína de Suero de Leche** concentran el mayor número de ensayos clínicos con resultados robustos y de gran reproductibilidad.</p>
-                    
-                    <p>Múltiples metaanálisis confirman que la suplementación con creatina eleva las concentraciones de fosfocreatina intramuscular en un $15\%\text{ a }20\%$. Esto optimiza la síntesis de trifosfato de adenosina (ATP) durante contracciones musculares explosivas y repetitivas, mejorando el rendimiento en fuerza y sprints. Asimismo, se ha demostrado su impacto positivo en la recuperación neuronal y la resiliencia mitocondrial ante la falta de oxígeno.</p>
-
-                    <p>Por otro lado, alcanzar un aporte diario de aminoácidos esenciales mediante fuentes limpias de proteínas (manteniendo un consumo de entre $1.6\text{ y }2.2\text{ g/kg}$ de peso corporal en atletas híbridos) resulta fundamental para levantar y preservar la masa muscular, atenuando el catabolismo inducido por entrenamientos de volumen elevado de carrera.</p>
-                </div>
-
-                <!-- Tabla limpia y estética de recomendaciones de suplementos -->
-                <h3 style="font-size: 20px; font-weight: 600; margin: 40px 0 20px; letter-spacing: -0.4px;" class="reveal">Compuestos Evaluados de Alta Pureza</h3>
-                <div class="table-container reveal" style="border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
-                    <table class="table-editorial">
-                        <thead>
-                            <tr>
-                                <th>Compuesto</th>
-                                <th>Propiedad Clave</th>
-                                <th>Sugerencia Editorial</th>
-                                <th>Enlace de Análisis</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Creatina Monohidrato</strong></td>
-                                <td>Aumento del rendimiento anaeróbico y recarga de ATP.</td>
-                                <td>Creatina Creapure® (Sello alemán de máxima pureza)</td>
-                                <td><a href="#" data-affiliate="hsncreapure" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Ver catálogo científico</a></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Creatina Micronizada</strong></td>
-                                <td>Disolución fácil y digestión ligera libre de molestias.</td>
-                                <td>Creatina Micronizada Neutra (Estándar de oro)</td>
-                                <td><a href="#" data-affiliate="proziscreapure" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Ver catálogo científico</a></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Proteína Aislada (Isolate)</strong></td>
-                                <td>Absorción ultra rápida, disolución fina y digestibilidad perfecta.</td>
-                                <td>Evolate Isolate (HSN)</td>
-                                <td><a href="#" data-affiliate="hsnprotein" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Ver catálogo científico</a></td>
-                            </tr>
-                            <tr>
-                                <td><strong>Proteína Hidrolizada (ISO)</strong></td>
-                                <td>Sin rastro de lactosa, digestión inmediata ideal antes de correr.</td>
-                                <td>Dymatize ISO 100</td>
-                                <td><a href="#" data-affiliate="dymatize100" target="_blank" rel="nofollow noopener" class="btn-secondary-link">Ver catálogo científico</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SECCIÓN 4: NUTRICIÓN REAL -->
-        <section id="nutricion">
-            <div class="section-container reveal">
-                <span class="article-meta">Fisiología Alimenticia</span>
-                <h2 class="article-title">Manifiesto de la comida real: El impacto biológico de los ultraprocesados</h2>
-                
-                <div class="article-body">
-                    <p>Los procesos industriales modernos diseñan comestibles destinados a la hiperpalatabilidad, alterando los mecanismos naturales de saciedad regulados por hormonas como la leptina y la grelina. Los ultraprocesados, cargados de grasas hidrogenadas, azúcares refinados y emulsionantes sintéticos, dañan la barrera mucosa del intestino delgado e inducen un estado de inflamación crónica de bajo grado.</p>
-                    
-                    <p>Para un atleta híbrido, este escenario inflamatorio compromete el sistema inmunológico, eleva la fatiga crónica, aumenta el dolor articular y entorpece la absorción y asimilación de nutrientes. Basar tu alimentación en fuentes no procesadas es recuperar el equilibrio fisiológico y potenciar de forma real el rendimiento.</p>
-                </div>
-
-                <!-- Consejos Reales y Directos de Alimentación -->
-                <div class="quote-box reveal">
-                    <h4>Cinco Mandamientos de Alimentación Directa y Real</h4>
-                    <p style="margin-bottom: 20px;">
-                        <strong>1. La regla del plato tricolor simplificado:</strong> En tus comidas principales, divide el plato visualmente de forma rígida: 
-                        <span style="display:block; margin-top:4px; padding-left:12px; color:var(--text-color);">• <strong>50% vegetales:</strong> Brócoli, espinacas, pimientos, judías verdes (densidad de micronutrientes y antioxidantes sin picos de insulina).</span>
-                        <span style="display:block; margin-top:4px; padding-left:12px; color:var(--text-color);">• <strong>25% proteínas limpias:</strong> Pechuga de pollo, lomo de pavo, ternera magra, huevos enteros o salmón.</span>
-                        <span style="display:block; margin-top:4px; padding-left:12px; color:var(--text-color);">• <strong>25% carbohidratos complejos:</strong> Arroz integral, patata cocida, avena o boniato.</span>
-                    </p>
-                    <p style="margin-bottom: 20px;">
-                        <strong>2. Aplica el Test de los Tres Ingredientes:</strong> Cuando compres cualquier alimento envasado, mira la etiqueta trasera. Si tiene más de tres ingredientes que no serías capaz de comprar por separado en una frutería, carnicería o mercado de abastos tradicional, deséchalo de inmediato. Es un ultraprocesado industrial.
-                    </p>
-                    <p style="margin-bottom: 20px;">
-                        <strong>3. Hidratación isotónica celular casera:</strong> Antes y durante tus tiradas de carrera de más de 60 minutos, evita las bebidas deportivas comerciales saturadas de colorantes y azúcares simples. Prepara tu propia mezcla: 1 litro de agua fresca, el zumo exprimido de un limón natural, una cucharada pequeña de miel cruda y un cuarto de cucharada de sal marina fina sin refinar.
-                    </p>
-                    <p style="margin-bottom: 20px;">
-                        <strong>4. Elimina los aceites inflamatorios de cocina:</strong> Desinstala de tu despensa cualquier aceite de semillas (girasol, maíz, soja o colza). Al calentarse, liberan compuestos altamente oxidativos e inflamatorios que merman la recuperación de tus tendones y articulaciones. Usa única y exclusivamente Aceite de Oliva Virgen Extra (AOVE) en crudo o para cocinar a temperatura moderada.
-                    </p>
-                    <p>
-                        <strong>5. Logística de seguridad portátil:</strong> El hambre post-entrenamiento es el momento de mayor vulnerabilidad. Lleva siempre en tu mochila de entrenamiento un "kit de seguridad alimentaria" compuesto por dos huevos cocidos, una lata de atún al natural o un puñado de almendras tostadas sin sal. Evitará que caigas en el autoservicio o vending ultraprocesado de tu gimnasio o pista.
-                    </p>
-                </div>
-
-                <!-- Recursos Científicos, Canales de Divulgación y Restauración con cobertura en toda España -->
-                <div class="product-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
-                    
-                    <div class="product-card">
-                        <div>
-                            <span class="prod-tag">Divulgación y Ciencia</span>
-                            <h3>Canales de Interés para el Atleta</h3>
-                            <p class="prod-desc" style="margin-bottom: 15px;">• <strong>Carlos Ríos (Realfooding):</strong> Pionero en España en descifrar de forma práctica la calidad de la cesta de la compra.</p>
-                            <p class="prod-desc" style="margin-bottom: 15px;">• <strong>PowerExplosive:</strong> Ciencia, entrenamientos concurrentes y fisiología de fuerza sin rodeos comerciales.</p>
-                            <p class="prod-desc">• <strong>Escuela Culturismo Natural:</strong> Análisis riguroso de la composición corporal y la alimentación limpia.</p>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div>
-                            <span class="prod-tag">Restauración y Compra Accesible</span>
-                            <h3>Cadenas Saludables (En toda España)</h3>
-                            <p class="prod-desc" style="margin-bottom: 15px;">• <strong>Franquicias de Poké (Aloha Poké / Tasty Poké / Healthy Poké):</strong> Presentes en prácticamente todas las comunidades autónomas españolas. Ofrecen boles personalizables excelentes: bases de quinoa o arroz integral, aguacate natural, proteínas limpias de salmón, atún o pollo, aderezados con edamame, sésamo y soja sin azúcares añadidos.</p>
-                            <p class="prod-desc" style="margin-bottom: 15px;">• <strong>Secciones "Listo para Comer" de Supermercados Nacionales (Mercadona, Carrefour, Alcampo):</strong> El verdadero fast-food saludable accesible desde cualquier rincón de España. Opciones perfectas de emergencia: vasos de arroz cocido para microondas (solo ingredientes arroz y aceite), latas de conserva limpias (atún, melva o mejillones al natural), botes de edamame cocido, huevos cocidos pelados listos para comer, y bolsas de ensalada de brotes lavada listas para mezclar.</p>
-                            <p class="prod-desc">• <strong>VIPS (Línea Editorial "Good for You"):</strong> Con locales repartidos por toda la geografía española, su carta incorpora platos diseñados específicamente con ingredientes de calidad: bowls de aguacate, pollo de corral y quinoa, ensaladas completas equilibradas y opciones sin harinas refinadas.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-
-        <!-- SECCIÓN 5: EVENTOS DEPORTIVOS -->
-        <section id="eventos">
-            <div class="section-container reveal">
-                <span class="article-meta">Comunidad y Competición</span>
-                <h2 class="article-title">Calendario de pruebas de referencia para atletas híbridos</h2>
-                <p style="color: var(--text-muted); margin-bottom: 40px; font-size: 15px;">Reunimos los principales desafíos de resistencia, running y OCR de la geografía española para medir tu rendimiento real.</p>
-
-                <div class="events-agenda">
-                    
-                    <!-- Centro -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Noviembre 2026</div>
-                            <div class="event-details">
-                                <h4>HYROX Madrid</h4>
-                                <p>El desafío híbrido referente: 8 km de carrera intercalados con 8 zonas de fuerza funcional.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Carrera Híbrida - Centro</span>
-                        <a href="https://hyrox.es/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Este -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Diciembre 2026</div>
-                            <div class="event-details">
-                                <h4>Maratón de Valencia</h4>
-                                <p>Considerada la carrera de asfalto más llana y rápida del sur de Europa. Ambiente inigualable.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Running - Este</span>
-                        <a href="https://www.valenciaciudaddelrunning.com/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Norte -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Noviembre 2026</div>
-                            <div class="event-details">
-                                <h4>Behobia - San Sebastián</h4>
-                                <p>Un recorrido icónico de 20 kilómetros por colinas y pendientes con un aliento popular único.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Running / 20K - Norte</span>
-                        <a href="https://www.behobia-sansebastian.com/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Sur -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Febrero 2026</div>
-                            <div class="event-details">
-                                <h4>Maratón de Sevilla</h4>
-                                <p>Circuito absolutamente plano a nivel del mar que recorre las principales arterias históricas andaluzas.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Running - Sur</span>
-                        <a href="https://www.zurichmaratondesevilla.es/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Nordeste -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Febrero 2026</div>
-                            <div class="event-details">
-                                <h4>Mitja Marató de Barcelona</h4>
-                                <p>Medio maratón de trazado suave que abraza la costa mediterránea bajo el clima templado del invierno catalán.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Medio Maratón - Nordeste</span>
-                        <a href="https://edreamsmitjabarcelona.com/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Islas Canarias -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Febrero 2026</div>
-                            <div class="event-details">
-                                <h4>The North Face Transgrancanaria</h4>
-                                <p>Una de las pruebas reinas mundiales del Ultra Trail recorriendo la geografía volcánica de Gran Canaria.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Ultra Trail - Canarias</span>
-                        <a href="https://www.transgrancanaria.net/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- Norte - Montaña -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Junio 2026</div>
-                            <div class="event-details">
-                                <h4>Travesera de Picos de Europa</h4>
-                                <p>74 km de pura montaña técnica atravesando los tres macizos de Picos de Europa en Asturias.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Skyrunning - Asturias</span>
-                        <a href="https://www.traveserapicos.com/" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                    <!-- OCR Obstáculos -->
-                    <div class="event-item">
-                        <div class="event-left">
-                            <div class="event-date">Octubre 2026</div>
-                            <div class="event-details">
-                                <h4>Spartan Race Madrid</h4>
-                                <p>El barro y los obstáculos estructurales ponen a prueba el agarre y la fuerza del tren superior.</p>
-                            </div>
-                        </div>
-                        <span class="event-tag">Obstáculos (OCR) - Centro</span>
-                        <a href="https://es.spartan.com/es" target="_blank" rel="noopener" class="btn-premium">Ir a Registro ↗</a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>Aviso de Afiliación: En calidad de Afiliado de Amazon y marcas colaboradoras, Comunidad Híbrida percibe ingresos por compras adscritas que cumplen los requisitos aplicables de manera íntegra. Esta transparencia nos permite sostener análisis rigurosos e independientes sin coste alguno para el lector.</p>
-        <p>&copy; 2026 Comunidad Híbrida. Todos los derechos reservados. Desarrollado bajo criterios de rigor metabólico y biomecánico.</p>
+        <p>&copy; 2026 Comunidad Híbrida. Todos los derechos reservados. Diseñado para atletas sin límites.</p>
     </footer>
 
-    <!-- INTERACTIVIDAD DE DESPLAZAMIENTO Y REVELADO (SCROLL REVEAL & NAV SCROLL SPY) -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. EFECTO REVEAL (INTERSECTION OBSERVER)
-            const revealElements = document.querySelectorAll('.reveal');
-            
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // Dejamos de observar una vez desvelado
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -50px 0px'
-            });
+        // Repositorio de Vectores SVG Oficiales de la Marca
+        const logotiposOficiales = {
+            // LOGO 1: EL ESCUDO HEXAGONAL ORIGINAL
+            1: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+                    <g transform="translate(250, 250)">
+                        <polygon points="0,-160 138.56,-80 138.56,80 0,160 -138.56,80 -138.56,-80" fill="none" stroke="#00b4d8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M -70,-20 L -70,20 M 70,-20 L 70,20" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
+                        <rect x="-85" y="-30" width="30" height="60" rx="6" fill="#f8fafc" />
+                        <rect x="55" y="-30" width="30" height="60" rx="6" fill="#f8fafc" />
+                        <line x1="-35" y1="90" x2="15" y2="-90" stroke="#00b4d8" stroke-width="16" stroke-linecap="round" />
+                        <line x1="-15" y1="110" x2="35" y2="-70" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" />
+                        <line x1="5" y1="130" x2="55" y2="-50" stroke="#00b4d8" stroke-width="16" stroke-linecap="round" />
+                        <circle cx="15" cy="-90" r="10" fill="#00b4d8" /><circle cx="35" cy="-70" r="12" fill="#f8fafc" /><circle cx="55" cy="-50" r="10" fill="#00b4d8" />
+                        <circle cx="-35" cy="90" r="10" fill="#00b4d8" /><circle cx="-15" cy="110" r="12" fill="#f8fafc" /><circle cx="5" cy="130" r="10" fill="#00b4d8" />
+                    </g>
+                </svg>`,
 
-            revealElements.forEach(el => {
-                revealObserver.observe(el);
-            });
+            // LOGO 3: EL INFINITO CRUZADO (STREETWEAR)
+            3: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+                    <g transform="translate(250, 250)">
+                        <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="#00b4d8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="-120" y1="50" x2="20" y2="-90" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
+                        <line x1="-20" y1="90" x2="120" y2="-50" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
+                        <circle cx="20" cy="-90" r="8" fill="#00b4d8" /><circle cx="-120" cy="50" r="8" fill="#00b4d8" />
+                        <circle cx="120" cy="-50" r="8" fill="#00b4d8" /><circle cx="-20" cy="90" r="8" fill="#00b4d8" />
+                    </g>
+                </svg>`
+        };
 
-            // 2. SCROLL SPY (HIGHLIGHT ACTIVE NAV LINK)
-            const sections = document.querySelectorAll('section, header.hero');
-            const navLinks = document.querySelectorAll('.nav-links a');
+        // Cambiar la identidad visual en toda la interfaz web en caliente
+        function cambiarIdentidadGlobal(idLogo) {
+            // Actualizar contenedores de logotipos (Menú de navegación y Hero)
+            document.getElementById('nav-logo-target').innerHTML = logotiposOficiales[idLogo];
+            document.getElementById('hero-logo-target').innerHTML = logotiposOficiales[idLogo];
 
-            const spyObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute('id');
-                        
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (id && link.getAttribute('href') === `#${id}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, {
-                threshold: 0.3,
-                rootMargin: '-20% 0px -50% 0px'
-            });
-
-            sections.forEach(section => {
-                spyObserver.observe(section);
-            });
-
-            // 3. CENTRALIZACIÓN DE ENLACES DE AFILIADO
-            const enlacesAfiliados = {
-                // Zapatillas Entrenamiento Diario
-                "pegasus42": "https://amzn.to/TU_ENLACE_PEGASUS_42",
-                "nimbus28": "https://amzn.to/TU_ENLACE_NIMBUS_28",
-                "ultraboost5": "https://amzn.to/TU_ENLACE_ULTRABOOST_5",
-                "ghost17": "https://amzn.to/TU_ENLACE_GHOST_17",
-                "clifton10": "https://amzn.to/TU_ENLACE_CLIFTON_10",
-                "triumph22": "https://amzn.to/TU_ENLACE_TRIUMPH_22",
-
-                // Zapatillas Competición (Especial Maratón)
-                "adizero4": "https://amzn.to/TU_ENLACE_ADIZERO_PRO_4",
-                "alphafly3": "https://amzn.to/TU_ENLACE_ALPHAFLY_3",
-                "metaspeed": "https://amzn.to/TU_ENLACE_METASPEED_PARIS",
-                "endorphin4": "https://amzn.to/TU_ENLACE_ENDORPHIN_PRO_4",
-                "deviate3": "https://amzn.to/TU_ENLACE_DEVIATE_NITRO_3",
-
-                // Relojes & Pulsómetros
-                "corospace3": "https://amzn.to/TU_ENLACE_COROS_PACE_3",
-                "suuntoraces": "https://amzn.to/TU_ENLACE_SUUNTO_RACE_S",
-                "polarh10": "https://amzn.to/TU_ENLACE_POLAR_H10",
-
-                // Suplementos (Fuerza & Recuperación)
-                "hsncreapure": "https://www.hsnstore.com/TU_ENLACE_CREAPURE_HSN",
-                "proziscreapure": "https://prozis.com/TU_ENLACE_MICRONIZADA_PROZIS",
-                "hsnprotein": "https://www.hsnstore.com/TU_ENLACE_PROTEINA_ISOLATE_HSN",
-                "dymatize100": "https://amzn.to/TU_ENLACE_DYMATIZE_ISO_100"
-            };
-
-            const botonesAfiliados = document.querySelectorAll('[data-affiliate]');
-            botonesAfiliados.forEach(boton => {
-                const productoId = boton.getAttribute('data-affiliate');
-                if (enlacesAfiliados[productoId]) {
-                    boton.setAttribute('href', enlacesAfiliados[productoId]);
-                }
-            });
-        });
-
-        // 4. INTERACTIVIDAD PARA LOS SUB-ARTÍCULOS DE ZAPATILLAS
-        function switchArticle(articleId) {
-            // Desactivar todos los wrappers de artículos
-            const wrappers = document.querySelectorAll('.article-wrapper');
-            wrappers.forEach(wrap => {
-                wrap.classList.remove('active');
-            });
-
-            // Desactivar todos los botones de la sub-navegación
-            const buttons = document.querySelectorAll('.sub-nav-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-
-            // Activar el wrapper seleccionado
-            const activeWrap = document.getElementById('art-' + articleId);
-            if (activeWrap) {
-                activeWrap.classList.add('active');
-            }
-
-            // Activar el botón que disparó el evento
-            event.currentTarget.classList.add('active');
-
-            // Volver a calcular o procesar fórmulas científicas si es necesario
-            if (window.MathJax) {
-                MathJax.typesetPromise();
-            }
+            // Gestionar clases activas de los botones de control
+            document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active'));
+            document.getElementById(`btn-logo-${idLogo}`).classList.add('active');
         }
+
+        // Ejecutar los cálculos de la calculadora fisiológica
+        function ejecutarCalculoFisiologico() {
+            const peso = parseFloat(document.getElementById('calc-peso').value);
+            const objetivo = document.getElementById('calc-objetivo').value;
+
+            if (isNaN(peso) || peso <= 0) {
+                alert("Por favor, introduce un peso corporal válido para aplicar el algoritmo.");
+                return;
+            }
+
+            let factorProteina, factorCarbs, factorGrasas;
+
+            // Algoritmo matemático híbrido adaptado según objetivos
+            switch(objetivo) {
+                case 'recomposicion':
+                    factorProteina = 2.2; // Alta protección muscular
+                    factorCarbs = 3.5;    // Glucógeno intermedio para carrera
+                    factorGrasas = 0.8;
+                    break;
+                case 'volumen':
+                    factorProteina = 2.0;
+                    factorCarbs = 5.0;    // Superávit energético
+                    factorGrasas = 1.0;
+                    break;
+                case 'rendimiento':
+                    factorProteina = 1.8;
+                    factorCarbs = 6.5;    // Máxima carga de glucógeno para Zona 2/Series
+                    factorGrasas = 0.7;
+                    break;
+            }
+
+            // Inyección matemática de datos en la interfaz de usuario
+            document.getElementById('res-prot').innerText = Math.round(peso * factorProteina) + " g";
+            document.getElementById('res-carbs').innerText = Math.round(peso * factorCarbs) + " g";
+            document.getElementById('res-grasas').innerText = Math.round(peso * factorGrasas) + " g";
+
+            // Mostrar el panel de resultados de forma limpia
+            document.getElementById('lab-results').style.display = 'block';
+        }
+
+        // Inicialización por defecto de la interfaz con el escudo hexagonal original
+        cambiarIdentidadGlobal(1);
     </script>
 </body>
 </html>
