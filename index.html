@@ -2,1110 +2,715 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comunidad Híbrida</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <style>
-
-    :root {
-      --bg: #070707;
-      --surface: #111111;
-      --card: #161616;
-      --text: #f5f5f5;
-      --muted: #a1a1aa;
-      --line: rgba(255,255,255,0.08);
-      --accent: #b8ff3b;
-      --accent-dark: #8cd61d;
-      --radius: 24px;
-      --transition: all .3s ease;
-      --max-width: 1240px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* NAV */
-
-    nav {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(7,7,7,.75);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-wrapper {
-      height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      letter-spacing: -.5px;
-    }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: .95rem;
-      transition: var(--transition);
-    }
-
-    .nav-links a:hover {
-      color: white;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      transition: var(--transition);
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: black;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid var(--line);
-      color: white;
-    }
-
-    .btn-secondary:hover {
-      border-color: rgba(255,255,255,.2);
-      background: rgba(255,255,255,.03);
-    }
-
-    /* HERO */
-
-    .hero {
-      padding-top: 180px;
-      padding-bottom: 120px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(184,255,59,.12) 0%, rgba(184,255,59,0) 70%);
-      top: -200px;
-      right: -200px;
-      z-index: -1;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,.04);
-      border: 1px solid var(--line);
-      padding: 10px 18px;
-      border-radius: 999px;
-      color: var(--muted);
-      margin-bottom: 24px;
-      font-size: .9rem;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 6vw, 6rem);
-      line-height: .95;
-      letter-spacing: -4px;
-      margin-bottom: 28px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    h1 span {
-      color: var(--accent);
-    }
-
-    .hero p {
-      color: var(--muted);
-      font-size: 1.15rem;
-      max-width: 640px;
-      margin-bottom: 36px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 42px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-
-    .stat h3 {
-      font-size: 2rem;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .stat p {
-      margin: 0;
-      font-size: .9rem;
-    }
-
-    .hero-image {
-      border-radius: 32px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--surface);
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 110px 0;
-    }
-
-    .section-heading {
-      margin-bottom: 56px;
-      max-width: 720px;
-    }
-
-    .section-heading span {
-      color: var(--accent);
-      font-size: .85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
-      display: inline-block;
-      margin-bottom: 14px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(2.2rem,4vw,4rem);
-      line-height: 1;
-      letter-spacing: -2px;
-      margin-bottom: 18px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    /* PILLARS */
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 24px;
-    }
-
-    .pillar-card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 36px;
-      border: 1px solid var(--line);
-      transition: var(--transition);
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(184,255,59,.25);
-    }
-
-    .pillar-number {
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .pillar-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 14px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .pillar-card p {
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    /* REVIEWS */
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 28px;
-    }
-
-    .review-card {
-      background: var(--card);
-      border-radius: 32px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-
-    .review-content {
-      padding: 32px;
-    }
-
-    .review-tag {
-      color: var(--accent);
-      text-transform: uppercase;
-      font-size: .8rem;
-      letter-spacing: 1px;
-      margin-bottom: 14px;
-      display: inline-block;
-      font-weight: 700;
-    }
-
-    .review-card h3 {
-      font-size: 2rem;
-      margin-bottom: 14px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .review-card p {
-      color: var(--muted);
-      margin-bottom: 24px;
-    }
-
-    /* NEWSLETTER */
-
-    .newsletter {
-      background: linear-gradient(135deg, #151515 0%, #0b0b0b 100%);
-      border: 1px solid var(--line);
-      border-radius: 40px;
-      padding: 70px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .newsletter::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(184,255,59,.12), transparent 60%);
-      pointer-events: none;
-    }
-
-    .newsletter h2 {
-      font-size: clamp(2.5rem,5vw,5rem);
-      line-height: .95;
-      margin-bottom: 20px;
-      letter-spacing: -3px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .newsletter p {
-      color: var(--muted);
-      max-width: 720px;
-      margin: 0 auto 32px;
-      font-size: 1.1rem;
-    }
-
-    .newsletter-form {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .newsletter-form input {
-      width: 340px;
-      max-width: 100%;
-      padding: 16px 20px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: #1a1a1a;
-      color: white;
-      outline: none;
-    }
-
-    /* ARTICLES */
-
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 24px;
-    }
-
-    .article-card {
-      background: var(--card);
-      border-radius: 28px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-
-    .article-content {
-      padding: 28px;
-    }
-
-    .article-content span {
-      color: var(--accent);
-      font-size: .85rem;
-      font-weight: 700;
-      display: inline-block;
-      margin-bottom: 12px;
-    }
-
-    .article-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 12px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-
-    .article-content p {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    /* COMMUNITY */
-
-    .community-box {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 40px;
-      padding: 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .community-list {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      margin-top: 30px;
-    }
-
-    .community-item {
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.05);
-      border-radius: 18px;
-      padding: 18px 22px;
-    }
-
-    .community-item h4 {
-      margin-bottom: 6px;
-    }
-
-    .community-item p {
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 70px 0 50px;
-      border-top: 1px solid var(--line);
-      margin-top: 120px;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .footer-grid p {
-      color: var(--muted);
-    }
-
-    /* RESPONSIVE */
-
-    @media(max-width: 980px) {
-
-      .hero-grid,
-      .community-box,
-      .pillars-grid,
-      .reviews-grid,
-      .articles-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 150px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .newsletter {
-        padding: 42px 28px;
-      }
-
-      .community-box {
-        padding: 40px 28px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hybrid Infinity</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#050505;
+  --surface:#0f0f0f;
+  --card:#141414;
+  --text:#f4f1ea;
+  --muted:#9f9f9f;
+  --accent:#b7b08a;
+  --line:rgba(255,255,255,.07);
+  --radius:32px;
+  --max:1280px;
+  --transition:.35s ease;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  overflow-x:hidden;
+  line-height:1.6;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.82)),
+  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop') center/cover;
+  z-index:-2;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  backdrop-filter:blur(2px);
+  z-index:-1;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max);
+  margin:auto;
+  padding:0 28px;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  backdrop-filter:blur(20px);
+  background:rgba(0,0,0,.45);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-wrapper{
+  height:88px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:700;
+}
+
+.logo img{
+  width:44px;
+  height:44px;
+  object-fit:contain;
+}
+
+.nav-links{
+  display:flex;
+  gap:34px;
+}
+
+.nav-links a{
+  color:var(--muted);
+  transition:var(--transition);
+}
+
+.nav-links a:hover{
+  color:white;
+}
+
+.btn{
+  padding:15px 24px;
+  border-radius:999px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:var(--transition);
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:black;
+}
+
+.btn-primary:hover{
+  transform:translateY(-3px);
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  position:relative;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.55) 70%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+}
+
+.eyebrow{
+  display:inline-flex;
+  padding:10px 18px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.04);
+  margin-bottom:28px;
+  color:#d6d0ba;
+}
+
+h1{
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(4rem,9vw,8rem);
+  line-height:.9;
+  letter-spacing:-6px;
+  margin-bottom:28px;
+}
+
+.hero p{
+  max-width:680px;
+  color:#c8c8c8;
+  font-size:1.2rem;
+  margin-bottom:40px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.hero-symbol{
+  position:absolute;
+  right:-100px;
+  bottom:-100px;
+  width:650px;
+  opacity:.06;
+  pointer-events:none;
+}
+
+section{
+  padding:120px 0;
+  position:relative;
+}
+
+.section-header{
+  max-width:760px;
+  margin-bottom:60px;
+}
+
+.section-header span{
+  color:var(--accent);
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.section-header h2{
+  font-size:clamp(2.6rem,5vw,5rem);
+  line-height:.95;
+  margin:18px 0;
+  letter-spacing:-3px;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.section-header p{
+  color:var(--muted);
+  font-size:1.08rem;
+}
+
+.feature-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+}
+
+.feature-image{
+  border-radius:var(--radius);
+  overflow:hidden;
+  min-height:620px;
+  position:relative;
+}
+
+.feature-image img{
+  height:100%;
+  object-fit:cover;
+}
+
+.feature-card{
+  background:rgba(15,15,15,.9);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:42px;
+  backdrop-filter:blur(12px);
+}
+
+.feature-list{
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+  margin-top:30px;
+}
+
+.feature-item{
+  border-bottom:1px solid var(--line);
+  padding-bottom:22px;
+}
+
+.feature-item:last-child{
+  border:none;
+}
+
+.feature-item h3{
+  font-size:1.4rem;
+  margin-bottom:8px;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.feature-item p{
+  color:var(--muted);
+}
+
+.editorial-section{
+  min-height:90vh;
+  display:flex;
+  align-items:center;
+  background:
+  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+  url('https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
+}
+
+.editorial-box{
+  max-width:760px;
+}
+
+.editorial-box h2{
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.95;
+  letter-spacing:-4px;
+  margin-bottom:26px;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.editorial-box p{
+  color:#d1d1d1;
+  font-size:1.15rem;
+}
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+
+.review-card{
+  background:rgba(15,15,15,.9);
+  border:1px solid var(--line);
+  border-radius:28px;
+  overflow:hidden;
+  transition:var(--transition);
+}
+
+.review-card:hover{
+  transform:translateY(-8px);
+}
+
+.review-card img{
+  height:260px;
+  object-fit:cover;
+}
+
+.review-content{
+  padding:28px;
+}
+
+.review-content span{
+  color:var(--accent);
+  font-size:.82rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.review-content h3{
+  font-size:1.7rem;
+  margin:14px 0;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.review-content p{
+  color:var(--muted);
+  margin-bottom:24px;
+}
+
+.newsletter{
+  padding:100px 60px;
+  text-align:center;
+  border-radius:40px;
+  background:linear-gradient(135deg, rgba(20,20,20,.95), rgba(8,8,8,.95));
+  border:1px solid var(--line);
+}
+
+.newsletter h2{
+  font-size:clamp(3rem,6vw,5rem);
+  line-height:.95;
+  margin-bottom:24px;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.newsletter p{
+  max-width:700px;
+  margin:auto;
+  color:var(--muted);
+  margin-bottom:34px;
+}
+
+.newsletter-form{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.newsletter-form input{
+  width:360px;
+  max-width:100%;
+  padding:18px 20px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#101010;
+  color:white;
+}
+
+footer{
+  padding:70px 0;
+  border-top:1px solid var(--line);
+}
+
+.footer-wrapper{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+}
+
+.footer-wrapper p{
+  color:var(--muted);
+}
+
+@media(max-width:980px){
+
+  .feature-layout,
+  .review-grid{
+    grid-template-columns:1fr;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  h1{
+    letter-spacing:-3px;
+  }
+
+  .hero-symbol{
+    width:400px;
+  }
+
+  .newsletter{
+    padding:60px 28px;
+  }
+
+}
+
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
+<nav>
+  <div class="container nav-wrapper">
 
-  <nav>
-    <div class="container nav-wrapper">
-      <div class="logo">Comunidad<span>Híbrida</span></div>
-
-      <div class="nav-links">
-        <a href="#">Inicio</a>
-        <a href="#">Entrenamiento</a>
-        <a href="#">Nutrición</a>
-        <a href="#">Equipamiento</a>
-        <a href="#">Comunidad</a>
-      </div>
-
-      <a class="btn btn-primary">Únete</a>
+    <div class="logo">
+      <img src="/mnt/data/IMG_2073.png" alt="logo">
+      <span>HYBRID INFINITY</span>
     </div>
-  </nav>
 
-  <!-- HERO -->
-
-  <section class="hero">
-    <div class="container hero-grid">
-
-      <div>
-
-        <div class="eyebrow">
-          Atletas híbridos • Running • Fuerza • Rendimiento
-        </div>
-
-        <h1>
-          Construye fuerza.<br>
-          Corre más rápido.<br>
-          <span>Vive híbrido.</span>
-        </h1>
-
-        <p>
-          La comunidad líder para atletas híbridos en español.
-          Entrenamiento, nutrición, equipamiento y rendimiento real para personas que quieren verse fuertes y correr mejor.
-        </p>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary">Entrar en la comunidad</a>
-          <a class="btn btn-secondary">Ver guías</a>
-        </div>
-
-        <div class="hero-stats">
-
-          <div class="stat">
-            <h3>12K+</h3>
-            <p>Atletas híbridos</p>
-          </div>
-
-          <div class="stat">
-            <h3>150+</h3>
-            <p>Reviews honestas</p>
-          </div>
-
-          <div class="stat">
-            <h3>42</h3>
-            <p>Guías premium</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Atleta híbrido">
-      </div>
-
+    <div class="nav-links">
+      <a href="#training">Entrenamiento</a>
+      <a href="#nutrition">Nutrición</a>
+      <a href="#gear">Equipamiento</a>
+      <a href="#community">Comunidad</a>
     </div>
-  </section>
 
-  <!-- ENTRENAMIENTO SECTION -->
+    <a class="btn btn-primary">Unirme</a>
 
-  <section id="training">
-    <div class="container">
+  </div>
+</nav>
 
-      <div class="section-heading">
-        <span>Entrenamiento híbrido</span>
-        <h2>Fuerza y resistencia sin sacrificar ninguna de las dos</h2>
-        <p>
-          La mayoría de personas entrena demasiado, recupera mal y termina estancada.
-          Aquí enseñamos sistemas híbridos sostenibles para desarrollar músculo, resistencia y rendimiento real.
-        </p>
+<section class="hero">
+
+  <div class="hero-overlay"></div>
+
+  <img class="hero-symbol" src="/mnt/data/IMG_2073.png" alt="symbol">
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      Fuerza • Running • HYROX • Rendimiento
+    </div>
+
+    <h1>
+      Entrena sin límites.
+      Vive híbrido.
+    </h1>
+
+    <p>
+      La comunidad para personas que quieren verse fuertes, correr rápido y desarrollar un rendimiento real sin caer en extremos fitness.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary">Entrar en la comunidad</a>
+      <a class="btn" style="border:1px solid var(--line);">Explorar guías</a>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="training">
+  <div class="container">
+
+    <div class="section-header">
+      <span>Entrenamiento híbrido</span>
+      <h2>Desarrolla fuerza y resistencia al mismo tiempo</h2>
+      <p>
+        Programas híbridos diseñados para personas que quieren un físico atlético, más rendimiento y mejor capacidad física en la vida real.
+      </p>
+    </div>
+
+    <div class="feature-layout">
+
+      <div class="feature-card">
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            <h3>Fuerza funcional</h3>
+            <p>
+              Construye músculo, potencia y estabilidad sin convertirte en un atleta lento o rígido.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Running inteligente</h3>
+            <p>
+              Aprende a correr mejor sin destruir recuperación ni perder masa muscular.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Preparación HYROX</h3>
+            <p>
+              Estrategias reales para combinar cardio, fuerza y resistencia mental competitiva.
+            </p>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="community-box">
-
-        <div>
-
-          <div class="community-list">
-
-            <div class="community-item">
-              <h4>🏋️ Fuerza funcional</h4>
-              <p>
-                Programas diseñados para desarrollar un físico atlético y potente sin perder movilidad ni resistencia.
-              </p>
-            </div>
-
-            <div class="community-item">
-              <h4>🏃 Running inteligente</h4>
-              <p>
-                Aprende a correr más rápido sin destruir tu recuperación ni perder masa muscular.
-              </p>
-            </div>
-
-            <div class="community-item">
-              <h4>🔥 HYROX y rendimiento híbrido</h4>
-              <p>
-                Estrategias específicas para combinar cardio, fuerza y capacidad mental competitiva.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1400&auto=format&fit=crop">
-        </div>
-
-      </div>
-
-      <div class="articles-grid" style="margin-top:40px;">
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Fuerza</span>
-            <h3>Cómo ganar músculo sin dejar de correr</h3>
-            <p>
-              El sistema híbrido que utilizan atletas de alto rendimiento para combinar hipertrofia y resistencia.
-            </p>
-            <a href="#">Leer guía →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Running</span>
-            <h3>El error que hace que corras más lento</h3>
-            <p>
-              La mayoría de runners híbridos entrena demasiado intenso y nunca mejora realmente.
-            </p>
-            <a href="#">Leer artículo →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Rendimiento</span>
-            <h3>Cómo entrenar como un atleta híbrido real</h3>
-            <p>
-              La estructura semanal perfecta para desarrollar fuerza, velocidad y resistencia.
-            </p>
-            <a href="#">Ver rutina →</a>
-          </div>
-        </div>
-
+      <div class="feature-image">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1600&auto=format&fit=crop">
       </div>
 
     </div>
-  </section>
 
-  <!-- NUTRICIÓN SECTION -->
+  </div>
+</section>
 
-  <section id="nutrition">
-    <div class="container">
+<section class="editorial-section">
+  <div class="container">
 
-      <div class="section-heading">
-        <span>Nutrición inteligente</span>
-        <h2>Come para rendir, recuperarte y verte mejor</h2>
-        <p>
-          La nutrición híbrida no consiste en sufrir ni vivir contando calorías.
-          Consiste en tener energía, recuperarte rápido y mantener un físico atlético todo el año.
-        </p>
-      </div>
-
-      <div class="reviews-grid">
-
-        <div class="review-card">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="review-content">
-            <span class="review-tag">Nutrición</span>
-            <h3>Qué comer antes y después de entrenar</h3>
-            <p>
-              Aprende a mejorar energía, recuperación y rendimiento sin dietas extremas.
-            </p>
-            <a class="btn btn-primary">Leer guía</a>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="review-content">
-            <span class="review-tag">Composición corporal</span>
-            <h3>Perder grasa sin perder rendimiento</h3>
-            <p>
-              El enfoque híbrido para definir sin sentirte cansado, vacío o sin fuerza.
-            </p>
-            <a class="btn btn-primary">Ver estrategia</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="pillars-grid" style="margin-top:40px;">
-
-        <div class="pillar-card">
-          <h3>🥩 Proteína</h3>
-          <p>
-            Cómo optimizar masa muscular, recuperación y saciedad.
-          </p>
-        </div>
-
-        <div class="pillar-card">
-          <h3>⚡ Energía</h3>
-          <p>
-            Estrategias para rendir mejor sin depender de estimulantes todo el día.
-          </p>
-        </div>
-
-        <div class="pillar-card">
-          <h3>💧 Recuperación</h3>
-          <p>
-            Hidratación, sueño y recuperación profunda para entrenar fuerte más veces.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EQUIPAMIENTO SECTION -->
-
-  <section id="gear">
-    <div class="container">
-
-      <div class="section-heading">
-        <span>Equipamiento probado</span>
-        <h2>Solo recomendamos productos que realmente mejoran tu rendimiento</h2>
-        <p>
-          Menos marketing fitness.
-          Más herramientas útiles para personas que entrenan de verdad.
-        </p>
-      </div>
-
-      <div class="articles-grid">
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Zapatillas</span>
-            <h3>Las mejores zapatillas para HYROX</h3>
-            <p>
-              Comparativa completa para atletas híbridos que hacen fuerza, sprints y running.
-            </p>
-            <a href="#">Ver comparativa →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Suplementación</span>
-            <h3>La verdad sobre la creatina</h3>
-            <p>
-              Qué creatina comprar, cuánto tomar y cuáles evitar.
-            </p>
-            <a href="#">Ver review →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Tecnología</span>
-            <h3>El smartwatch ideal para atletas híbridos</h3>
-            <p>
-              Qué reloj merece realmente la pena para controlar rendimiento y recuperación.
-            </p>
-            <a href="#">Leer análisis →</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PILARES -->
-
-  <section>
-    <div class="container">
-
-      <div class="section-heading">
-        <span>La metodología</span>
-        <h2>Los 3 pilares del atleta híbrido</h2>
-        <p>
-          Todo el contenido de la comunidad gira alrededor de entrenamiento inteligente, nutrición útil y equipamiento probado de verdad.
-        </p>
-      </div>
-
-      <div class="pillars-grid">
-
-        <div class="pillar-card">
-          <span class="pillar-number">01</span>
-          <h3>Entrenamiento</h3>
-          <p>
-            Fuerza, running, HYROX, zona 2, concurrent training y sistemas reales para ganar músculo sin dejar de correr.
-          </p>
-          <a class="btn btn-secondary">Explorar</a>
-        </div>
-
-        <div class="pillar-card">
-          <span class="pillar-number">02</span>
-          <h3>Nutrición</h3>
-          <p>
-            Nutrición práctica para rendimiento híbrido: proteína, recuperación, composición corporal y suplementación con evidencia.
-          </p>
-          <a class="btn btn-secondary">Explorar</a>
-        </div>
-
-        <div class="pillar-card">
-          <span class="pillar-number">03</span>
-          <h3>Equipamiento</h3>
-          <p>
-            Reviews honestas de zapatillas, relojes, auriculares, ropa técnica y suplementos para atletas híbridos.
-          </p>
-          <a class="btn btn-secondary">Explorar</a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-
-  <section>
-    <div class="container">
-
-      <div class="section-heading">
-        <span>Afiliación inteligente</span>
-        <h2>Reviews y comparativas que sí convierten</h2>
-        <p>
-          Aquí está el dinero de tu proyecto. Reviews profundas, SEO y recomendaciones reales.
-        </p>
-      </div>
-
-      <div class="reviews-grid">
-
-        <div class="review-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="review-content">
-            <span class="review-tag">Running híbrido</span>
-            <h3>Nike Pegasus 42</h3>
-            <p>
-              La mejor zapatilla calidad-precio para atletas híbridos que entrenan fuerza y running varias veces por semana.
-            </p>
-            <a class="btn btn-primary">Ver review completa</a>
-          </div>
-        </div>
-
-        <div class="review-card">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="review-content">
-            <span class="review-tag">Recuperación</span>
-            <h3>Creatina Creapure</h3>
-            <p>
-              Qué creatina comprar, cuáles evitar y cuáles tienen mejor calidad-precio para fuerza y resistencia.
-            </p>
-            <a class="btn btn-primary">Ver comparativa</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- NEWSLETTER -->
-
-  <section>
-    <div class="container">
-
-      <div class="newsletter">
-
-        <h2>
-          La guía definitiva para atletas híbridos
-        </h2>
-
-        <p>
-          Recibe gratis la guía “Cómo ganar músculo sin dejar de correr” y accede cada semana a entrenamientos, nutrición y equipamiento probado.
-        </p>
-
-        <form class="newsletter-form">
-          <input type="email" placeholder="Introduce tu email">
-          <button class="btn btn-primary">Descargar guía</button>
-        </form>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PSYCHOLOGY STRIP -->
-
-  <section>
-    <div class="container">
-
-      <div class="newsletter" style="padding:50px; text-align:left;">
-
-        <div class="section-heading" style="margin-bottom:20px; max-width:900px;">
-          <span>El problema real</span>
-          <h2>
-            La mayoría entrena para verse bien.<br>
-            Pero acaba cansada, frustrada y sin resultados.
-          </h2>
-        </div>
-
-        <p style="font-size:1.15rem; max-width:900px;">
-          Demasiado cardio.
-          Demasiada fuerza.
-          Demasiadas modas fitness.
-          
-          Comunidad Híbrida nace para personas que quieren un físico fuerte, atlético y funcional sin sacrificar rendimiento, salud ni estilo de vida.
-        </p>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ARTÍCULOS -->
-
-  <section>
-    <div class="container">
-
-      <div class="section-heading">
-        <span>Últimos artículos</span>
-        <h2>Contenido para mejorar tu rendimiento híbrido</h2>
-        <p>
-          Entrenamiento, nutrición y estrategias reales para desarrollar fuerza, resistencia y una mejor composición corporal.
-        </p>
-      </div>
-
-      <div class="articles-grid">
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Recuperación</span>
-            <h3>Por qué siempre estás cansado aunque entrenes bien</h3>
-            <p>
-              El error que está destruyendo el progreso de miles de atletas híbridos: entrenar más sin recuperar mejor.
-            </p>
-            <a href="#">Leer artículo →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Running</span>
-            <h3>Las mejores zapatillas para HYROX</h3>
-            <p>
-              Comparativa completa de las mejores opciones para competir y entrenar.
-            </p>
-            <a href="#">Leer artículo →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Entrenamiento</span>
-            <h3>Cómo correr sin perder músculo</h3>
-            <p>
-              La guía definitiva para combinar hipertrofia y resistencia.
-            </p>
-            <a href="#">Leer artículo →</a>
-          </div>
-        </div>
-
-        <div class="article-card">
-          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop">
-
-          <div class="article-content">
-            <span>Suplementación</span>
-            <h3>La única suplementación que realmente funciona</h3>
-            <p>
-              Qué suplementos merecen la pena y cuáles son puro marketing.
-            </p>
-            <a href="#">Leer artículo →</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- COMUNIDAD -->
-
-  <section>
-    <div class="container">
-
-      <div class="community-box">
-
-        <div>
-          <div class="section-heading" style="margin-bottom:0;">
-            <span>La tribu</span>
-            <h2>Una comunidad para personas que entrenan diferente</h2>
-            <p>
-              No eres solo runner.
-              No eres solo powerlifter.
-              Eres híbrido.
-            </p>
-          </div>
-
-          <div class="community-list">
-
-            <div class="community-item">
-              <h4>Retos mensuales</h4>
-              <p>Running, fuerza, HYROX y desafíos híbridos.</p>
-            </div>
-
-            <div class="community-item">
-              <h4>Discord privado</h4>
-              <p>Comparte entrenamientos y progreso con otros atletas híbridos.</p>
-            </div>
-
-            <div class="community-item">
-              <h4>Rankings reales</h4>
-              <p>Clasificaciones semanales con datos reales de la comunidad.</p>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="hero-image">
-          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop">
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-    <div class="container footer-grid">
-
-      <div class="logo">
-        Comunidad<span>Híbrida</span>
-      </div>
+    <div class="editorial-box">
+      <h2>
+        La mayoría entrena más.
+        Los híbridos entrenan mejor.
+      </h2>
 
       <p>
-        La comunidad para atletas híbridos en español.
+        Menos ruido fitness.
+        Menos extremos.
+        Más rendimiento sostenible.
+        Más fuerza.
+        Más resistencia.
+        Más energía.
       </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="nutrition">
+  <div class="container">
+
+    <div class="section-header">
+      <span>Nutrición</span>
+      <h2>Come para rendir, recuperarte y verte mejor</h2>
+      <p>
+        Nutrición práctica para atletas híbridos. Sin dietas absurdas. Sin obsesiones.
+      </p>
+    </div>
+
+    <div class="feature-layout">
+
+      <div class="feature-image">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1600&auto=format&fit=crop">
+      </div>
+
+      <div class="feature-card">
+
+        <div class="feature-list">
+
+          <div class="feature-item">
+            <h3>Energía estable</h3>
+            <p>
+              Aprende a comer para mantener rendimiento físico y mental durante todo el día.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Recuperación real</h3>
+            <p>
+              Sueño, hidratación y timing nutricional para entrenar fuerte más veces.
+            </p>
+          </div>
+
+          <div class="feature-item">
+            <h3>Composición corporal</h3>
+            <p>
+              Pierde grasa y desarrolla músculo sin sentirte vacío ni agotado.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
-  </footer>
+
+  </div>
+</section>
+
+<section id="gear">
+  <div class="container">
+
+    <div class="section-header">
+      <span>Equipamiento</span>
+      <h2>Reviews honestas para atletas híbridos</h2>
+      <p>
+        Solo recomendamos productos que realmente mejoran rendimiento, recuperación y experiencia de entrenamiento.
+      </p>
+    </div>
+
+    <div class="review-grid">
+
+      <div class="review-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="review-content">
+          <span>Zapatillas</span>
+          <h3>Las mejores zapatillas para HYROX</h3>
+          <p>
+            Comparativa completa para atletas híbridos que entrenan fuerza y running.
+          </p>
+          <a class="btn btn-primary">Ver comparativa</a>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="review-content">
+          <span>Suplementación</span>
+          <h3>La verdad sobre la creatina</h3>
+          <p>
+            Qué creatina merece realmente la pena y cuáles evitar.
+          </p>
+          <a class="btn btn-primary">Leer review</a>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="review-content">
+          <span>Tecnología</span>
+          <h3>El smartwatch ideal para híbridos</h3>
+          <p>
+            Métricas, recuperación y rendimiento sin pagar de más.
+          </p>
+          <a class="btn btn-primary">Ver análisis</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="community">
+  <div class="container">
+
+    <div class="newsletter">
+
+      <h2>
+        No eres runner.
+        No eres powerlifter.
+        Eres híbrido.
+      </h2>
+
+      <p>
+        Únete a miles de atletas híbridos y recibe entrenamientos, estrategias, reviews y herramientas para desarrollar un rendimiento real.
+      </p>
+
+      <form class="newsletter-form">
+        <input type="email" placeholder="Tu email">
+        <button class="btn btn-primary">Unirme gratis</button>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-wrapper">
+
+    <div class="logo">
+      <img src="/mnt/data/IMG_2073.png">
+      <span>HYBRID INFINITY</span>
+    </div>
+
+    <p>
+      Fuerza. Resistencia. Rendimiento.
+    </p>
+
+  </div>
+</footer>
 
 </body>
 </html>
