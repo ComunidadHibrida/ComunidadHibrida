@@ -1,529 +1,842 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad Híbrida | El Laboratorio del Atleta Completo</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunidad Híbrida</title>
 
-    <style>
-        /* SITEMA DE VARIABLES FUTURISTA (ICE LIGHT & CYBER TEAL) */
-        :root {
-            --bg-base: #0f172a;       /* Slate 900 - Glaciar Profundo */
-            --bg-surface: #1e293b;    /* Slate 800 - Tarjetas */
-            --bg-accent: #111827;     /* Gris casi negro militar */
-            --text-main: #f8fafc;     /* Blanco Glaciar */
-            --text-muted: #94a3b8;    /* Gris atenuado */
-            --color-teal: #00b4d8;    /* Ciano Eléctrico */
-            --color-gold: #fbbf24;    /* Oro de Rango */
-            --color-green: #10b981;   /* Verde Éxito */
-            --border-spec: rgba(255, 255, 255, 0.08);
-            --glow-teal: rgba(0, 180, 216, 0.4);
-            --transition-hq: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
 
-        body {
-            background-color: var(--bg-base);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    :root {
+      --bg: #070707;
+      --surface: #111111;
+      --card: #161616;
+      --text: #f5f5f5;
+      --muted: #a1a1aa;
+      --line: rgba(255,255,255,0.08);
+      --accent: #b8ff3b;
+      --accent-dark: #8cd61d;
+      --radius: 24px;
+      --transition: all .3s ease;
+      --max-width: 1240px;
+    }
 
-        /* BARRA DE NAVEGACIÓN PERMANENTE */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border-spec);
-            z-index: 1000;
-            padding: 16px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--text-main);
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        .nav-logo-wrapper {
-            width: 42px;
-            height: 42px;
-            filter: drop-shadow(0 0 8px var(--glow-teal));
-            transition: var(--transition-hq);
-        }
+    img {
+      width: 100%;
+      display: block;
+    }
 
-        .brand-text {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        .brand-text span {
-            color: var(--color-teal);
-        }
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
+    /* NAV */
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: var(--transition-hq);
-        }
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(7,7,7,.75);
+      border-bottom: 1px solid var(--line);
+    }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--color-teal);
-        }
+    .nav-wrapper {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-        /* SECCIÓN HERO PRINCIPAL */
-        section.hero {
-            padding: 160px 20px 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-            align-items: center;
-        }
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+    }
 
-        .hero-content h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 56px;
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
+    .logo span {
+      color: var(--accent);
+    }
 
-        .hero-content h1 span {
-            color: var(--color-teal);
-            background: linear-gradient(135deg, #00b4d8 0%, #06b6d4 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
 
-        .hero-content p {
-            font-size: 18px;
-            color: var(--text-muted);
-            font-weight: 300;
-            margin-bottom: 40px;
-            max-width: 540px;
-        }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .95rem;
+      transition: var(--transition);
+    }
 
-        /* PANEL INTERACTIVO DE LOGOS (DENTRO DEL HERO) */
-        .brand-selector-panel {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-spec);
-            border-radius: 24px;
-            padding: 32px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    .nav-links a:hover {
+      color: white;
+    }
 
-        .showcase-display {
-            width: 200px;
-            height: 200px;
-            background: var(--bg-base);
-            border: 1px solid var(--border-spec);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            filter: drop-shadow(0 0 15px var(--glow-teal));
-        }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
 
-        .selector-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            width: 100%;
-        }
+    .btn-primary {
+      background: var(--accent);
+      color: black;
+    }
 
-        .btn-select {
-            background: var(--bg-base);
-            border: 1px solid var(--border-spec);
-            color: var(--text-muted);
-            padding: 12px;
-            border-radius: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition-hq);
-        }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
 
-        .btn-select.active {
-            border-color: var(--color-teal);
-            color: var(--color-teal);
-            background: rgba(0, 180, 216, 0.05);
-        }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--line);
+      color: white;
+    }
 
-        /* SECCIÓN DE LA CALCULADORA FIORE / ATLETA MILITAR */
-        section.laboratorio {
-            background: var(--bg-accent);
-            border-top: 1px solid var(--border-spec);
-            border-bottom: 1px solid var(--border-spec);
-            padding: 100px 20px;
-        }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,.2);
+      background: rgba(255,255,255,.03);
+    }
 
-        .lab-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 50px;
-        }
+    /* HERO */
 
-        .lab-info h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
+    .hero {
+      padding-top: 180px;
+      padding-bottom: 120px;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .lab-info h2 span { color: var(--color-teal); }
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(184,255,59,.12) 0%, rgba(184,255,59,0) 70%);
+      top: -200px;
+      right: -200px;
+      z-index: -1;
+    }
 
-        .lab-info p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 24px;
-            font-weight: 300;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
 
-        .badge-militar {
-            display: inline-block;
-            background: rgba(251, 191, 36, 0.1);
-            color: var(--color-gold);
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            padding: 6px 14px;
-            border-radius: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      padding: 10px 18px;
+      border-radius: 999px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: .9rem;
+    }
 
-        /* FORMULARIO Y CALCULADORA */
-        .calc-box {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-spec);
-            border-radius: 20px;
-            padding: 32px;
-        }
+    h1 {
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 28px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
-        .input-group {
-            margin-bottom: 20px;
-        }
+    h1 span {
+      color: var(--accent);
+    }
 
-        .input-group label {
-            display: block;
-            font-size: 12px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 640px;
+      margin-bottom: 36px;
+    }
 
-        .input-group input, .input-group select {
-            width: 100%;
-            background: var(--bg-base);
-            border: 1px solid var(--border-spec);
-            color: var(--text-main);
-            padding: 14px;
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 15px;
-            outline: none;
-            transition: var(--transition-hq);
-        }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 42px;
+      flex-wrap: wrap;
+    }
 
-        .input-group input:focus, .input-group select:focus {
-            border-color: var(--color-teal);
-            box-shadow: 0 0 10px rgba(0, 180, 216, 0.2);
-        }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
 
-        /* PANEL DE RESULTADOS MACROS */
-        .results-panel {
-            margin-top: 24px;
-            background: var(--bg-base);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            display: none;
-        }
+    .stat h3 {
+      font-size: 2rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
-        .results-panel h4 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 14px;
-            color: var(--color-green);
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
+    .stat p {
+      margin: 0;
+      font-size: .9rem;
+    }
 
-        .macros-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
+    .hero-image {
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
 
-        .macro-card {
-            background: var(--bg-surface);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid var(--border-spec);
-        }
+    /* SECTIONS */
 
-        .macro-card span {
-            display: block;
-            font-size: 10px;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
+    section {
+      padding: 110px 0;
+    }
 
-        .macro-card strong {
-            font-size: 18px;
-            color: var(--text-main);
-            font-family: 'Space Grotesk', sans-serif;
-        }
+    .section-heading {
+      margin-bottom: 56px;
+      max-width: 720px;
+    }
 
-        .btn-calc {
-            width: 100%;
-            background: var(--color-teal);
-            color: #ffffff;
-            border: none;
-            padding: 16px;
-            border-radius: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: var(--transition-hq);
-        }
+    .section-heading span {
+      color: var(--accent);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
 
-        .btn-calc:hover {
-            background: var(--text-main);
-            color: var(--bg-base);
-        }
+    .section-heading h2 {
+      font-size: clamp(2.2rem,4vw,4rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
 
-        footer {
-            padding: 40px;
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-spec);
-        }
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
 
-        @media (max-width: 850px) {
-            section.hero, .lab-container { grid-template-columns: 1fr; gap: 40px; }
-            nav { padding: 16px 20px; }
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 40px; }
-        }
-    </style>
+    /* PILLARS */
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+
+    .pillar-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 36px;
+      border: 1px solid var(--line);
+      transition: var(--transition);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(184,255,59,.25);
+    }
+
+    .pillar-number {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .pillar-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 14px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .pillar-card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* REVIEWS */
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: var(--card);
+      border-radius: 32px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .review-content {
+      padding: 32px;
+    }
+
+    .review-tag {
+      color: var(--accent);
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .review-card h3 {
+      font-size: 2rem;
+      margin-bottom: 14px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .review-card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      background: linear-gradient(135deg, #151515 0%, #0b0b0b 100%);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      padding: 70px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(184,255,59,.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    .newsletter h2 {
+      font-size: clamp(2.5rem,5vw,5rem);
+      line-height: .95;
+      margin-bottom: 20px;
+      letter-spacing: -3px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 32px;
+      font-size: 1.1rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-form input {
+      width: 340px;
+      max-width: 100%;
+      padding: 16px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #1a1a1a;
+      color: white;
+      outline: none;
+    }
+
+    /* ARTICLES */
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+    }
+
+    .article-card {
+      background: var(--card);
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .article-content {
+      padding: 28px;
+    }
+
+    .article-content span {
+      color: var(--accent);
+      font-size: .85rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .article-content h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .article-content p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* COMMUNITY */
+
+    .community-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 40px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .community-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .community-item {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 18px;
+      padding: 18px 22px;
+    }
+
+    .community-item h4 {
+      margin-bottom: 6px;
+    }
+
+    .community-item p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 70px 0 50px;
+      border-top: 1px solid var(--line);
+      margin-top: 120px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-grid p {
+      color: var(--muted);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 980px) {
+
+      .hero-grid,
+      .community-box,
+      .pillars-grid,
+      .reviews-grid,
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 150px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .newsletter {
+        padding: 42px 28px;
+      }
+
+      .community-box {
+        padding: 40px 28px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+    }
+
+  </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="brand-container">
-            <div class="nav-logo-wrapper" id="nav-logo-target">
-                </div>
-            <div class="brand-text">Comunidad<span>Híbrida</span></div>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Laboratorio</a></li>
-            <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-            <li><a href="#">Artículos</a></li>
-            <li><a href="#">Muro de Honor</a></li>
-        </ul>
-    </nav>
+  <!-- NAV -->
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Construye Fuerza. <span>Domina el Cardio.</span></h1>
-            <p>Fusión científica de hipertrofia y resistencia de larga distancia. Deja atrás los dogmas obsoletos y conviértete en un atleta completo e inquebrantable.</p>
-            <button class="btn-calc" style="width: auto; padding: 16px 32px;" onclick="document.getElementById('lab-section').scrollIntoView({behavior: 'smooth'});">Configurar mi Perfil Militar</button>
+  <nav>
+    <div class="container nav-wrapper">
+      <div class="logo">Comunidad<span>Híbrida</span></div>
+
+      <div class="nav-links">
+        <a href="#">Inicio</a>
+        <a href="#">Entrenamiento</a>
+        <a href="#">Nutrición</a>
+        <a href="#">Equipamiento</a>
+        <a href="#">Comunidad</a>
+      </div>
+
+      <a class="btn btn-primary">Únete</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+
+        <div class="eyebrow">
+          Atletas híbridos • Running • Fuerza • Rendimiento
         </div>
-        
-        <div class="brand-selector-panel">
-            <h3 font-family="Space Grotesk" style="font-size: 12px; text-transform: uppercase; margin-bottom: 16px; color: var(--text-muted);">Identidad de Marca Activa</h3>
-            <div class="showcase-display" id="hero-logo-target">
-                </div>
-            <div class="selector-buttons">
-                <button class="btn-select active" id="btn-logo-1" onclick="cambiarIdentidadGlobal(1)">1. Escudo Hexagonal</button>
-                <button class="btn-select" id="btn-logo-3" onclick="cambiarIdentidadGlobal(3)">3. Infinito Cruzado</button>
-            </div>
+
+        <h1>
+          Construye fuerza.<br>
+          Corre más rápido.<br>
+          <span>Vive híbrido.</span>
+        </h1>
+
+        <p>
+          La comunidad líder para atletas híbridos en español.
+          Entrenamiento, nutrición, equipamiento y rendimiento real para personas que quieren verse fuertes y correr mejor.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary">Entrar en la comunidad</a>
+          <a class="btn btn-secondary">Ver guías</a>
         </div>
-    </section>
 
-    <section class="laboratorio" id="lab-section">
-        <div class="lab-container">
-            <div class="lab-info">
-                <span class="badge-militar">Fisiología Aplicada // Zona 2</span>
-                <h2>El Algoritmo Nutricional del <span>Atleta Híbrido</span></h2>
-                <p>Un corredor clásico cataboliza masa muscular; un culturista tradicional colapsa a los 3 kilómetros de carrera aeróbica. Tu sistema operativo demanda otra ingeniería.</p>
-                <p>Introduce tus métricas corporales reales. Nuestra calculadora fisiológica determinará el reparto exacto de macronutrientes para proteger tus ganancias de fuerza mientras alimentas tus entrenamientos de resistencia.</p>
-            </div>
-            
-            <div class="calc-box">
-                <div class="input-group">
-                    <label for="calc-peso">Masa Corporal Actual (KG)</label>
-                    <input type="number" id="calc-peso" placeholder="Ej. 82" min="40" max="150">
-                </div>
-                <div class="input-group">
-                    <label for="calc-objetivo">Estrategia de Rendimiento</label>
-                    <select id="calc-objetivo">
-                        <option value="recomposicion">Recomposición (Mantener Fuerza / Quemar Grasa)</option>
-                        <option value="volumen">Volumen Limpio (Construcción Muscular Activa)</option>
-                        <option value="rendimiento">Rendimiento Puro (Enfoque en Competición Maratón/Trail)</option>
-                    </select>
-                </div>
-                
-                <button class="btn-calc" onclick="ejecutarCalculoFisiologico()">Calcular Requerimientos de Energía</button>
-                
-                <div class="results-panel" id="lab-results">
-                    <h4>Asignación Protegida de Macronutrientes</h4>
-                    <div class="macros-grid">
-                        <div class="macro-card">
-                            <span>Proteína (Fuerza)</span>
-                            <strong id="res-prot">-- g</strong>
-                        </div>
-                        <div class="macro-card">
-                            <span>Carbohidratos</span>
-                            <strong id="res-carbs">-- g</strong>
-                        </div>
-                        <div class="macro-card">
-                            <span>Grasas</span>
-                            <strong id="res-grasas">-- g</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-stats">
+
+          <div class="stat">
+            <h3>12K+</h3>
+            <p>Atletas híbridos</p>
+          </div>
+
+          <div class="stat">
+            <h3>150+</h3>
+            <p>Reviews honestas</p>
+          </div>
+
+          <div class="stat">
+            <h3>42</h3>
+            <p>Guías premium</p>
+          </div>
+
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 Comunidad Híbrida. Todos los derechos reservados. Diseñado para atletas sin límites.</p>
-    </footer>
+      </div>
 
-    <script>
-        // Repositorio de Vectores SVG Oficiales de la Marca
-        const logotiposOficiales = {
-            // LOGO 1: EL ESCUDO HEXAGONAL ORIGINAL
-            1: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
-                    <g transform="translate(250, 250)">
-                        <polygon points="0,-160 138.56,-80 138.56,80 0,160 -138.56,80 -138.56,-80" fill="none" stroke="#00b4d8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M -70,-20 L -70,20 M 70,-20 L 70,20" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
-                        <rect x="-85" y="-30" width="30" height="60" rx="6" fill="#f8fafc" />
-                        <rect x="55" y="-30" width="30" height="60" rx="6" fill="#f8fafc" />
-                        <line x1="-35" y1="90" x2="15" y2="-90" stroke="#00b4d8" stroke-width="16" stroke-linecap="round" />
-                        <line x1="-15" y1="110" x2="35" y2="-70" stroke="#f8fafc" stroke-width="18" stroke-linecap="round" />
-                        <line x1="5" y1="130" x2="55" y2="-50" stroke="#00b4d8" stroke-width="16" stroke-linecap="round" />
-                        <circle cx="15" cy="-90" r="10" fill="#00b4d8" /><circle cx="35" cy="-70" r="12" fill="#f8fafc" /><circle cx="55" cy="-50" r="10" fill="#00b4d8" />
-                        <circle cx="-35" cy="90" r="10" fill="#00b4d8" /><circle cx="-15" cy="110" r="12" fill="#f8fafc" /><circle cx="5" cy="130" r="10" fill="#00b4d8" />
-                    </g>
-                </svg>`,
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="Atleta híbrido">
+      </div>
 
-            // LOGO 3: EL INFINITO CRUZADO (STREETWEAR)
-            3: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
-                    <g transform="translate(250, 250)">
-                        <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="#00b4d8" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" />
-                        <line x1="-120" y1="50" x2="20" y2="-90" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
-                        <line x1="-20" y1="90" x2="120" y2="-50" stroke="#f8fafc" stroke-width="16" stroke-linecap="round" />
-                        <circle cx="20" cy="-90" r="8" fill="#00b4d8" /><circle cx="-120" cy="50" r="8" fill="#00b4d8" />
-                        <circle cx="120" cy="-50" r="8" fill="#00b4d8" /><circle cx="-20" cy="90" r="8" fill="#00b4d8" />
-                    </g>
-                </svg>`
-        };
+    </div>
+  </section>
 
-        // Cambiar la identidad visual en toda la interfaz web en caliente
-        function cambiarIdentidadGlobal(idLogo) {
-            // Actualizar contenedores de logotipos (Menú de navegación y Hero)
-            document.getElementById('nav-logo-target').innerHTML = logotiposOficiales[idLogo];
-            document.getElementById('hero-logo-target').innerHTML = logotiposOficiales[idLogo];
+  <!-- PILARES -->
 
-            // Gestionar clases activas de los botones de control
-            document.querySelectorAll('.btn-select').forEach(b => b.classList.remove('active'));
-            document.getElementById(`btn-logo-${idLogo}`).classList.add('active');
-        }
+  <section>
+    <div class="container">
 
-        // Ejecutar los cálculos de la calculadora fisiológica
-        function ejecutarCalculoFisiologico() {
-            const peso = parseFloat(document.getElementById('calc-peso').value);
-            const objetivo = document.getElementById('calc-objetivo').value;
+      <div class="section-heading">
+        <span>La metodología</span>
+        <h2>Los 3 pilares del atleta híbrido</h2>
+        <p>
+          Todo el contenido de la comunidad gira alrededor de entrenamiento inteligente, nutrición útil y equipamiento probado de verdad.
+        </p>
+      </div>
 
-            if (isNaN(peso) || peso <= 0) {
-                alert("Por favor, introduce un peso corporal válido para aplicar el algoritmo.");
-                return;
-            }
+      <div class="pillars-grid">
 
-            let factorProteina, factorCarbs, factorGrasas;
+        <div class="pillar-card">
+          <span class="pillar-number">01</span>
+          <h3>Entrenamiento</h3>
+          <p>
+            Fuerza, running, HYROX, zona 2, concurrent training y sistemas reales para ganar músculo sin dejar de correr.
+          </p>
+          <a class="btn btn-secondary">Explorar</a>
+        </div>
 
-            // Algoritmo matemático híbrido adaptado según objetivos
-            switch(objetivo) {
-                case 'recomposicion':
-                    factorProteina = 2.2; // Alta protección muscular
-                    factorCarbs = 3.5;    // Glucógeno intermedio para carrera
-                    factorGrasas = 0.8;
-                    break;
-                case 'volumen':
-                    factorProteina = 2.0;
-                    factorCarbs = 5.0;    // Superávit energético
-                    factorGrasas = 1.0;
-                    break;
-                case 'rendimiento':
-                    factorProteina = 1.8;
-                    factorCarbs = 6.5;    // Máxima carga de glucógeno para Zona 2/Series
-                    factorGrasas = 0.7;
-                    break;
-            }
+        <div class="pillar-card">
+          <span class="pillar-number">02</span>
+          <h3>Nutrición</h3>
+          <p>
+            Nutrición práctica para rendimiento híbrido: proteína, recuperación, composición corporal y suplementación con evidencia.
+          </p>
+          <a class="btn btn-secondary">Explorar</a>
+        </div>
 
-            // Inyección matemática de datos en la interfaz de usuario
-            document.getElementById('res-prot').innerText = Math.round(peso * factorProteina) + " g";
-            document.getElementById('res-carbs').innerText = Math.round(peso * factorCarbs) + " g";
-            document.getElementById('res-grasas').innerText = Math.round(peso * factorGrasas) + " g";
+        <div class="pillar-card">
+          <span class="pillar-number">03</span>
+          <h3>Equipamiento</h3>
+          <p>
+            Reviews honestas de zapatillas, relojes, auriculares, ropa técnica y suplementos para atletas híbridos.
+          </p>
+          <a class="btn btn-secondary">Explorar</a>
+        </div>
 
-            // Mostrar el panel de resultados de forma limpia
-            document.getElementById('lab-results').style.display = 'block';
-        }
+      </div>
 
-        // Inicialización por defecto de la interfaz con el escudo hexagonal original
-        cambiarIdentidadGlobal(1);
-    </script>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-heading">
+        <span>Afiliación inteligente</span>
+        <h2>Reviews y comparativas que sí convierten</h2>
+        <p>
+          Aquí está el dinero de tu proyecto. Reviews profundas, SEO y recomendaciones reales.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="review-content">
+            <span class="review-tag">Running híbrido</span>
+            <h3>Nike Pegasus 42</h3>
+            <p>
+              La mejor zapatilla calidad-precio para atletas híbridos que entrenan fuerza y running varias veces por semana.
+            </p>
+            <a class="btn btn-primary">Ver review completa</a>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="review-content">
+            <span class="review-tag">Recuperación</span>
+            <h3>Creatina Creapure</h3>
+            <p>
+              Qué creatina comprar, cuáles evitar y cuáles tienen mejor calidad-precio para fuerza y resistencia.
+            </p>
+            <a class="btn btn-primary">Ver comparativa</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+
+  <section>
+    <div class="container">
+
+      <div class="newsletter">
+
+        <h2>
+          La guía definitiva para atletas híbridos
+        </h2>
+
+        <p>
+          Recibe gratis la guía “Cómo ganar músculo sin dejar de correr” y accede cada semana a entrenamientos, nutrición y equipamiento probado.
+        </p>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Introduce tu email">
+          <button class="btn btn-primary">Descargar guía</button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-heading">
+        <span>SEO + autoridad</span>
+        <h2>Contenido pensado para crecer</h2>
+        <p>
+          Tu tráfico va a venir principalmente desde Google, TikTok y Pinterest.
+        </p>
+      </div>
+
+      <div class="articles-grid">
+
+        <div class="article-card">
+          <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="article-content">
+            <span>Running</span>
+            <h3>Las mejores zapatillas para HYROX</h3>
+            <p>
+              Comparativa completa de las mejores opciones para competir y entrenar.
+            </p>
+            <a href="#">Leer artículo →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="article-content">
+            <span>Entrenamiento</span>
+            <h3>Cómo correr sin perder músculo</h3>
+            <p>
+              La guía definitiva para combinar hipertrofia y resistencia.
+            </p>
+            <a href="#">Leer artículo →</a>
+          </div>
+        </div>
+
+        <div class="article-card">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop">
+
+          <div class="article-content">
+            <span>Suplementación</span>
+            <h3>La única suplementación que realmente funciona</h3>
+            <p>
+              Qué suplementos merecen la pena y cuáles son puro marketing.
+            </p>
+            <a href="#">Leer artículo →</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMUNIDAD -->
+
+  <section>
+    <div class="container">
+
+      <div class="community-box">
+
+        <div>
+          <div class="section-heading" style="margin-bottom:0;">
+            <span>La tribu</span>
+            <h2>Una comunidad para personas que entrenan diferente</h2>
+            <p>
+              No eres solo runner.
+              No eres solo powerlifter.
+              Eres híbrido.
+            </p>
+          </div>
+
+          <div class="community-list">
+
+            <div class="community-item">
+              <h4>Retos mensuales</h4>
+              <p>Running, fuerza, HYROX y desafíos híbridos.</p>
+            </div>
+
+            <div class="community-item">
+              <h4>Discord privado</h4>
+              <p>Comparte entrenamientos y progreso con otros atletas híbridos.</p>
+            </div>
+
+            <div class="community-item">
+              <h4>Rankings reales</h4>
+              <p>Clasificaciones semanales con datos reales de la comunidad.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container footer-grid">
+
+      <div class="logo">
+        Comunidad<span>Híbrida</span>
+      </div>
+
+      <p>
+        La comunidad para atletas híbridos en español.
+      </p>
+
+    </div>
+  </footer>
+
 </body>
 </html>
+```
