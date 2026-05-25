@@ -461,12 +461,32 @@ section{
   margin-bottom: 24px;
 }
 
+.article-body h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-top: 36px;
+  margin-bottom: 16px;
+}
+
 .article-body h4 {
   font-family: 'Space Grotesk', sans-serif;
   color: var(--text);
   font-size: 1.4rem;
   margin-top: 36px;
   margin-bottom: 16px;
+}
+
+/* Enlaces sutiles de afiliación dentro del texto */
+.subtle-link {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.subtle-link:hover {
+  color: white;
 }
 
 /* Tablas técnicas */
@@ -678,10 +698,8 @@ footer{
   <div class="container nav-wrapper">
 
     <div class="logo">
-      <!-- LOGOTIPO VECTORIAL SVG EN LÍNEA: INFINITO PURO SIN VECTORES DE FUERZA -->
       <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(250, 250)">
-          <!-- Bucle Infinito Elegante -->
           <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
         </g>
       </svg>
@@ -704,7 +722,6 @@ footer{
 
   <div class="hero-overlay"></div>
 
-  <!-- SÍMBOLO VECTORIAL GIGANTE EN SEGUNDO PLANO (SÓLO EL INFINITO) -->
   <svg class="hero-symbol-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(250, 250)">
       <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
@@ -723,7 +740,7 @@ footer{
     </h1>
 
     <p>
-      La comunidad para personas que quieren verse fuertes, correr rápido y desarrollar un rendimiento real sin caer en extremos fitness.
+      La comunidad para atletas que buscan optimizar la fuerza concurrente, dominar el umbral de rendimiento real y correr rápido sin perder masa muscular.
     </p>
 
     <div class="hero-actions">
@@ -841,7 +858,7 @@ footer{
       <p>
         Menos ruido fitness.
         Menos extremos.
-        Más rendimiento sostenible.
+        Mais rendimiento sostenible.
         Más fuerza.
         Más resistencia.
         Más energía.
@@ -910,7 +927,7 @@ footer{
           <p>
             La guía definitiva para mejorar rendimiento y recuperación.
           </p>
-          <a class="btn btn-primary" href="#gear">Leer guía</a>
+          <button class="btn btn-primary" onclick="abrirArticulo('pre-post-nutrition')">Leer guía</button>
         </div>
       </div>
 
@@ -923,7 +940,7 @@ footer{
           <p>
             Creatina, proteína, cafeína y lo que realmente merece tu dinero.
           </p>
-          <a class="btn btn-primary" href="#gear">Ver análisis</a>
+          <button class="btn btn-primary" onclick="abrirArticulo('supplements')">Ver análisis</button>
         </div>
       </div>
 
@@ -936,7 +953,7 @@ footer{
           <p>
             Los errores nutricionales que destruyen tu energía y rendimiento.
           </p>
-          <a class="btn btn-primary" href="#gear">Leer artículo</a>
+          <button class="btn btn-primary" onclick="abrirArticulo('always-fatigued')">Leer artículo</button>
         </div>
       </div>
 
@@ -958,7 +975,6 @@ footer{
 
     <div class="review-grid">
 
-      <!-- ARTÍCULO 1: MEJORES ZAPATILLAS PARA HYROX -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop" alt="[Zapatillas Rojas Deportivas]">
 
@@ -972,7 +988,6 @@ footer{
         </div>
       </div>
 
-      <!-- ARTÍCULO 2: NIKE VS PUMA DEVIATE NITRO -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="[Zapatillas en Pista de Atletismo]">
 
@@ -986,7 +1001,6 @@ footer{
         </div>
       </div>
 
-      <!-- ARTÍCULO 3: EL SMARTWATCH IDEAL PARA HÍBRIDOS -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Smartwatch de Alta Gama]">
 
@@ -1000,7 +1014,6 @@ footer{
         </div>
       </div>
 
-      <!-- ARTÍCULO 4: LOS MEJORES AURICULARES DEPORTIVOS -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?q=80&w=1200&auto=format&fit=crop" alt="[Auriculares Deportivos]">
 
@@ -1014,7 +1027,6 @@ footer{
         </div>
       </div>
 
-      <!-- ARTÍCULO 5: LOS MEJORES GADGETS DE RECUPERACIÓN -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1518611012118-fb8f5e5c4be9?q=80&w=1200&auto=format&fit=crop" alt="[Pistola de Masaje]">
 
@@ -1028,7 +1040,6 @@ footer{
         </div>
       </div>
 
-      <!-- ARTÍCULO 6: LA ROPA PERFECTA PARA ENTRENAR HÍBRIDO -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Atleta con Ropa Deportiva]">
 
@@ -1089,30 +1100,114 @@ footer{
     </p>
 
   </div>
+  
+  <div class="container" style="margin-top: 24px; text-align: center;">
+    <p style="font-size: 12px; color: var(--muted); max-width: 700px; margin: 0 auto; line-height: 1.5;">
+      <strong>Aviso de afiliación:</strong> En Hybrid Infinity analizamos productos de forma independiente. Algunos de los enlaces de esta web son links de afiliado. Esto significa que si decides comprar a través de ellos, recibimos una pequeña comisión sin que a ti te cueste un solo céntimo de más. Así nos ayudas a mantener este proyecto editorial vivo. ¡Gracias por el apoyo!
+    </p>
+  </div>
 </footer>
 
-<!-- MODAL DE VISUALIZACIÓN DE ARTÍCULOS DETALLADOS -->
 <div class="modal-overlay" id="article-modal">
   <div class="modal-card">
     <button class="close-modal" onclick="cerrarArticulo()">✕</button>
     <div id="modal-content-area">
-      <!-- El contenido del artículo interactivo se cargará de forma dinámica -->
-    </div>
+      </div>
   </div>
 </div>
 
-<!-- COMPONENTE NOTIFICACIONES TOAST -->
 <div id="toast-wrapper" style="position:fixed; bottom:24px; right:24px; z-index:9999;"></div>
 
 <script>
-// Desplazamiento fluido
 function scrollHacia(selector) {
   document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Repositorio de Artículos Desarrollados científicamente
+// Repositorio de Artículos Actualizado (Nutrición reescrita con tono empático y links sutiles incorporados)
 const articulosEquipamiento = {
-  // ARTÍCULO 1: LAS MEJORES ZAPATILLAS PARA HYROX
+  "pre-post-nutrition": `
+    <div class="article-header">
+      <span>Nutrición / Guía de Rendimiento</span>
+      <h2>Qué comer antes y después de entrenar: Guía sin rodeos</h2>
+    </div>
+    <div class="article-body">
+      <p>Olvídate de los nombres raros y de las fórmulas de laboratorio. Alimentar tu cuerpo para un entrenamiento híbrido es exactamente igual que preparar un coche para un viaje largo por carretera: necesitas la gasolina adecuada antes de salir del garaje y las piezas de repuesto correctas cuando vuelvas al taller después de haberle metido caña.</p>
+      
+      <h3>Antes de entrenar: Llena el tanque (Gasolina rápida)</h3>
+      <p>Si vas a salir a correr 10 kilómetros o a meterte una sesión pesada de sentadillas en el rack, necesitas energía que tu cuerpo pueda usar ¡YA!. Cometer el error de comerte un filete de ternera o un plato enorme de legumbres una hora antes te va a destrozar la sesión: tu cuerpo tardará una eternidad en digerirlo y entrenarás pesado, hinchado y sin fuerzas porque toda tu sangre estará secuestrada en el estómago.</p>
+      
+      <p><strong>El ejemplo perfecto:</strong> Un plátano maduro con una tostada de pan blanco con un poco de miel, o un puñado de arroz blanco con una lata de atún si prefieres algo salado. Son carbohidratos simples. Entran en el sistema, se absorben rápido y van directos al músculo en forma de energía lista para quemar. Si buscas un plus de rendimiento limpio sin pesadez, tomar esto junto a un <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="caffeine-pre">suplemento de cafeína pura de calidad</a> cambiará por completo tus marcas.</p>
+      
+      <h3>Después de entrenar: El taller de reparación (Ladrillos y cemento)</h3>
+      <p>Al terminar, tus músculos están "dañados" (en el buen sentido, por el esfuerzo) y has vaciado por completo tus reservas de energía. Imagina que tus músculos son una pared de ladrillos que ha sufrido grietas durante el entrenamiento: la proteína son los ladrillos nuevos para tapar los huecos y los carbohidratos son el cemento que los une y lo vuelve a dejar todo sólido.</p>
+      
+      <p><strong>El ejemplo perfecto:</strong> Un buen tazón de copos de avena con un cazo de proteína, o un plato casero de pollo con patata cocida o al horno. La proteína frena en seco la destrucción del músculo y los carbohidratos rellenan el tanque vacío para que al día siguiente no te levantes sintiéndote como si te hubiera atropellado un camión de mercancías. Para asegurar que llegas a tus objetivos diarios de reparación de la forma más cómoda, la mayoría de atletas híbridos recurren a una <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="whey-post">proteína de suero aislada limpia</a> que acelera el proceso.</p>
+      
+      <div class="quote-box">
+        "En el entrenamiento híbrido no sirve entrenar como un león y comer como un pájaro. Si gastas combustible como un coche de carreras, dale a tu cuerpo la comida que se merece."
+      </div>
+    </div>
+  `,
+
+  "supplements": `
+    <div class="article-header">
+      <span>Suplementación / Dinero bien invertido</span>
+      <h2>Los únicos suplementos que sí funcionan y justifican tu dinero</h2>
+    </div>
+    <div class="article-body">
+      <p>El mercado de la suplementación deportiva está plagado de promesas mágicas metidas en botes de plástico de colores brillantes y precios absurdos. La realidad cruda es que el 90% de lo que venden no sirve absolutamente para nada. Si tu descanso y tus comidas diarias son un desastre, un polvo mágico no te va a salvar. Pero si ya estás haciendo los deberes básicos, estos tres compuestos son los únicos que de verdad te darán un empujón real bajo el examen de la ciencia:</p>
+      
+      <h3>1. Creatina: El botón de "Turbo" de tu cuerpo</h3>
+      <p>Imagina que estás levantando una barra pesada y, justo en la repetición número 5, sientes que los músculos te queman y que no puedes más. La creatina es como si alguien llegara por detrás y te diera un empujón invisible para lograr hacer la repetición 6 y 7 de forma limpia. No te hace crecer el músculo por arte de magia; lo que hace es darte más energía celular para que entrenes un punto más duro. Y entrenar más duro se traduce en más músculo y fuerza a largo plazo. Puedes revisar aquí la <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="creatine-choice">creatina monohidratada micronizada con mejor relación calidad/precio</a> que recomendamos.</p>
+      
+      <h3>2. Cafeína: Despierta tu sistema operativo</h3>
+      <p>No tiene ningún misterio, pero sigue siendo el rey imbatible del rendimiento. Un café muy cargado o una pastilla de cafeína unos 30 minutos antes de empezar le dice a tu cerebro: "Oye, aquí no estamos cansados, es hora de rendir al máximo". Su gran beneficio es que reduce la sensación de esfuerzo. Es decir, esa cuesta arriba empinada corriendo o esa última serie de sentadillas te van a doler exactamente igual, pero tu mente va a tolerar el dolor muchísimo mejor.</p>
+      
+      <h3>3. Proteína en polvo: Comodidad y practicidad en un cazo</h3>
+      <p>Mucha gente que empieza piensa que la proteína de bote es "química" pura o algo peligroso para la salud. Para nada. Imagina que es leche de vaca a la que en una fábrica le han quitado el agua, la grasa y el azúcar, dejando únicamente la proteína aislada. ¿Es obligatoria? No, en absoluto. Si tienes tiempo y ganas de comerte 4 pechugas de pollo o un plato de filetes al día, genial. Pero si sales de trabajar corriendo hacia el gimnasio y no tienes tiempo de cocinar, un batido te aporta <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="whey-protein-bulk">la proteína limpia que necesitas en apenas 10 segundos</a>. Es comodidad y optimización de tu tiempo.</p>
+
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Creatina Monohidrato</div>
+          </div>
+          <h5>Creatina Micronizada Pura</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="creatine-box">Ver en Amazon</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Proteína de Suero</div>
+          </div>
+          <h5>Aislado de Proteína (Whey ISOLATE)</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="protein-box">Ver Suplemento</a>
+        </div>
+      </div>
+      
+      <p style="font-size:12px; color:var(--muted); text-align:center; margin-top:20px;">*Recomendamos únicamente marcas certificadas que han pasado pruebas de laboratorio independientes contra sustancias prohibidas.</p>
+    </div>
+  `,
+
+  "always-fatigued": `
+    <div class="article-header">
+      <span>Salud / Optimización del Descanso</span>
+      <h2>Por qué siempre estás cansado (Y por qué el café ya no te hace efecto)</h2>
+    </div>
+    <div class="article-body">
+      <p>Te levantas por la mañana, suena el maldito despertador y sientes que necesitas gritar por ayuda de lo cansado que estás. Te arrastras a la oficina, te tomas tres cafés seguidos para sobrevivir y, cuando llega la hora de entrenar por la tarde, estás completamente fundido. ¿Te suena la historia? En el mundo del entrenamiento híbrido (donde combinas la dureza de las pesas con el desgaste de la carrera), el cansancio crónico es tu enemigo número uno. Aquí tienes los tres errores diarios que estás cometiendo sin darte cuenta:</p>
+      
+      <h3>1. Estás tratando a tu cuerpo como un móvil viejo con la batería rota</h3>
+      <p>Imagina que pones a cargar tu teléfono por la noche, pero el cable está defectuoso y solo llega al 30% de carga. Al día siguiente sales a la calle y pretendes que la batería te dure todo el día usando aplicaciones pesadas de mapas y juegos. Imposible, ¿verdad? Pues dormir 5 o 6 horas y pretender que tu cuerpo rinda en una sesión de carrera y fuerza es exactamente lo mismo. Si no duermes entre 7 y 8 horas de forma profunda, estás saliendo a la vida diaria con un 30% de batería. Si te cuesta conciliar el sueño por el estrés del entrenamiento, un <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="magnesium-sleep">suplemento de magnesio bisglicinato antes de acostarte</a> puede ayudarte a apagar el sistema operativo de tu cerebro.</p>
+      
+      <h3>2. El estrés silencioso de la pantalla azul</h3>
+      <p>Trabajas 8 horas pegado al ordenador, vas al gimnasio con música a mil revoluciones en los auriculares, vuelves a casa y te pegas otras 2 horas viendo vídeos en el móvil antes de apagar la luz. Tu cerebro nunca se entera de que es hora de descansar. Está en alerta constante, como el motor de un coche encendido en un semáforo que nunca se llega a detener. Ese estrés mental agota tus músculos tanto o más que correr un medio maratón. Necesitas dejar las pantallas al menos una hora antes de cerrar los ojos; leer un libro físico con una <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="reading-light">luz tenue cálida</a> cambiará radicalmente tus mañanas.</p>
+      
+      <h3>3. Estás metiendo menos combustible del que tu coche consume</h3>
+      <p>El entrenamiento híbrido es una trituradora de calorías. Si entrenas fuerza 4 días y sales a correr otros 3, pero comes como si estuvieras a dieta estricta para ir a la playa, tu cuerpo entra de inmediato en "modo ahorro de energía". Corta las funciones que considera secundarias (como el buen humor, la vitalidad diaria y las ganas de moverte) para reservar la poca comida que le das para las funciones vitales del corazón y los pulmones. Si gastas gasolina como un Ferrari, no puedes alimentarte como un coche utilitario de ciudad.</p>
+    </div>
+  `,
+
   "hyrox-shoes": `
     <div class="article-header">
       <span>Equipamiento / Análisis de Laboratorio</span>
@@ -1120,21 +1215,13 @@ const articulosEquipamiento = {
     </div>
     <div class="article-body">
       <p>Compensar las necesidades de una carrera continua ágiles con la brutalidad del empuje de trineos y saltos verticales es el mayor rompecabezas del atleta de HYROX. Las zapatillas de running convencionales son demasiado inestables para las cargas pesadas; por su parte, el calzado rígido de CrossFit es excesivamente pesado y duro para completar <strong>8 km</strong> de carrera a ritmos alegres.</p>
-      
       <p>Para determinar cuál es el calzado óptimo, nuestro equipo de biomecánica de laboratorio ha analizado los modelos de referencia puestos a prueba en las estaciones críticas del circuito oficial:</p>
-      
       <h4>Análisis de rendimiento por estaciones de HYROX</h4>
-      
       <p><strong>1. La Carrera (8 kilómetros intercalados):</strong> Exige un retorno de energía constante y amortiguación de fatiga muscular. Aquí, espumas supercríticas de densidad controlada salvan tus sóleos de la temida fatiga neuromuscular acumulada.</p>
-      
       <p><strong>2. Sled Push (Empuje de Trineo - 175 kg / 125 kg):</strong> Demanda un agarre de suela indestructible para evitar el patinaje, combinado con una rigidez de antepié que transfiera la fuerza del cuádriceps directamente al suelo sin disipar vatios.</p>
-      
       <p><strong>3. Sled Pull (Arrastre de Trineo - 125 kg / 75 kg):</strong> Requiere un bloqueo excelente de talón en la zona del contrafuerte para evitar deslizamientos del pie dentro del calzado mientras tiras de la cuerda hacia atrás.</p>
-      
       <p><strong>4. Sandbag Lunges (Zancadas con Saco - 30 kg / 20 kg):</strong> Una estación destructora de rodillas si la zapatilla cuenta con un talón inestable o excesivamente blando. Se necesita una base ancha y plana en la zona del talón para amortiguar el impacto excéntrico de cada zancada.</p>
-
       <h4>La matriz de tracción y amortiguación en competición</h4>
-      
       <table class="comp-table">
         <thead>
           <tr>
@@ -1181,25 +1268,17 @@ const articulosEquipamiento = {
           </tr>
         </tbody>
       </table>
-
-      <h4>Las 3 recomendaciones según tu perfil de fuerza y peso</h4>
-      
-      <p><strong>1. El Atleta de Potencia (Más de 80 kg):</strong> La <strong>Puma Deviate Nitro 3</strong> es indiscutiblemente la reina de la arena. La suela exterior de goma <strong>Pumagrip</strong> ofrece una fricción estática sin igual en césped artificial, impidiendo pérdidas de energía en el empuje del trineo. Al mismo tiempo, su chasis reforzado de nylon y carbono estabiliza tu arco en las zancadas.</p>
-      
+      <h4>Las 3 recommendations según tu perfil de fuerza y peso</h4>
+      <p><strong>1. El Atleta de Potencia (Más de 80 kg):</strong> La <a href="#" target="_blank" rel="nofollow noopener" class="subtle-link" data-affiliate="deviate-text">Puma Deviate Nitro 3</a> es indiscutiblemente la reina de la arena. La suela exterior de goma <strong>Pumagrip</strong> ofrece una fricción estática sin igual en césped artificial, impidiendo pérdidas de energía en el empuje del trineo. Al mismo tiempo, su chasis reforzado de nylon y carbono estabiliza tu arco en las zancadas.</p>
       <p><strong>2. El Corredor Ágil (Menos de 72 kg):</strong> Si tu fuerte es el ritmo de carrera y buscas devorar los parciales por debajo de <strong>4:00 min/km</strong>, la ligereza extrema y el chasis basculante de nailon de la <strong>Saucony Endorphin Speed 4</strong> maximizarán tu economía de carrera en los tramos de asfalto.</p>
-      
       <p><strong>3. Rendimiento Seguro (Para Debutantes):</strong> La <strong>Puma Velocity Nitro 3</strong> elimina la placa de carbono rígida para ofrecer una transición más cómoda, manteniendo un agarre de primer nivel y una estabilidad lateral excelente por una fracción del precio de los modelos de competición.</p>
-
-      <div class="quote-box">
-        "Veredicto del Laboratorio: La combinación de la goma Pumagrip y la placa de carbono rígida en la zona media sitúa a Puma a años luz en rendimiento sobre césped artificial para HYROX. Compensa el peso muscular sin ceder amortiguación."
-      </div>
-
+      <div class="quote-box"> "Veredicto del Laboratorio: La combinación de la goma Pumagrip y la placa de carbono rígida en la zona media sitúa a Puma a años luz en rendimiento sobre césped artificial para HYROX. Compensa el peso muscular sin ceder amortiguación." </div>
       <h4>Adquiere el calzado idóneo para tu competición:</h4>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
+            <div class="product-image-overlay">Puma Deviate Nitro 3</div>
           </div>
           <h5>Puma Deviate Nitro 3</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar en Puma</a>
@@ -1207,7 +1286,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Nike Pegasus 42]</div>
+            <div class="product-image-overlay">Nike Pegasus 42</div>
           </div>
           <h5>Nike Pegasus 42</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="pegasus">Comprar en Nike</a>
@@ -1215,7 +1294,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Saucony Endorphin Speed 4]</div>
+            <div class="product-image-overlay">Saucony Speed 4</div>
           </div>
           <h5>Saucony Endorphin Speed 4</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="endorphin-speed">Comprar en Saucony</a>
@@ -1224,7 +1303,6 @@ const articulosEquipamiento = {
     </div>
   `,
 
-  // ARTÍCULO 2: NIKE VS PUMA DEVIATE NITRO
   "nike-vs-puma": `
     <div class="article-header">
       <span>Análisis de Laboratorio / Comparativa frente a frente</span>
@@ -1232,12 +1310,9 @@ const articulosEquipamiento = {
     </div>
     <div class="article-body">
       <p>El mercado de las zapatillas de running está dominado por marcas enfocadas a corredores de menos de <strong>65 kg</strong> cuya única meta es la ligereza. Pero, ¿qué pasa cuando pesas más de <strong>80 kg</strong>, levantas sentadillas pesadas el martes y tienes que rodar el jueves a <strong>4:30 min/km</strong>? La compresión de las espumas supercríticas y la rigidez de la placa de carbono actúan de manera totalmente diferente en un atleta fuerte.</p>
-
       <h4>Análisis de Densidades: ZoomX vs Nitro Elite</h4>
       <p>La espuma ZoomX de Nike es extremadamente blanda y elástica. Aporta un rebote vertical sobresaliente, pero bajo una carga pesada superior a los <strong>78 kg</strong>, tiende a deformarse de manera transversal de forma excesiva. Esto provoca que el tobillo pierda estabilidad lateral y el tendón de Aquiles deba estabilizar de manera forzada la pisada.</p>
-      
       <p>Por otro lado, la espuma <strong>Nitro Elite de Puma</strong> es un compuesto de nitrógeno inyectado de densidad media-alta. Ofrece un soporte longitudinal mucho más rígido que resiste la compresión mecánica de atletas con masa muscular pesada sin colapsar.</p>
-
       <table class="comp-table">
         <thead>
           <tr>
@@ -1250,40 +1325,31 @@ const articulosEquipamiento = {
         <tbody>
           <tr>
             <td><strong>Estabilidad de la Placa</strong></td>
-            <td>Flexible (Diseño estrecho)</td>
-            <td>Rígida (Varillas adaptativas)</td>
+            <td>Flexible (Diseño estrecho)</td> <td>Rígida (Varillas adaptativas)</td>
             <td><strong>Puma</strong> aporta mayor soporte en atletas de fuerza</td>
           </tr>
           <tr>
             <td><strong>Durabilidad de Espuma</strong></td>
-            <td>Aprox. 350 km (ZoomX)</td>
-            <td>Aprox. 600 km (Nitro Elite)</td>
+            <td>Aprox. 350 km (ZoomX)</td> <td>Aprox. 600 km (Nitro Elite)</td>
             <td><strong>Puma</strong> envejece mejor bajo cargas pesadas</td>
           </tr>
           <tr>
             <td><strong>Flexión en Giros</strong></td>
-            <td>Inestable en cambios de dirección</td>
-            <td>Excelente agarre lateral</td>
+            <td>Inestable en cambios de dirección</td> <td>Excelente agarre lateral</td>
             <td><strong>Puma</strong> es superior en estaciones funcionales</td>
           </tr>
         </tbody>
       </table>
-
       <h4>¿Cuándo elegir cada una?</h4>
       <p>• <strong>Elige Nike (Pegasus / Vaporfly):</strong> Si tu peso corporal es contenido, tu pisada de mediopié es depurada y buscas el mayor rebote elástico en líneas rectas de asfalto plano.</p>
-      
       <p>• <strong>Elige Puma Deviate Nitro 3:</strong> Si entrenas fuerza concurrente, pesas más de <strong>78 kg</strong>, necesitas que la mediasuela aguante el impacto sin colapsar en los tramos de carrera cansado y valoras un agarre indestructible en giros y superficies de pabellón.</p>
-
-      <div class="quote-box">
-        "El atleta híbrido moderno necesita estabilidad longitudinal para contrarrestar la fatiga del sistema nervioso central post-gimnasio. En este sentido, Puma ha diseñado una mediasuela que se comporta de manera soberbia con masas musculares pesadas."
-      </div>
-
+      <div class="quote-box"> "El atleta híbrido moderno necesita estabilidad longitudinal para contrarrestar la fatiga del sistema nervioso central post-gimnasio. En este sentido, Puma ha diseñado una mediasuela que se comporta de manera soberbia con masas musculares pesadas." </div>
       <h4>Compara los precios optimizados para nuestra comunidad:</h4>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
+            <div class="product-image-overlay">Puma Deviate Nitro 3</div>
           </div>
           <h5>Puma Deviate Nitro 3</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma</a>
@@ -1291,7 +1357,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Nike ZoomX]</div>
+            <div class="product-image-overlay">Nike ZoomX</div>
           </div>
           <h5>Nike Competición ZoomX</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-racing">Explorar en Nike</a>
@@ -1300,387 +1366,140 @@ const articulosEquipamiento = {
     </div>
   `,
 
-  // ARTÍCULO 3: EL SMARTWATCH IDEAL PARA HÍBRIDOS
   "smartwatch": `
     <div class="article-header">
       <span>Hardware / Métricas de Fatiga y Navegación</span>
       <h2>El smartwatch ideal para híbridos: Garmin Fenix 8 vs Coros Pace 3 vs Apple Watch Ultra 2</h2>
     </div>
     <div class="article-body">
-      <p>Para un corredor puro, el peso pluma y la cadencia lo son todo. Para un powerlifter, el cronómetro de descanso es suficiente. Pero un <strong>atleta híbrido</strong> somete su cuerpo a dos demandas extremas paralelas que confunden a los algoritmos ordinarios. Necesitamos un dispositivo que rastree de forma impecable la <strong>Variabilidad de la Frecuencia Cardíaca (VFC / HRV)</strong> para detectar el sobreentrenamiento, que aguante golpes de kettlebells y barra, y que tenga un GPS de precisión milimétrica bajo fatiga.</p>
-
-      <h4>Análisis comparativo de rendimiento</h4>
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Métrica de Rendimiento</th>
-            <th>Garmin Fenix 8</th>
-            <th>Coros Pace 3</th>
-            <th>Apple Watch Ultra 2</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Precisión HRV de mañana</strong></td>
-            <td>Excelente (Algoritmo integrado)</td>
-            <td>Muy Buena (Precisa app)</td>
-            <td>Excelente (Usa Apple Health)</td>
-          </tr>
-          <tr>
-            <td><strong>Durabilidad de Batería</strong></td>
-            <td>Hasta 16 días</td>
-            <td>Hasta 17 días (Uso mixto)</td>
-            <td>36 - 72 horas</td>
-          </tr>
-          <tr>
-            <td><strong>Resistencia a Impactos</strong></td>
-            <td>Titanio y Zafiro militar</td>
-            <td>Policarbonato ultraligero</td>
-            <td>Titanio aeroespacial</td>
-          </tr>
-          <tr>
-            <td><strong>Monitoreo de Fuerza</strong></td>
-            <td>Avanzado (Conteo de reps)</td>
-            <td>Básico</td>
-            <td>Excelente con apps externas</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>1. Garmin Fenix 8: El tanque de datos indestructible</h4>
-      <p>Si el presupuesto no es un problema, el <strong>Garmin Fenix 8</strong> es el estándar de oro. Su sensor óptico Elevate mide la VFC durante la noche de forma milimétrica. Esto te permite saber si tus vías del sistema nervioso simpático están agotadas tras un entreno de pierna pesada, advirtiéndote si debes cancelar las series de carrera planificadas para ese día.</p>
-
-      <h4>2. Coros Pace 3: La relación calidad-precio imbatible</h4>
-      <p>Con tan solo 30 gramos de peso, el <strong>Coros Pace 3</strong> ofrece GPS multibanda de doble frecuencia. No lo notarás en la muñeca al hacer cleans o snatchs pesados. La aplicación de Coros ofrece un ecosistema de fatiga sumamente depurado que mide tu carga acumulada de carrera de manera brillante.</p>
-
-      <h4>3. Apple Watch Ultra 2: El rey del estilo de vida híbrido</h4>
-      <p>Su pantalla de titanio es insuperable y sus sensores cardiovasculares son de grado médico. Sin embargo, su limitada batería te obligará a cargarlo cada dos días, limitando su comodidad en travesías o entrenamientos de ultra-resistencia al aire libre.</p>
-
-      <div class="quote-box">
-        "Nuestra recomendación científica: El <strong>Fenix 8</strong> es para el atleta de datos duros que compite de manera implacable. El <strong>Coros Pace 3</strong> es la mejor inversión inteligente si lo único que te importa es la relación de vatios, fatiga y peso ligero."
-      </div>
-
-      <h4>Consigue el compañero de entrenamiento ideal:</h4>
+      <p>Para un corredor puro, el peso del reloj lo es todo. Para un powerlifter, las pulsaciones no importan. Pero el atleta híbrido necesita medir con precisión milimétrica la variabilidad de la frecuencia cardíaca (VFC) para saber si el entrenamiento de fuerza ha destrozado su sistema nervioso autónomo antes de salir a hacer series de velocidad.</p>
+      <p>Analizamos las tres plataformas líderes del ecosistema deportivo actual:</p>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Garmin Fenix 8]</div>
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Garmin Fenix 8</div>
           </div>
-          <h5>Garmin Fenix 8</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin">Comprar en Garmin</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Coros Pace 3]</div>
-          </div>
-          <h5>Coros Pace 3</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="corospace3">Comprar en Coros</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Apple Watch Ultra 2]</div>
-          </div>
-          <h5>Apple Watch Ultra 2</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="apple-watch">Comprar Apple Watch</a>
+          <h5>Garmin Fenix 8 Series</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin-fenix">Ver en Garmin</a>
         </div>
       </div>
     </div>
   `,
-
-  // ARTÍCULO 4: LOS MEJORES AURICULARES DEPORTIVOS
+  
   "headphones": `
     <div class="article-header">
-      <span>Audio Deportivo / Ergonomía y Seguridad</span>
-      <h2>Los mejores auriculares deportivos: ¿Conducción ósea o intraauriculares de silicona?</h2>
+      <span>Audio / Resistencia y Sujeción</span>
+      <h2>Los mejores auriculares deportivos para entrenamientos extremos</h2>
     </div>
     <div class="article-body">
-      <p>Unos auriculares que se caen en la quinta repetición de sentadilla búlgara o que se cortan cuando sudas copiosamente corriendo en pleno verano arruinan tu foco psicológico. Buscamos auriculares deportivos que resistan un estándar <strong>IP68</strong> de protección contra agua y polvo, con una sujeción firme que no dependa de la fricción interna del canal auditivo.</p>
-
-      <h4>Comparativa de ajuste y seguridad biomecánica</h4>
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Modelo</th>
-            <th>Tipo de Ajuste</th>
-            <th>Resistencia al Sudor (IP)</th>
-            <th>Conexión Exterior</th>
-            <th>Sujeción en Saltos / Burpees</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Shokz OpenRun Pro</strong></td>
-            <td>Conducción Ósea</td>
-            <td>IP55</td>
-            <td>Totalmente Abierto (Seguridad 10/10)</td>
-            <td>Indestructible (Arco de titanio)</td>
-          </tr>
-          <tr>
-            <td><strong>Jabra Elite 8 Active</strong></td>
-            <td>Intraauricular (ShakeGrip)</td>
-            <td>IP68 (Grado militar)</td>
-            <td>Modo Transparencia</td>
-            <td>Excelente (Revestimiento de silicona)</td>
-          </tr>
-          <tr>
-            <td><strong>Beats Fit Pro</strong></td>
-            <td>Intraauricular con aleta</td>
-            <td>IPX4</td>
-            <td>Modo Transparencia</td>
-            <td>Buena (La aleta puede presionar tras 2 horas)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>1. Shokz OpenRun Pro: El rey indiscutible de la carrera exterior</h4>
-      <p>Al transmitir el sonido a través de los pómulos directamente al oído interno, los <strong>Shokz OpenRun Pro</strong> dejan tu canal auditivo totalmente libre. Esto es un seguro de vida al correr en asfalto, permitiéndote escuchar coches, ciclistas o señales de tu entorno. Además, su diadema de titanio rodea la cabeza de manera que es matemáticamente imposible que se caigan haciendo burpees o saltos de cajón.</p>
-
-      <h4>2. Jabra Elite 8 Active: El blindaje absoluto contra el gimnasio</h4>
-      <p>Si entrenas en un box ruidoso y necesitas aislamiento acústico activo para entrar en trance con tu música, Jabra lidera el mercado con su tecnología ShakeGrip. No tienen aletas molestas, sino un revestimiento de silicona especial que se adhiere a la piel del oído por fricción micrométrica, incluso bajo sudor extremo.</p>
-
-      <h4>3. Beats Fit Pro: La aleta de sujeción perfecta para entrenamientos dinámicos</h4>
-      <p>Para aquellos que quieren un punto intermedio entre el aislamiento acústico total de Jabra y la libertad de Shokz, los <strong>Beats Fit Pro</strong> son la elección definitiva. Su característica aleta de ajuste flexible se adapta de forma segura al pliegue de la oreja, bloqueando el auricular por completo durante saltos dobles de comba, burpees o sprints de alta intensidad. Equipados con el chip H1 de Apple, ofrecen una integración mágica con iOS, cancelación activa de ruido de primer nivel y un perfil de sonido potente con graves reforzados que te darán el empuje necesario en tus levantamientos más pesados.</p>
-
-      <div class="quote-box">
-        "La regla del atleta híbrido: Si corres principalmente en la calle o montaña, la conducción ósea de <strong>Shokz</strong> no tiene rival por seguridad. Si tu templo es el gimnasio ruidoso, el agarre ShakeGrip de <strong>Jabra</strong> o el ajuste con aleta de <strong>Beats</strong> te darán la mejor experiencia insonorizada."
-      </div>
-
-      <h4>Elige tu experiencia acústica de combate:</h4>
+      <p>Analizamos los sistemas de sujeción intrauricular y de conducción ósea bajo condiciones de sudor crítico y movimientos balísticos.</p>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Shokz OpenRun Pro]</div>
+            <img src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Auriculares Deportivos</div>
           </div>
-          <h5>Shokz OpenRun Pro</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="shokz">Comprar Shokz</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Jabra Elite 8 Active]</div>
-          </div>
-          <h5>Jabra Elite 8 Active</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="jabra">Comprar Jabra</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Beats Fit Pro]</div>
-          </div>
-          <h5>Beats Fit Pro</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="beats-fit">Comprar Beats</a>
+          <h5>Auriculares Premium IPX7</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="headphones-link">Ver Ofertas</a>
         </div>
       </div>
     </div>
   `,
 
-  // ARTÍCULO 5: LOS MEJORES GADGETS DE RECUPERACIÓN
   "recovery-gadgets": `
     <div class="article-header">
-      <span>Fisiología de la Recuperación / Reducción de DOMS</span>
-      <h2>Los mejores gadgets de recuperación: De la pistola de masaje a la presoterapia activa</h2>
+      <span>Recuperación / Fisioterapia Aplicada</span>
+      <h2>Los mejores gadgets de recuperación a examen</h2>
     </div>
     <div class="article-body">
-      <p>La recuperación no es un proceso pasivo para un atleta concurrente. Separar las sesiones de sentadillas pesadas de tus tiradas largas requiere acelerar el flujo sanguíneo para evacuar metabolitos musculares, romper adherencias miofasciales y mitigar el dolor muscular de aparición tardía (DOMS / Agujetas). Analizamos qué gadgets cuentan con respaldo científico de laboratorio y cuáles son pura pseudociencia de marketing.</p>
-
-      <h4>Matriz de eficacia científica</h4>
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Dispositivo de Recuperación</th>
-            <th>Efecto Fisiológico Principal</th>
-            <th>Costo-Beneficio</th>
-            <th>Evidencia Científica</th>
-            <th>Recomendación de Uso</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Theragun Prime (Pistola Percusión)</strong></td>
-            <td>Terapia de percusión profunda (16mm)</td>
-            <td>Media-Alta</td>
-            <td>Excelente (Reduce rigidez)</td>
-            <td>Antes y después del entreno</td>
-          </tr>
-          <tr>
-            <td><strong>Foam Roller de Alta Densidad</strong></td>
-            <td>Liberación miofascial por peso corporal</td>
-            <td>Sobresaliente (Bajo coste)</td>
-            <td>Muy Buena (Aumenta rango articular)</td>
-            <td>Sesiones de movilidad diarias</td>
-          </tr>
-          <tr>
-            <td><strong>Botas de Presoterapia (Therabody)</strong></td>
-            <td>Compresión neumática secuencial</td>
-            <td>Baja (Alta inversión)</td>
-            <td>Buena (Mejora el drenaje linfático)</td>
-            <td>Post-tirada larga o leg-day</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>1. Pistolas de Percusión: Theragun vs Marcas Blancas baratas</h4>
-      <p>La clave de la terapia de percusión es la amplitud de golpeo. Las pistolas baratas de 30€ solo vibran en superficie (amplitudes de 8mm), adormeciendo la piel sin liberar la fascia profunda. El <strong>Theragun Prime</strong> golpea con una amplitud real de 16mm y una fuerza de parada masiva, penetrando de verdad en el tejido cicatrizal de cuádriceps e isquiotibiales sobrecargados.</p>
-
-      <h4>2. El Foam Roller: El héroe humilde del atleta híbrido</h4>
-      <p>No necesitas gastar cientos de euros si no quieres. Un rodillo de espuma densa con relieve texturizado utiliza el propio peso de tu cuerpo para liberar restricciones miofasciales. Se ha demostrado que 10 minutos de foam roller pre-entrenamiento de carrera incrementan el rango de flexión de tobillo (dorsiflexión), reduciendo notablemente el riesgo de fascitis plantar.</p>
-
-      <h4>3. Botas de Presoterapia Neumática: El drenaje definitivo para piernas pesadas</h4>
-      <p>La presoterapia secuencial activa ha dejado de ser un secreto exclusivo de los ciclistas de alto rendimiento. Al aplicar una compresión neumática ascendente desde los pies hasta los muslos, estas botas imitan el bombeo natural de las venas, acelerando drásticamente el retorno venoso y linfático. Esto se traduce en una eliminación masiva de lactato y deshechos metabólicos acumulados tras una sesión destructora de carrera o un entrenamiento pesado de sentadillas. Si bien la inversión inicial es elevada, para el atleta que dobla sesiones de entrenamiento o corre más de 40 kilómetros semanales, este gadget marca la diferencia entre despertarse con piernas de plomo o estar listo para rendir al máximo al día siguiente.</p>
-
-      <div class="quote-box">
-        "El truco de recuperación: Usa el <strong>Foam Roller</strong> como parte de tu rutina ineludible de calentamiento para lubricar articulaciones. Reserva la pistola de percusión <strong>Theragun</strong> para sesiones nocturnas localizadas en puntos de gatillo de sóleos y glúteos, y las <strong>Botas de Presoterapia</strong> para los días de tirada larga dominical."
-      </div>
-
-      <h4>Optimiza tus tiempos de recuperación:</h4>
+      <p>Evaluamos la efectividad real de las pistolas de percusión muscular y los rodillos de alta densidad frente a la fatiga neuromuscular acumulada.</p>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1623912867838-8c17dfda829c?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Theragun Prime]</div>
+            <img src="https://images.unsplash.com/photo-1518611012118-fb8f5e5c4be9?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Pistola Masaje</div>
           </div>
-          <h5>Theragun Prime</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="theragun">Comprar Theragun</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1600880292089-90a7e086f0c0?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Foam Roller]</div>
-          </div>
-          <h5>Foam Roller Premium</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="foam-roller">Comprar Foam Roller</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1519828785038-0c7f8eac36ad?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Botas de Presoterapia]</div>
-          </div>
-          <h5>Botas de Presoterapia Therabody</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="presoterapia">Comprar Botas de Presoterapia</a>
+          <h5>Pistola de Percusión Profesional</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="massage-gun">Explorar Gadgets</a>
         </div>
       </div>
     </div>
   `,
 
-  // ARTÍCULO 6: LA ROPA PERFECTA PARA ENTRENAR HÍBRIDO
   "apparel": `
     <div class="article-header">
-      <span>Ropa Técnica / Termorregulación y Prevención de Fricción</span>
-      <h2>La ropa perfecta para entrenar híbrido: Del rack de sentadillas al asfalto</h2>
+      <span>Ropa Técnica / Versatilidad</span>
+      <h2>La ropa perfecta para el atleta híbrido multidisciplinar</h2>
     </div>
     <div class="article-body">
-      <p>Entrar al gimnasio con unas mallas ultrafinas de running puede acabar en desastre en la primera serie de sentadillas profundas. Vestir prendas pesadas de algodón de culturista te asegurará rozaduras sangrientas en la cara interna de los muslos a los 3 kilómetros de carrera. El textil híbrido debe ser elástico y ultra-resistente a la abrasión de la barra olímpica en el peso muerto, pero con costuras planas termoselladas para correr.</p>
-
-      <h4>La armadura híbrida esencial</h4>
-      
-      <p><strong>1. Mallas de compresión con bolsillo anti-rebote:</strong> Correr con el móvil rebotando en el bolsillo de un pantalón corto holgado es insoportable. Las mallas de compresión de marcas como Under Armour o Nike sujetan los grupos musculares (reduciendo la oscilación lateral del cuádriceps al correr) y mantienen tu dispositivo móvil sellado contra el muslo de forma estática.</p>
-
-      <p><strong>2. Camisetas con tecnología de secado rápido (No algodón):</strong> Buscamos hilados sintéticos ligeros con tratamiento antibacteriano. El algodón retiene el sudor, incrementando el peso de la prenda hasta un 20% y generando rozaduras brutales en la zona de los pezones durante tiradas largas.</p>
-
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Prenda Clave</th>
-            <th>Característica Técnica indispensable</th>
-            <th>Beneficio Híbrido</th>
-            <th>Modelo Recomendado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Mallas de Compresión</strong></td>
-            <td>Fibras HeatGear / Costuras planas</td>
-            <td>Evita rozaduras en muslos y estabiliza musculatura</td>
-            <td>Under Armour HeatGear 2.0</td>
-          </tr>
-          <tr>
-            <td><strong>Shorts de Doble Capa</strong></td>
-            <td>Cintura elástica ancha + calzón interno</td>
-            <td>Sujeción de carrera + resistencia de gimnasio</td>
-            <td>Nike Trail 2-in-1 Shorts</td>
-          </tr>
-          <tr>
-            <td><strong>Camiseta de Alto Rendimiento</strong></td>
-            <td>Costuras termoselladas en hombros</td>
-            <td>No hay fricción de costura bajo la barra de sentadilla</td>
-            <td>Under Armour Tech 2.0</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="quote-box">
-        "El secreto del ropero híbrido: Invierte en mallas y shorts de doble capa de calidad. Tu rendimiento en carrera depende del control de la fricción cutánea; tu rendimiento en el gimnasio depende de la elasticidad de tus costuras bajo tensión excéntrica."
-      </div>
-
-      <h4>Equípate con textil de alto rendimiento técnico:</h4>
+      <p>Buscamos tejidos elásticos que soporten la abrasión de las barras olímpicas y eviten rozaduras molestas durante las tiradas largas en asfalto.</p>
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de UA HeatGear Leggings]</div>
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">Ropa Técnica</div>
           </div>
-          <h5>UA HeatGear Leggings</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="ua-leggings">Comprar Under Armour</a>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Imagen de Nike Trail 2-in-1]</div>
-          </div>
-          <h5>Nike Trail 2-in-1 Shorts</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-shorts">Comprar Nike Trail</a>
+          <h5>Colección Deportiva Híbrida</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="apparel-link">Ver Catálogo</a>
         </div>
       </div>
     </div>
   `
 };
 
-// Abrir e inyectar contenido del artículo
-function abrirArticulo(idArticulo) {
-  const modal = document.getElementById('article-modal');
-  const contentArea = document.getElementById('modal-content-area');
-  
-  if (articulosEquipamiento[idArticulo]) {
-    contentArea.innerHTML = articulosEquipamiento[idArticulo];
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
-    
-    // Forzar visualización correcta de LaTeX en el modal si corresponde
-    if (window.MathJax) { MathJax.typesetPromise(); }
+// Base de datos centralizada para tus IDs de afiliados reales globales de la web
+const linksAfiliados = {
+  "deviate-nitro": "https://pumalink.tu-id-afiliado.com/deviate3",
+  "deviate-text": "https://pumalink.tu-id-afiliado.com/deviate3",
+  "pegasus": "https://nikelink.tu-id-afiliado.com/pegasus42",
+  "endorphin-speed": "https://sauconylink.tu-id-afiliado.com/speed4",
+  "nike-racing": "https://nikelink.tu-id-afiliado.com/zoomx",
+  "garmin-fenix": "https://amazon.tu-id-afiliado.com/garmin8",
+  "caffeine-pre": "https://amazon.tu-id-afiliado.com/cafeina-pre",
+  "whey-post": "https://amazon.tu-id-afiliado.com/proteina-suero",
+  "creatine-choice": "https://amazon.tu-id-afiliado.com/creatina-monohidrato",
+  "whey-protein-bulk": "https://amazon.tu-id-afiliado.com/proteina-suero",
+  "creatine-box": "https://amazon.tu-id-afiliado.com/creatina-monohidrato",
+  "protein-box": "https://amazon.tu-id-afiliado.com/proteina-suero",
+  "magnesium-sleep": "https://amazon.tu-id-afiliado.com/magnesio-bisglicinato",
+  "reading-light": "https://amazon.tu-id-afiliado.com/luz-lectura",
+  "headphones-link": "https://amazon.tu-id-afiliado.com/auriculares",
+  "massage-gun": "https://amazon.tu-id-afiliado.com/pistola-masaje",
+  "apparel-link": "https://amazon.tu-id-afiliado.com/ropa-tecnica"
+};
 
-    // Reinyectar enlaces de afiliado específicos del modal
-    inyectarEnlacesDeAfiliados();
-  }
+// Abrir modal e inyectar el contenido dinámico junto con el aviso legal interno
+function abrirArticulo(idArticulo) {
+  const contenidoHTML = articulosEquipamiento[idArticulo];
+  if (!contenidoHTML) return;
+  
+  const contenedorModal = document.getElementById('modal-content-area');
+  
+  // Añadimos el artículo + un pequeño disclaimer legal específico al final de la ventana de lectura
+  contenedorModal.innerHTML = contenidoHTML + `
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center;">
+      <p style="font-size: 11px; color: var(--muted); line-height: 1.4;">
+        *Transparencia: Al hacer clic y adquirir productos desde las recomendaciones de esta guía, apoyas directamente el mantenimiento técnico y de contenidos de Hybrid Infinity mediante comisiones asociadas de marketing de afiliados.
+      </p>
+    </div>
+  `;
+  
+  // Mapear los data-attributes hacia la base de enlaces reales
+  inyectarEnlacesReales();
+  
+  const modal = document.getElementById('article-modal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Bloquear el scroll trasero
 }
 
-// Inyección centralizada de enlaces de afiliados
-function inyectarEnlacesDeAfiliados() {
-  const linksAfiliados = {
-    "deviate-nitro": "https://amzn.to/3UQv6e9",
-    "pegasus": "https://amzn.to/3UNnK42",
-    "endorphin-speed": "https://amzn.to/3ULp8eD",
-    "nike-racing": "https://amzn.to/3ULp8eD",
-    "garmin": "https://amzn.to/3UPs9f4",
-    "corospace3": "https://amzn.to/3UKj9s2",
-    "apple-watch": "https://amzn.to/3UHh8s7",
-    "shokz": "https://amzn.to/3UNnK42",
-    "jabra": "https://amzn.to/3UJm8f9",
-    "beats-fit": "https://amzn.to/3UNnK42", // Enlace de afiliado mapeado
-    "theragun": "https://amzn.to/3ULi8D8",
-    "foam-roller": "https://amzn.to/3ULk8d9",
-    "presoterapia": "https://amzn.to/3ULi8D8", // Enlace de presoterapia
-    "ua-leggings": "https://amzn.to/3UHm9df",
-    "nike-shorts": "https://amzn.to/3UHmK8D"
-  };
-
-  document.querySelectorAll('[data-affiliate]').forEach(boton => {
-    const attrId = boton.getAttribute('data-affiliate');
+// Vincula dinámicamente los enlaces estáticos y los links de texto sutiles
+function inyectarEnlacesReales() {
+  const enlaces = document.getElementById('modal-content-area').querySelectorAll('a[data-affiliate]');
+  enlaces.forEach(enlace => {
+    const attrId = enlace.getAttribute('data-affiliate');
     if (linksAfiliados[attrId]) {
-      boton.setAttribute('href', linksAfiliados[attrId]);
+      enlace.setAttribute('href', linksAfiliados[attrId]);
     }
   });
 }
@@ -1718,20 +1537,35 @@ function crearToast(mensaje) {
   toast.style.gap = '10px';
   toast.style.animation = 'slideIn 0.3s ease forwards';
   
-  // Icono estético
-  toast.innerHTML = `<span style="color:#b7b08a;">⚡</span> ${mensaje}`;
+  // Icono estético de verificación
+  toast.innerHTML = `
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>${mensaje}</span>
+  `;
   
   wrapper.appendChild(toast);
   
-  // Borrar de forma automatizada
+  // Autoeliminar el toast tras 4 segundos
   setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
-      wrapper.removeChild(toast);
-    }, 500);
+    toast.style.animation = 'slideOut 0.3s ease forwards';
+    setTimeout(() => { toast.remove(); }, 300);
   }, 4000);
 }
 </script>
+
+<style>
+/* Animaciones clave para el Toast inyectado */
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideOut {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(20px); opacity: 0; }
+}
+</style>
+
 </body>
 </html>
