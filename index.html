@@ -530,12 +530,13 @@ section{
   border: 1px solid var(--line);
   border-radius: 12px;
   width: 100%;
-  height: 140px;
+  height: 150px;
   overflow: hidden;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .product-image-container img {
@@ -547,6 +548,28 @@ section{
 
 .product-image-container img:hover {
   transform: scale(1.05);
+}
+
+/* Etiqueta superpuesta que indica el producto exacto con estética cibernética */
+.product-image-overlay {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--line);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-align: center;
+  pointer-events: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .affiliate-card h5 {
@@ -1176,6 +1199,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
           </div>
           <h5>Puma Deviate Nitro 3</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar en Puma</a>
@@ -1183,6 +1207,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Nike Pegasus 42]</div>
           </div>
           <h5>Nike Pegasus 42</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="pegasus">Comprar en Nike</a>
@@ -1190,6 +1215,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Saucony Endorphin Speed 4]</div>
           </div>
           <h5>Saucony Endorphin Speed 4</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="endorphin-speed">Comprar en Saucony</a>
@@ -1257,6 +1283,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
           </div>
           <h5>Puma Deviate Nitro 3</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma</a>
@@ -1264,6 +1291,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Nike ZoomX]</div>
           </div>
           <h5>Nike Competición ZoomX</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-racing">Explorar en Nike</a>
@@ -1337,6 +1365,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Garmin Fenix 8]</div>
           </div>
           <h5>Garmin Fenix 8</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin">Comprar en Garmin</a>
@@ -1344,6 +1373,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Coros Pace 3]</div>
           </div>
           <h5>Coros Pace 3</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="corospace3">Comprar en Coros</a>
@@ -1351,6 +1381,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Apple Watch Ultra 2]</div>
           </div>
           <h5>Apple Watch Ultra 2</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="apple-watch">Comprar Apple Watch</a>
@@ -1422,6 +1453,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Shokz OpenRun Pro]</div>
           </div>
           <h5>Shokz OpenRun Pro</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="shokz">Comprar Shokz</a>
@@ -1429,6 +1461,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Jabra Elite 8 Active]</div>
           </div>
           <h5>Jabra Elite 8 Active</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="jabra">Comprar Jabra</a>
@@ -1436,6 +1469,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Beats Fit Pro]</div>
           </div>
           <h5>Beats Fit Pro</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="beats-fit">Comprar Beats</a>
@@ -1507,6 +1541,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1623912867838-8c17dfda829c?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Theragun Prime]</div>
           </div>
           <h5>Theragun Prime</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="theragun">Comprar Theragun</a>
@@ -1514,6 +1549,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1600880292089-90a7e086f0c0?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Foam Roller]</div>
           </div>
           <h5>Foam Roller Premium</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="foam-roller">Comprar Foam Roller</a>
@@ -1521,6 +1557,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1519828785038-0c7f8eac36ad?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Botas de Presoterapia]</div>
           </div>
           <h5>Botas de Presoterapia Therabody</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="presoterapia">Comprar Botas de Presoterapia</a>
@@ -1584,6 +1621,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de UA HeatGear Leggings]</div>
           </div>
           <h5>UA HeatGear Leggings</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="ua-leggings">Comprar Under Armour</a>
@@ -1591,6 +1629,7 @@ const articulosEquipamiento = {
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Nike Trail 2-in-1]</div>
           </div>
           <h5>Nike Trail 2-in-1 Shorts</h5>
           <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-shorts">Comprar Nike Trail</a>
