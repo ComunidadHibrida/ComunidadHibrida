@@ -1,1193 +1,373 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hybrid Infinity</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-  --bg:#050505;
-  --surface:#0f0f0f;
-  --card:#141414;
-  --text:#f4f1ea;
-  --muted:#9f9f9f;
-  --accent:#b7b08a;
-  --line:rgba(255,255,255,.07);
-  --radius:32px;
-  --max:1280px;
-  --transition:.35s ease;
-}
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-  line-height:1.6;
-}
-
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:
-  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.82)),
-  url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2000&auto=format&fit=crop') center/cover;
-  z-index:-2;
-}
-
-body::after{
-  content:'';
-  position:fixed;
-  inset:0;
-  backdrop-filter:blur(2px);
-  z-index:-1;
-}
-
-.container{
-  width:100%;
-  max-width:var(--max);
-  margin:auto;
-  padding:0 28px;
-}
-
-img{
-  width:100%;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  z-index:1000;
-  backdrop-filter:blur(20px);
-  background:rgba(0,0,0,.45);
-  border-bottom:1px solid var(--line);
-}
-
-.nav-wrapper{
-  height:88px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  font-family:'Space Grotesk',sans-serif;
-  font-weight:700;
-}
-
-.logo img{
-  width:44px;
-  height:44px;
-  object-fit:contain;
-}
-
-.nav-links{
-  display:flex;
-  gap:34px;
-}
-
-.nav-links a{
-  color:var(--muted);
-  transition:var(--transition);
-}
-
-.nav-links a:hover{
-  color:white;
-}
-
-.btn{
-  padding:15px 24px;
-  border-radius:999px;
-  font-weight:600;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  transition:var(--transition);
-  cursor:pointer;
-  border:none;
-  outline:none;
-}
-
-.btn-primary{
-  background:var(--accent);
-  color:black;
-}
-
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 20px rgba(183, 176, 138, 0.15);
-}
-
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  position:relative;
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at center, transparent 0%, rgba(0,0,0,.55) 70%);
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-}
-
-.eyebrow{
-  display:inline-flex;
-  padding:10px 18px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
-  margin-bottom:28px;
-  color:#d6d0ba;
-}
-
-h1{
-  font-family:'Space Grotesk',sans-serif;
-  font-size:clamp(4rem,9vw,8rem);
-  line-height:.9;
-  letter-spacing:-6px;
-  margin-bottom:28px;
-}
-
-.hero p{
-  max-width:680px;
-  color:#c8c8c8;
-  font-size:1.2rem;
-  margin-bottom:40px;
-}
-
-.hero-actions{
-  display:flex;
-  gap:16px;
-  flex-wrap:wrap;
-}
-
-.hero-symbol{
-  position:absolute;
-  right:-100px;
-  bottom:-100px;
-  width:650px;
-  opacity:.06;
-  pointer-events:none;
-}
-
-section{
-  padding:120px 0;
-  position:relative;
-}
-
-.section-header{
-  max-width:760px;
-  margin-bottom:60px;
-}
-
-.section-header span{
-  color:var(--accent);
-  text-transform:uppercase;
-  font-size:.8rem;
-  letter-spacing:2px;
-  font-weight:700;
-}
-
-.section-header h2{
-  font-size:clamp(2.6rem,5vw,5rem);
-  line-height:.95;
-  margin:18px 0;
-  letter-spacing:-3px;
-  font-family:'Space Grotesk',sans-serif;
-}
-
-.section-header p{
-  color:var(--muted);
-  font-size:1.08rem;
-}
-
-.feature-layout{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:50px;
-  align-items:center;
-}
-
-.feature-image{
-  border-radius:var(--radius);
-  overflow:hidden;
-  min-height:620px;
-  position:relative;
-}
-
-.feature-image img{
-  height:100%;
-  object-fit:cover;
-}
-
-.feature-card{
-  background:rgba(15,15,15,.9);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:42px;
-  backdrop-filter:blur(12px);
-}
-
-.feature-list{
-  display:flex;
-  flex-direction:column;
-  gap:24px;
-  margin-top:30px;
-}
-
-.feature-item{
-  border-bottom:1px solid var(--line);
-  padding-bottom:22px;
-}
-
-.feature-item:last-child{
-  border:none;
-}
-
-.feature-item h3{
-  font-size:1.4rem;
-  margin-bottom:8px;
-  font-family:'Space Grotesk',sans-serif;
-}
-
-.feature-item p{
-  color:var(--muted);
-}
-
-.editorial-section{
-  min-height:90vh;
-  display:flex;
-  align-items:center;
-  background:
-  linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
-  url('https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
-}
-
-.editorial-box{
-  max-width:760px;
-}
-
-.editorial-box h2{
-  font-size:clamp(3rem,6vw,6rem);
-  line-height:.95;
-  letter-spacing:-4px;
-  margin-bottom:26px;
-  font-family:'Space Grotesk',sans-serif;
-}
-
-.editorial-box p{
-  color:#d1d1d1;
-  font-size:1.15rem;
-}
-
-.review-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.review-card{
-  background:rgba(15,15,15,.9);
-  border:1px solid var(--line);
-  border-radius:28px;
-  overflow:hidden;
-  transition:var(--transition);
-}
-
-.review-card:hover{
-  transform:translateY(-8px);
-}
-
-.review-card img{
-  height:260px;
-  object-fit:cover;
-}
-
-.review-content{
-  padding:28px;
-}
-
-.review-content span{
-  color:var(--accent);
-  font-size:.82rem;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  font-weight:700;
-}
-
-.review-content h3{
-  font-size:1.7rem;
-  margin:14px 0;
-  font-family:'Space Grotesk',sans-serif;
-}
-
-.review-content p{
-  color:var(--muted);
-  margin-bottom:24px;
-}
-
-/* MODAL DE ARTÍCULOS INTERACTIVO */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition);
-  padding: 20px;
-}
-
-.modal-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.modal-card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  max-width: 800px;
-  width: 100%;
-  max-height: 85vh;
-  overflow-y: auto;
-  padding: 48px;
-  position: relative;
-  transform: translateY(30px);
-  transition: transform var(--transition);
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-}
-
-.modal-overlay.active .modal-card {
-  transform: translateY(0);
-}
-
-.close-modal {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--line);
-  color: var(--text);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: var(--transition);
-}
-
-.close-modal:hover {
-  background: rgba(255,255,255,0.15);
-}
-
-.article-header {
-  margin-bottom: 30px;
-}
-
-.article-header span {
-  color: var(--accent);
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
-  font-weight: 700;
-}
-
-.article-header h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-  margin-top: 10px;
-}
-
-.article-body {
-  color: #cbd5e1;
-  font-size: 1.05rem;
-}
-
-.article-body p {
-  margin-bottom: 24px;
-}
-
-.article-body h4 {
-  font-family: 'Space Grotesk', sans-serif;
-  color: var(--text);
-  font-size: 1.4rem;
-  margin-top: 36px;
-  margin-bottom: 16px;
-}
-
-/* Tablas técnicas */
-.comp-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
-  font-size: 0.95rem;
-}
-
-.comp-table th {
-  background: var(--card);
-  text-align: left;
-  padding: 14px 18px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  border-bottom: 1.5px solid var(--line);
-}
-
-.comp-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--line);
-}
-
-.comp-table tr:hover td {
-  background: rgba(255,255,255,0.01);
-}
-
-.quote-box {
-  background: rgba(183, 176, 138, 0.05);
-  border-left: 3px solid var(--accent);
-  padding: 24px;
-  border-radius: 0 16px 16px 0;
-  margin: 32px 0;
-  font-style: italic;
-}
-
-.newsletter{
-  padding:100px 60px;
-  text-align:center;
-  border-radius:40px;
-  background:linear-gradient(135deg, rgba(20,20,20,.95), rgba(8,8,8,.95));
-  border:1px solid var(--line);
-}
-
-.newsletter h2{
-  font-size:clamp(3rem,6vw,5rem);
-  line-height:.95;
-  margin-bottom:24px;
-  font-family:'Space Grotesk',sans-serif;
-}
-
-.newsletter p{
-  max-width:700px;
-  margin:auto;
-  color:var(--muted);
-  margin-bottom:34px;
-}
-
-.newsletter-form{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
-
-.newsletter-form input{
-  width:360px;
-  max-width:100%;
-  padding:18px 20px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#101010;
-  color:white;
-}
-
-footer{
-  padding:70px 0;
-  border-top:1px solid var(--line);
-}
-
-.footer-wrapper{
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-.footer-wrapper p{
-  color:var(--muted);
-}
-
-@media(max-width:980px){
-
-  .feature-layout,
-  .review-grid{
-    grid-template-columns:1fr;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  h1{
-    letter-spacing:-3px;
-  }
-
-  .hero-symbol{
-    width:400px;
-  }
-
-  .newsletter{
-    padding:60px 28px;
-  }
-
-  .modal-card {
-    padding: 28px;
-  }
-
-}
-
-</style>
-</head>
-<body>
-
-<nav>
-  <div class="container nav-wrapper">
-
-    <div class="logo">
-      <img src="IMG_2073.png" alt="logo" style="filter:brightness(1.2);">
-      <span>HYBRID INFINITY</span>
-    </div>
-
-    <div class="nav-links">
-      <a href="#training">Entrenamiento</a>
-      <a href="#nutrition">Nutrición</a>
-      <a href="#gear">Equipamiento</a>
-      <a href="#community">Comunidad</a>
-    </div>
-
-    <button class="btn btn-primary" onclick="scrollHacia('#community')">Unirme</button>
-
-  </div>
-</nav>
-
-<section class="hero">
-
-  <div class="hero-overlay"></div>
-
-  <img class="hero-symbol" src="IMG_2073.png" alt="symbol">
-
-  <div class="container hero-content">
-
-    <div class="eyebrow">
-      Fuerza • Running • HYROX • Rendimiento
-    </div>
-
-    <h1>
-      Entrena sin límites.
-      Vive híbrido.
-    </h1>
-
-    <p>
-      La comunidad para personas que quieren verse fuertes, correr rápido y desarrollar un rendimiento real sin caer en extremos fitness.
-    </p>
-
-    <div class="hero-actions">
-      <button class="btn btn-primary" onclick="scrollHacia('#community')">Entrar en la comunidad</button>
-      <button class="btn" style="border:1px solid var(--line);" onclick="scrollHacia('#gear')">Explorar guías</button>
-    </div>
-
-  </div>
-
-</section>
-
-<section id="training">
-  <div class="container">
-
-    <div class="section-header">
-      <span>Entrenamiento híbrido</span>
-      <h2>Fuerza, resistencia y rendimiento real</h2>
-      <p>
-        Sistemas híbridos diseñados para personas que quieren desarrollar músculo, correr más rápido y mejorar su capacidad física sin destruir su recuperación.
-      </p>
-    </div>
-
-    <div class="feature-layout">
-
-      <div class="feature-card">
-
-        <div class="feature-list">
-
-          <div class="feature-item">
-            <h3>Hipertrofia + running</h3>
-            <p>
-              Cómo desarrollar músculo sin perder velocidad ni resistencia.
-            </p>
-          </div>
-
-          <div class="feature-item">
-            <h3>Preparación HYROX</h3>
-            <p>
-              Estrategias reales para competir mejor y recuperarte más rápido.
-            </p>
-          </div>
-
-          <div class="feature-item">
-            <h3>Zona 2 y recuperación</h3>
-            <p>
-              Aprende a usar el cardio para mejorar rendimiento y recuperación.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="feature-image">
-        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1600&auto=format&fit=crop" alt="[Entrenamiento de Fuerza Híbrido]">
-      </div>
-
-    </div>
-
-    <div class="review-grid" style="margin-top:50px;">
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1517963879433-6ad2b056d712?q=80&w=1200&auto=format&fit=crop" alt="[Atleta Corriendo]">
-
-        <div class="review-content">
-          <span>Entrenamiento</span>
-          <h3>Cómo correr sin perder músculo</h3>
-          <p>
-            El sistema híbrido que utilizan atletas de alto rendimiento para combinar fuerza y resistencia.
-          </p>
-          <a class="btn btn-primary" href="#gear">Leer artículo</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1200&auto=format&fit=crop" alt="[Entrenamiento HIIT]">
-
-        <div class="review-content">
-          <span>HYROX</span>
-          <h3>La rutina híbrida perfecta de 5 días</h3>
-          <p>
-            Cómo estructurar fuerza, running y recuperación durante la semana.
-          </p>
-          <a class="btn btn-primary" href="#gear">Ver rutina</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=1200&auto=format&fit=crop" alt="[Rendimiento de Corredor]">
-
-        <div class="review-content">
-          <span>Rendimiento</span>
-          <h3>Por qué entrenas mucho y mejoras poco</h3>
-          <p>
-            El error que está destruyendo el progreso de miles de atletas híbridos.
-          </p>
-          <a class="btn btn-primary" href="#gear">Leer análisis</a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="editorial-section">
-  <div class="container">
-
-    <div class="editorial-box">
-      <h2>
-        La mayoría entrena más.
-        Los híbridos entrenan mejor.
-      </h2>
-
-      <p>
-        Menos ruido fitness.
-        Menos extremos.
-        Más rendimiento sostenible.
-        Más fuerza.
-        Más resistencia.
-        Más energía.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section id="nutrition">
-  <div class="container">
-
-    <div class="section-header">
-      <span>Nutrición</span>
-      <h2>Come para recuperarte, rendir y verte mejor</h2>
-      <p>
-        Nutrición híbrida para personas que entrenan fuerte varias veces por semana y quieren energía real.
-      </p>
-    </div>
-
-    <div class="feature-layout">
-
-      <div class="feature-image">
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1600&auto=format&fit=crop" alt="[Comida Real Saludable]">
-      </div>
-
-      <div class="feature-card">
-
-        <div class="feature-list">
-
-          <div class="feature-item">
-            <h3>Nutrición para rendimiento</h3>
-            <p>
-              Aprende a tener energía estable y recuperarte más rápido.
-            </p>
-          </div>
-
-          <div class="feature-item">
-            <h3>Proteína y composición corporal</h3>
-            <p>
-              Cómo ganar músculo y perder grasa sin dietas extremas.
-            </p>
-          </div>
-
-          <div class="feature-item">
-            <h3>Suplementación útil</h3>
-            <p>
-              Qué suplementos merecen realmente la pena para híbridos.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="review-grid" style="margin-top:50px;">
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop" alt="[Ensalada de Atleta]">
-
-        <div class="review-content">
-          <span>Nutrición</span>
-          <h3>Qué comer antes y después de entrenar</h3>
-          <p>
-            La guía definitiva para mejorar rendimiento y recuperación.
-          </p>
-          <a class="btn btn-primary" href="#gear">Leer guía</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=1200&auto=format&fit=crop" alt="[Proteína y Suplementos]">
-
-        <div class="review-content">
-          <span>Suplementación</span>
-          <h3>Los únicos suplementos que sí funcionan</h3>
-          <p>
-            Creatina, proteína, cafeína y lo que realmente merece tu dinero.
-          </p>
-          <a class="btn btn-primary" href="#gear">Ver análisis</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=1200&auto=format&fit=crop" alt="[Frutas e Hidratación]">
-
-        <div class="review-content">
-          <span>Recuperación</span>
-          <h3>Por qué siempre estás cansado</h3>
-          <p>
-            Los errores nutricionales que destruyen tu energía y rendimiento.
-          </p>
-          <a class="btn btn-primary" href="#gear">Leer artículo</a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+<!-- ========================= -->
+<!-- HYBRID INFINITY - GEAR -->
+<!-- ========================= -->
 
 <section id="gear">
   <div class="container">
 
     <div class="section-header">
       <span>Equipamiento</span>
-      <h2>El mejor material para atletas híbridos</h2>
-      <p>
-        Reviews honestas y comparativas reales para ayudarte a elegir mejor y evitar gastar dinero inútilmente.
-      </p>
-    </div>
-
-    <div class="review-grid">
-
-      <!-- ARTÍCULO 1: MEJORES ZAPATILLAS PARA HYROX -->
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200&auto=format&fit=crop" alt="[Zapatillas Rojas Deportivas]">
-
-        <div class="review-content">
-          <span>Zapatillas</span>
-          <h3>Las mejores zapatillas para HYROX</h3>
-          <p>
-            Comparativa completa entre Nike, Puma y Adidas analizada bajo cada una de las 8 estaciones.
-          </p>
-          <button class="btn btn-primary" onclick="abrirArticulo('hyrox-shoes')">Ver comparativa</button>
-        </div>
-      </div>
-
-      <!-- ARTÍCULO 2: NIKE VS PUMA DEVIATE NITRO -->
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="[Zapatillas en Pista de Atletismo]">
-
-        <div class="review-content">
-          <span>Análisis frente a frente</span>
-          <h3>Nike vs Puma Deviate Nitro para híbridos</h3>
-          <p>
-            Placa de carbono y espumas supercríticas: ¿cuál gestiona mejor a atletas de fuerza y peso pesado?
-          </p>
-          <button class="btn btn-primary" onclick="abrirArticulo('nike-vs-puma')">Leer review</button>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Smartwatch de Alta Gama]">
-
-        <div class="review-content">
-          <span>Tecnología</span>
-          <h3>El smartwatch ideal para híbridos</h3>
-          <p>
-            Garmin, Coros o Apple Watch: cuál merece realmente la pena.
-          </p>
-          <a class="btn btn-primary" href="#gear" onclick="crearToast('Próximamente disponible en la comunidad')">Ver análisis</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?q=80&w=1200&auto=format&fit=crop" alt="[Auriculares Deportivos]">
-
-        <div class="review-content">
-          <span>Audio</span>
-          <h3>Los mejores auriculares deportivos</h3>
-          <p>
-            Qué auriculares aguantan sudor, impacto y sesiones largas.
-          </p>
-          <a class="btn btn-primary" href="#gear" onclick="crearToast('Próximamente disponible en la comunidad')">Ver comparativa</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1518611012118-fb8f5e5c4be9?q=80&w=1200&auto=format&fit=crop" alt="[Pistola de Masaje]">
-
-        <div class="review-content">
-          <span>Recuperación</span>
-          <h3>Los mejores gadgets de recuperación</h3>
-          <p>
-            Pistolas de masaje, foam rollers y herramientas para recuperarte mejor.
-          </p>
-          <a class="btn btn-primary" href="#gear" onclick="crearToast('Próximamente disponible en la comunidad')">Leer análisis</a>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Atleta con Ropa Deportiva]">
-
-        <div class="review-content">
-          <span>Ropa técnica</span>
-          <h3>La ropa perfecta para entrenar híbrido</h3>
-          <p>
-            Las mejores camisetas, shorts y layers para fuerza y running.
-          </p>
-          <a class="btn btn-primary" href="#gear" onclick="crearToast('Próximamente disponible en la comunidad')">Ver guía</a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="community">
-  <div class="container">
-
-    <div class="newsletter">
 
       <h2>
-        No eres runner.
-        No eres powerlifter.
-        Eres híbrido.
+        El mejor material para atletas híbridos
       </h2>
 
       <p>
-        Únete a miles de atletas híbridos y recibe entrenamientos, estrategias, reviews y herramientas para desarrollar un rendimiento real.
+        Reviews honestas, comparativas reales y productos
+        que sí mejoran rendimiento, recuperación y experiencia
+        de entrenamiento.
       </p>
+    </div>
 
-      <form class="newsletter-form" onsubmit="event.preventDefault(); crearToast('¡Unido con éxito a la lista de Hybrid Infinity!');">
-        <input type="email" placeholder="Tu email" required>
-        <button class="btn btn-primary" type="submit">Unirme gratis</button>
-      </form>
+    <!-- FEATURED REVIEW -->
+
+    <div class="review-card featured-review">
+
+      <img
+        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600&auto=format&fit=crop"
+        alt="hyrox shoes"
+      >
+
+      <div class="review-content">
+
+        <span>Zapatillas HYROX</span>
+
+        <h3>
+          Las mejores zapatillas para HYROX en 2025
+        </h3>
+
+        <p>
+          HYROX exige algo muy distinto al running tradicional.
+          No necesitas únicamente amortiguación o velocidad.
+          Necesitas una zapatilla capaz de responder bien en:
+        </p>
+
+        <ul class="review-list">
+          <li>✔ Running rápido</li>
+          <li>✔ Lunges</li>
+          <li>✔ Sled push y sled pull</li>
+          <li>✔ Burpees</li>
+          <li>✔ Cambios constantes de ritmo</li>
+          <li>✔ Impacto y fatiga acumulada</li>
+        </ul>
+
+        <p>
+          Después de analizar decenas de modelos, estas son las
+          zapatillas que mejor equilibrio ofrecen entre:
+          estabilidad, velocidad, comodidad y rendimiento híbrido.
+        </p>
+
+        <!-- SHOE 1 -->
+
+        <div class="shoe-block">
+
+          <div class="top-pick">
+            🏆 Nuestra elección para la mayoría de atletas híbridos
+          </div>
+
+          <h4>
+            Puma Deviate Nitro Elite
+          </h4>
+
+          <span class="gear-tag">
+            Ideal para atletas HYROX competitivos
+          </span>
+
+          <p>
+            Actualmente es una de las zapatillas más populares dentro
+            del entorno HYROX por una razón muy simple:
+            ofrece un equilibrio brutal entre velocidad, ligereza
+            y estabilidad.
+          </p>
+
+          <p>
+            Responde increíblemente bien en carrera,
+            pero también mantiene suficiente firmeza para
+            ejercicios funcionales y transiciones rápidas.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Ver precio
+          </a>
+
+        </div>
+
+        <!-- SHOE 2 -->
+
+        <div class="shoe-block">
+
+          <h4>
+            Nike Metcon 9
+          </h4>
+
+          <span class="gear-tag">
+            Ideal para atletas orientados a fuerza
+          </span>
+
+          <p>
+            La Metcon sigue siendo una referencia absoluta
+            para entrenamientos funcionales y fuerza híbrida.
+          </p>
+
+          <p>
+            Tiene muchísima estabilidad,
+            agarre excelente y una sensación sólida
+            especialmente útil en sled push,
+            lunges y ejercicios explosivos.
+          </p>
+
+          <p>
+            Su punto débil es el running largo,
+            aunque para atletas que priorizan fuerza
+            sigue siendo una opción espectacular.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Ver precio
+          </a>
+
+        </div>
+
+        <!-- SHOE 3 -->
+
+        <div class="shoe-block">
+
+          <h4>
+            Adidas Adizero SL
+          </h4>
+
+          <span class="gear-tag">
+            Ideal para híbridos equilibrados
+          </span>
+
+          <p>
+            Una opción extremadamente interesante
+            para atletas híbridos que quieren una sensación
+            más ligera y dinámica sin perder demasiada estabilidad.
+          </p>
+
+          <p>
+            Tiene muy buena transición en carrera,
+            excelente comodidad y suficiente firmeza
+            para entrenamientos funcionales moderados.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Ver precio
+          </a>
+
+        </div>
+
+        <!-- CTA -->
+
+        <div style="margin-top:40px;">
+
+          <a class="btn btn-primary">
+            Leer comparativa completa
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MORE REVIEWS -->
+
+    <div class="review-grid" style="margin-top:50px;">
+
+      <!-- WATCH -->
+
+      <div class="review-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop"
+          alt="watch"
+        >
+
+        <div class="review-content">
+
+          <span>Tecnología</span>
+
+          <h3>
+            Garmin vs COROS para híbridos
+          </h3>
+
+          <p>
+            Qué reloj merece realmente la pena
+            para controlar recuperación,
+            carga de entrenamiento y rendimiento.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Ver análisis
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CREATINE -->
+
+      <div class="review-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+          alt="creatine"
+        >
+
+        <div class="review-content">
+
+          <span>Suplementación</span>
+
+          <h3>
+            La verdad sobre la creatina
+          </h3>
+
+          <p>
+            Qué creatina comprar,
+            cuánto tomar
+            y qué marcas evitar.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Leer review
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RECOVERY -->
+
+      <div class="review-card">
+
+        <img
+          src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?q=80&w=1200&auto=format&fit=crop"
+          alt="recovery"
+        >
+
+        <div class="review-content">
+
+          <span>Recuperación</span>
+
+          <h3>
+            Los mejores gadgets de recuperación
+          </h3>
+
+          <p>
+            Pistolas de masaje,
+            foam rollers y herramientas
+            que sí merecen la pena.
+          </p>
+
+          <a
+            href="TU_ENLACE_AFILIADO_AQUI"
+            class="affiliate-btn"
+            target="_blank"
+          >
+            Ver comparativa
+          </a>
+
+        </div>
+
+      </div>
 
     </div>
 
   </div>
 </section>
 
-<footer>
-  <div class="container footer-wrapper">
+<!-- ========================= -->
+<!-- CSS EXTRA -->
+<!-- ========================= -->
 
-    <div class="logo">
-      <img src="IMG_2073.png" alt="logo">
-      <span>HYBRID INFINITY</span>
-    </div>
+<style>
 
-    <p>
-      Fuerza. Resistencia. Rendimiento.
-    </p>
-
-  </div>
-</footer>
-
-<!-- MODAL DE VISUALIZACIÓN DE ARTÍCULOS DETALLADOS -->
-<div class="modal-overlay" id="article-modal">
-  <div class="modal-card">
-    <button class="close-modal" onclick="cerrarArticulo()">✕</button>
-    <div id="modal-content-area">
-      <!-- El contenido del artículo interactivo se cargará de forma dinámica -->
-    </div>
-  </div>
-</div>
-
-<!-- COMPONENTE NOTIFICACIONES TOAST -->
-<div id="toast-wrapper" style="position:fixed; bottom:24px; right:24px; z-index:9999;"></div>
-
-<script>
-// Desplazamiento fluido
-function scrollHacia(selector) {
-  document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
+.featured-review{
+  margin-top:30px;
+  overflow:hidden;
 }
 
-// Repositorio de Artículos Desarrollados científicamente
-const articulosEquipamiento = {
-  // ARTÍCULO 1: LAS MEJORES ZAPATILLAS PARA HYROX
-  "hyrox-shoes": `
-    <div class="article-header">
-      <span>Equipamiento / Análisis de Laboratorio</span>
-      <h2>Las mejores zapatillas para HYROX: El veredicto biomecánico</h2>
-    </div>
-    <div class="article-body">
-      <p>Compensar las necesidades de una carrera continua ágil con la brutalidad del empuje de trineos y saltos verticales es el mayor rompecabezas del atleta de HYROX. Las zapatillas de running convencionales son demasiado inestables; el calzado de CrossFit es demasiado rígido y pesado para correr $8\\text{ km}$ a ritmos alegres.</p>
-      
-      <p>Para determinar cuál es el calzado óptimo, nuestro equipo ha analizado los modelos de referencia en las 8 estaciones clave de la competición.</p>
-      
-      <h4>La matriz de tracción y amortiguación en competición</h4>
-      
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Modelo</th>
-            <th>Estabilidad en Sleds ($1-10$)</th>
-            <th>Reactividad en Carrera ($1-10$)</th>
-            <th>Peso (Talla 42.5)</th>
-            <th>Perfil Recomendado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Puma Deviate Nitro 3</strong></td>
-            <td>9.0</td>
-            <td>9.5</td>
-            <td>250g</td>
-            <td>Atleta equilibrado / Velocidad</td>
-          </tr>
-          <tr>
-            <td><strong>Nike Pegasus 42</strong></td>
-            <td>8.0</td>
-            <td>8.2</td>
-            <td>280g</td>
-            <td>Entrenamiento diario / Confort</td>
-          </tr>
-          <tr>
-            <td><strong>Puma Velocity Nitro 3</strong></td>
-            <td>8.5</td>
-            <td>8.5</td>
-            <td>264g</td>
-            <td>Atleta que busca control / Principiante</td>
-          </tr>
-          <tr>
-            <td><strong>Saucony Endorphin Speed 4</strong></td>
-            <td>7.0</td>
-            <td>9.2</td>
-            <td>233g</td>
-            <td>Corredor ligero (Zancada ágil)</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>1. El factor tracción: El rey del trineo (Sled Push & Pull)</h4>
-      <p>La suela exterior **Pumagrip** presente en los modelos de Puma ha demostrado tener el coeficiente de fricción estática más elevado del mercado sobre el césped artificial húmedo y desgastado de los pabellones. Modelos como la <strong>Puma Deviate Nitro 3</strong> permiten traccionar sin que el talón colapse gracias a la rigidez de su placa interna de carbono.</p>
-
-      <h4>2. Amortiguación y fatiga muscular en carrera</h4>
-      <p>Correr $8\\text{ km}$ intercalados con fatiga central requiere una mediasuela protectora. La espuma supercrítica de Nike (ReactX en Pegasus 42) y de Puma (Nitro Elite) evitan que las articulaciones de la rodilla y el tobillo absorban un impacto excesivo tras las estaciones pesadas de *Sandbag Lunges*.</p>
-
-      <div class="quote-box">
-        "Nuestra recomendación científica: Si eres un atleta híbrido de más de $80\\text{ kg}$, tu mejor seguro biomecánico es la <strong>Puma Deviate Nitro 3</strong> gracias a su gran estabilidad lateral. Si pesas menos de $72\\text{ kg}$ y buscas arañar segundos al crono en carrera, la ligereza de la <strong>Saucony Endorphin Speed 4</strong> optimizará tu consumo de oxígeno."
-      </div>
-    </div>
-  `,
-
-  // ARTÍCULO 2: NIKE VS PUMA DEVIATE NITRO
-  "nike-vs-puma": `
-    <div class="article-header">
-      <span>Análisis de Laboratorio / Comparativa frente a frente</span>
-      <h2>Nike vs Puma Deviate Nitro para híbridos: ¿Cuál protege más tu músculo?</h2>
-    </div>
-    <div class="article-body">
-      <p>El mercado de las zapatillas de running está dominado por marcas enfocadas a corredores de menos de $65\\text{ kg}$ cuya única meta es la ligereza. Pero, ¿qué pasa cuando pesas más de $80\\text{ kg}$, levantas sentadillas pesadas el martes y tienes que rodar el jueves a $4:30\\text{ min/km}$? La compresión de las espumas supercríticas y la rigidez de la placa de carbono actúan de manera totalmente diferente en un atleta fuerte.</p>
-
-      <h4>Análisis de Densidades: ZoomX vs Nitro Elite</h4>
-      <p>La espuma ZoomX de Nike es extremadamente blanda y elástica. Aporta un rebote vertical sobresaliente, pero bajo una carga pesada superior a los $78\\text{ kg}$, tiende a deformarse de manera transversal de forma excesiva. Esto provoca que el tobillo pierda estabilidad lateral y el tendón de Aquiles deba estabilizar de manera forzada la pisada.</p>
-      
-      <p>Por otro lado, la espuma **Nitro Elite de Puma** es un compuesto de nitrógeno inyectado de densidad media-alta. Ofrece un soporte longitudinal mucho más rígido que resiste la compresión mecánica de atletas con masa muscular pesada sin colapsar.</p>
-
-      <table class="comp-table">
-        <thead>
-          <tr>
-            <th>Característica</th>
-            <th>Gama de Competición Nike</th>
-            <th>Puma Deviate Nitro 3</th>
-            <th>Veredicto Científico</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Estabilidad de la Placa</strong></td>
-            <td>Flexible (Diseño estrecho)</td>
-            <td>Rígida (Varillas adaptativas)</td>
-            <td><strong>Puma</strong> aporta mayor soporte en atletas de fuerza</td>
-          </tr>
-          <tr>
-            <td><strong>Durabilidad de Espuma</strong></td>
-            <td>Aprox. 350 km (ZoomX)</td>
-            <td>Aprox. 600 km (Nitro Elite)</td>
-            <td><strong>Puma</strong> envejece mejor bajo cargas pesadas</td>
-          </tr>
-          <tr>
-            <td><strong>Flexión en Giros</strong></td>
-            <td>Inestable en cambios de dirección</td>
-            <td>Excelente agarre lateral</td>
-            <td><strong>Puma</strong> es superior en estaciones funcionales</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h4>¿Cuándo elegir cada una?</h4>
-      <p>• <strong>Elige Nike (Pegasus / Vaporfly):</strong> Si tu peso corporal es contenido, tu pisada de mediopié es depurada y buscas el mayor rebote elástico en líneas rectas de asfalto plano.</p>
-      
-      <p>• <strong>Elige Puma Deviate Nitro 3:</strong> Si entrenas fuerza concurrente, pesas más de $78\\text{ kg}$, necesitas que la mediasuela aguante el impacto sin colapsar en los tramos de carrera cansado y valoras un agarre indestructible en giros y superficies de pabellón.</p>
-
-      <div class="quote-box">
-        "El atleta híbrido moderno necesita estabilidad longitudinal para contrarrestar la fatiga del sistema nervioso central post-gimnasio. En este sentido, Puma ha diseñado una mediasuela que se comporta de manera soberbia con masas musculares pesadas."
-      </div>
-    </div>
-  `
-};
-
-// Abrir e inyectar contenido del artículo
-function abrirArticulo(idArticulo) {
-  const modal = document.getElementById('article-modal');
-  const contentArea = document.getElementById('modal-content-area');
-  
-  if (articulosEquipamiento[idArticulo]) {
-    contentArea.innerHTML = articulosEquipamiento[idArticulo];
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
-    
-    // Forzar visualización correcta de LaTeX en el modal
-    if (window.MathJax) { MathJax.typesetPromise(); }
-  }
+.featured-review img{
+  height:500px;
+  object-fit:cover;
 }
 
-// Cerrar modal
-function cerrarArticulo() {
-  const modal = document.getElementById('article-modal');
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto'; // Restaurar scroll
+.review-list{
+  margin:28px 0;
+  padding-left:18px;
+  color:#d2d2d2;
 }
 
-// Cerrar al hacer clic fuera de la tarjeta
-document.getElementById('article-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    cerrarArticulo();
-  }
-});
-
-// Sistema de Notificaciones Toasts
-function crearToast(mensaje) {
-  const wrapper = document.getElementById('toast-wrapper');
-  
-  const toast = document.createElement('div');
-  toast.style.background = '#141414';
-  toast.style.color = '#f4f1ea';
-  toast.style.padding = '16px 24px';
-  toast.style.borderRadius = '16px';
-  toast.style.border = '1px solid var(--line)';
-  toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
-  toast.style.fontSize = '14px';
-  toast.style.fontWeight = '500';
-  toast.style.marginTop = '10px';
-  toast.style.display = 'flex';
-  toast.style.alignItems = 'center';
-  toast.style.gap = '10px';
-  toast.style.animation = 'slideIn 0.3s ease forwards';
-  
-  // Icono estético
-  toast.innerHTML = `<span style="color:#b7b08a;">⚡</span> ${mensaje}`;
-  
-  wrapper.appendChild(toast);
-  
-  // Borrar de forma automatizada
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
-      wrapper.removeChild(toast);
-    }, 500);
-  }, 4000);
+.review-list li{
+  margin-bottom:12px;
 }
-</script>
-</body>
-</html>
+
+.shoe-block{
+  margin-top:36px;
+  padding-top:28px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.shoe-block h4{
+  font-size:1.5rem;
+  margin-bottom:14px;
+  font-family:'Space Grotesk',sans-serif;
+}
+
+.top-pick{
+  display:inline-flex;
+  padding:10px 16px;
+  border-radius:999px;
+  background:#b7b08a;
+  color:black;
+  font-weight:700;
+  margin-bottom:22px;
+}
+
+.gear-tag{
+  display:inline-flex;
+  margin-bottom:18px;
+  color:#d4ccb0;
+  font-size:.9rem;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  font-weight:700;
+}
+
+.affiliate-btn{
+  display:inline-flex;
+  margin-top:18px;
+  padding:14px 20px;
+  border-radius:999px;
+  background:#b7b08a;
+  color:black;
+  font-weight:700;
+  transition:.3s ease;
+}
+
+.affiliate-btn:hover{
+  transform:translateY(-3px);
+}
+
+</style>
