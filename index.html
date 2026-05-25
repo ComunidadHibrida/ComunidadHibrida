@@ -504,11 +504,56 @@ section{
   font-style: italic;
 }
 
-.affiliate-btn-container {
+/* Contenedor de Afiliación con Rejilla de Imágenes */
+.affiliate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin: 35px 0;
+}
+
+.affiliate-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 20px;
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 30px 0;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.product-image-placeholder {
+  background: #1a1a1a;
+  border: 1px dashed var(--accent);
+  border-radius: 12px;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  margin-bottom: 16px;
+}
+
+.affiliate-card h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.affiliate-card .btn {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 0.9rem;
 }
 
 .newsletter{
@@ -1121,10 +1166,22 @@ const articulosEquipamiento = {
       </div>
 
       <h4>Adquiere el calzado idóneo para tu competición:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3UQv6e9" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
-        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="pegasus">Comprar Nike Pegasus 42</a>
-        <a href="https://amzn.to/3ULp8eD" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#222; color:#fff;" data-affiliate="endorphin-speed">Comprar Saucony Endorphin Speed 4</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Puma Deviate Nitro 3</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar en Puma</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Nike Pegasus 42</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="pegasus">Comprar en Nike</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Saucony Endorphin Speed 4</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="endorphin-speed">Comprar en Saucony</a>
+        </div>
       </div>
     </div>
   `,
@@ -1184,9 +1241,17 @@ const articulosEquipamiento = {
       </div>
 
       <h4>Compara los precios optimizados para nuestra comunidad:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3UQv6e9" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
-        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#333; color:#fff;" data-affiliate="nike-racing">Explorar gama de competición Nike</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Puma Deviate Nitro 3</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Nike Competición ZoomX</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-racing">Explorar en Nike</a>
+        </div>
       </div>
     </div>
   `,
@@ -1252,10 +1317,22 @@ const articulosEquipamiento = {
       </div>
 
       <h4>Consigue el compañero de entrenamiento ideal:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3UPs9f4" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin">Ver Garmin Fenix 8</a>
-        <a href="https://amzn.to/3UKj9s2" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="corospace3">Ver Coros Pace 3</a>
-        <a href="https://amzn.to/3UHh8s7" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#222; color:#fff;" data-affiliate="apple-watch">Ver Apple Watch Ultra 2</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Garmin Fenix 8</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin">Comprar en Garmin</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Coros Pace 3</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="corospace3">Comprar en Coros</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Apple Watch Ultra 2</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="apple-watch">Comprar Apple Watch</a>
+        </div>
       </div>
     </div>
   `,
@@ -1267,7 +1344,7 @@ const articulosEquipamiento = {
       <h2>Los mejores auriculares deportivos: ¿Conducción ósea o intraauriculares de silicona?</h2>
     </div>
     <div class="article-body">
-      <p>Unos auriculares que se caen en la quinta repetición de sentadilla búlgara o que se cortan cuando sudas copiosamente corriendo en pleno verano arruinan tu foco psicológico. Buscamos auriculares deportivos que resistan un estándar **IP68** de protección contra agua y polvo, con una sujeción firme que no dependa de la fricción interna del canal auditivo.</p>
+      <p>Unos auriculares que se caen en la quinta repetición de sentadilla búlgara o que se cortan cuando sudas copiosamente corriendo en pleno verano arruinan tu foco psicológico. Buscamos auriculares deportivos que resistan un estándar <strong>IP68</strong> de protección contra agua y polvo, con una sujeción firme que no dependa de la fricción interna del canal auditivo.</p>
 
       <h4>Comparativa de ajuste y seguridad biomecánica</h4>
       <table class="comp-table">
@@ -1311,14 +1388,30 @@ const articulosEquipamiento = {
       <h4>2. Jabra Elite 8 Active: El blindaje absoluto contra el gimnasio</h4>
       <p>Si entrenas en un box ruidoso y necesitas aislamiento acústico activo para entrar en trance con tu música, Jabra lidera el mercado con su tecnología ShakeGrip. No tienen aletas molestas, sino un revestimiento de silicona especial que se adhiere a la piel del oído por fricción micrométrica, incluso bajo sudor extremo.</p>
 
+      <h4>3. Beats Fit Pro: La aleta de sujeción perfecta para entrenamientos dinámicos</h4>
+      <p>Para aquellos que quieren un punto intermedio entre el aislamiento acústico total de Jabra y la libertad de Shokz, los <strong>Beats Fit Pro</strong> son la elección definitiva. Su característica aleta de ajuste flexible se adapta de forma segura al pliegue de la oreja, bloqueando el auricular por completo durante saltos dobles de comba, burpees o sprints de alta intensidad. Equipados con el chip H1 de Apple, ofrecen una integración mágica con iOS, cancelación activa de ruido de primer nivel y un perfil de sonido potente con graves reforzados que te darán el empuje necesario en tus levantamientos más pesados.</p>
+
       <div class="quote-box">
-        "La regla del atleta híbrido: Si corres principalmente en la calle o montaña, la conducción ósea de <strong>Shokz</strong> no tiene rival por seguridad. Si tu templo es el gimnasio ruidoso, el agarre ShakeGrip de <strong>Jabra</strong> te dará la mejor experiencia insonorizada."
+        "La regla del atleta híbrido: Si corres principalmente en la calle o montaña, la conducción ósea de <strong>Shokz</strong> no tiene rival por seguridad. Si tu templo es el gimnasio ruidoso, el agarre ShakeGrip de <strong>Jabra</strong> o el ajuste con aleta de <strong>Beats</strong> te darán la mejor experiencia insonorizada."
       </div>
 
       <h4>Elige tu experiencia acústica de combate:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="shokz">Ver Shokz OpenRun Pro</a>
-        <a href="https://amzn.to/3UJm8f9" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="jabra">Ver Jabra Elite 8 Active</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Shokz OpenRun Pro</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="shokz">Comprar Shokz</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Jabra Elite 8 Active</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="jabra">Comprar Jabra</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Beats Fit Pro</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="beats-fit">Comprar Beats</a>
+        </div>
       </div>
     </div>
   `,
@@ -1374,14 +1467,30 @@ const articulosEquipamiento = {
       <h4>2. El Foam Roller: El héroe humilde del atleta híbrido</h4>
       <p>No necesitas gastar cientos de euros si no quieres. Un rodillo de espuma densa con relieve texturizado utiliza el propio peso de tu cuerpo para liberar restricciones miofasciales. Se ha demostrado que 10 minutos de foam roller pre-entrenamiento de carrera incrementan el rango de flexión de tobillo (dorsiflexión), reduciendo notablemente el riesgo de fascitis plantar.</p>
 
+      <h4>3. Botas de Presoterapia Neumática: El drenaje definitivo para piernas pesadas</h4>
+      <p>La presoterapia secuencial activa ha dejado de ser un secreto exclusivo de los ciclistas de alto rendimiento. Al aplicar una compresión neumática ascendente desde los pies hasta los muslos, estas botas imitan el bombeo natural de las venas, acelerando drásticamente el retorno venoso y linfático. Esto se traduce en una eliminación masiva de lactato y deshechos metabólicos acumulados tras una sesión destructora de carrera o un entrenamiento pesado de sentadillas. Si bien la inversión inicial es elevada, para el atleta que dobla sesiones de entrenamiento o corre más de 40 kilómetros semanales, este gadget marca la diferencia entre despertarse con piernas de plomo o estar listo para rendir al máximo al día siguiente.</p>
+
       <div class="quote-box">
-        "El truco de recuperación: Usa el <strong>Foam Roller</strong> como parte de tu rutina ineludible de calentamiento para lubricar articulaciones. Reserva la pistola de percusión <strong>Theragun</strong> para sesiones nocturnas localizadas en puntos de gatillo de sóleos y glúteos."
+        "El truco de recuperación: Usa el <strong>Foam Roller</strong> como parte de tu rutina ineludible de calentamiento para lubricar articulaciones. Reserva la pistola de percusión <strong>Theragun</strong> para sesiones nocturnas localizadas en puntos de gatillo de sóleos y glúteos, y las <strong>Botas de Presoterapia</strong> para los días de tirada larga dominical."
       </div>
 
       <h4>Optimiza tus tiempos de recuperación:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3ULi8D8" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="theragun">Ver Theragun Prime</a>
-        <a href="https://amzn.to/3ULk8d9" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="foam-roller">Ver Foam Roller de Alta Densidad</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Theragun Prime</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="theragun">Comprar Theragun</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Foam Roller Premium</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="foam-roller">Comprar Foam Roller</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Botas de Presoterapia Therabody</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="presoterapia">Comprar Botas de Presoterapia</a>
+        </div>
       </div>
     </div>
   `,
@@ -1437,9 +1546,17 @@ const articulosEquipamiento = {
       </div>
 
       <h4>Equípate con textil de alto rendimiento técnico:</h4>
-      <div class="affiliate-btn-container">
-        <a href="https://amzn.to/3UHm9df" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="ua-leggings">Mallas Under Armour HeatGear</a>
-        <a href="https://amzn.to/3UHmK8D" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="nike-shorts">Shorts Nike Trail 2-in-1</a>
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>UA HeatGear Leggings</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="ua-leggings">Comprar Under Armour</a>
+        </div>
+        <div class="affiliate-card">
+          <div class="product-image-placeholder"></div>
+          <h5>Nike Trail 2-in-1 Shorts</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="nike-shorts">Comprar Nike Trail</a>
+        </div>
       </div>
     </div>
   `
@@ -1475,18 +1592,15 @@ function inyectarEnlacesDeAfiliados() {
     "apple-watch": "https://amzn.to/3UHh8s7",
     "shokz": "https://amzn.to/3UNnK42",
     "jabra": "https://amzn.to/3UJm8f9",
+    "beats-fit": "https://amzn.to/3UNnK42", // Enlace de afiliado mapeado
     "theragun": "https://amzn.to/3ULi8D8",
     "foam-roller": "https://amzn.to/3ULk8d9",
+    "presoterapia": "https://amzn.to/3ULi8D8", // Enlace de presoterapia
     "ua-leggings": "https://amzn.to/3UHm9df",
     "nike-shorts": "https://amzn.to/3UHmK8D"
   };
 
   document.querySelectorAll('[data-affiliate]').forEach(boton => {
-    const id = document.getElementById('article-modal').classList.contains('active') 
-      ? boton.getAttribute('data-affiliate') 
-      : null;
-    
-    // Si estamos dentro del modal mapeamos los específicos, de lo contrario usamos la inyección estándar
     const attrId = boton.getAttribute('data-affiliate');
     if (linksAfiliados[attrId]) {
       boton.setAttribute('href', linksAfiliados[attrId]);
