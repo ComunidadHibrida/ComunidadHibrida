@@ -38,7 +38,7 @@ body{
   background:var(--bg);
   color:var(--text);
   font-family:'Inter',sans-serif;
-  overflow-x:hidden;
+  overflow-x:hidden; /* Evita desbordamientos generales */
   line-height:1.6;
 }
 
@@ -155,6 +155,7 @@ nav{
   display:flex;
   align-items:center;
   position:relative;
+  overflow:hidden; /* Evita que el símbolo gigante rompa el scroll lateral */
 }
 
 .hero-overlay{
@@ -214,6 +215,7 @@ h1{
 section{
   padding:120px 0;
   position:relative;
+  overflow:hidden; /* Blindamos todas las secciones contra desbordamientos visuales */
 }
 
 .section-header{
@@ -602,19 +604,11 @@ footer{
   <div class="container nav-wrapper">
 
     <div class="logo">
-      <!-- LOGOTIPO VECTORIAL SVG EN LÍNEA: INFINITO CRUZADO DE FUERZA -->
+      <!-- LOGOTIPO VECTORIAL SVG EN LÍNEA: INFINITO PURO SIN VECTORES DE FUERZA -->
       <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(250, 250)">
-          <!-- Bucle Infinito -->
-          <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
-          <!-- Rayos de Intersección Cruzada (Fuerza) -->
-          <line x1="-120" y1="50" x2="20" y2="-90" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
-          <line x1="-20" y1="90" x2="120" y2="-50" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
-          <!-- Puntos de Conexión de Datos -->
-          <circle cx="20" cy="-90" r="10" fill="var(--accent)" />
-          <circle cx="-120" cy="50" r="10" fill="var(--accent)" />
-          <circle cx="120" cy="-50" r="10" fill="var(--accent)" />
-          <circle cx="-20" cy="90" r="10" fill="var(--accent)" />
+          <!-- Bucle Infinito Elegante -->
+          <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
         </g>
       </svg>
       <span>HYBRID INFINITY</span>
@@ -636,12 +630,10 @@ footer{
 
   <div class="hero-overlay"></div>
 
-  <!-- SÍMBOLO VECTORIAL GIGANTE EN SEGUNDO PLANO -->
+  <!-- SÍMBOLO VECTORIAL GIGANTE EN SEGUNDO PLANO (SÓLO EL INFINITO) -->
   <svg class="hero-symbol-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(250, 250)">
-      <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
-      <line x1="-120" y1="50" x2="20" y2="-90" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
-      <line x1="-20" y1="90" x2="120" y2="-50" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
+      <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
     </g>
   </svg>
 
@@ -920,6 +912,7 @@ footer{
         </div>
       </div>
 
+      <!-- ARTÍCULO 3: EL SMARTWATCH IDEAL PARA HÍBRIDOS -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Smartwatch de Alta Gama]">
 
@@ -927,12 +920,13 @@ footer{
           <span>Tecnología</span>
           <h3>El smartwatch ideal para híbridos</h3>
           <p>
-            Garmin, Coros o Apple Watch: cuál merece realmente la pena.
+            Análisis a fondo: Garmin Fenix 8 vs Coros Pace 3 vs Apple Watch Ultra 2.
           </p>
-          <button class="btn btn-primary" onclick="crearToast('Próximamente disponible en la comunidad')">Ver análisis</button>
+          <button class="btn btn-primary" onclick="abrirArticulo('smartwatch')">Ver análisis</button>
         </div>
       </div>
 
+      <!-- ARTÍCULO 4: LOS MEJORES AURICULARES DEPORTIVOS -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1518459031867-a89b944bffe4?q=80&w=1200&auto=format&fit=crop" alt="[Auriculares Deportivos]">
 
@@ -940,12 +934,13 @@ footer{
           <span>Audio</span>
           <h3>Los mejores auriculares deportivos</h3>
           <p>
-            Qué auriculares aguantan sudor, impacto y sesiones largas.
+            ¿Conducción ósea o intraauriculares? Analizamos sujeción y resistencia al sudor extremo.
           </p>
-          <button class="btn btn-primary" onclick="crearToast('Próximamente disponible en la comunidad')">Ver comparativa</button>
+          <button class="btn btn-primary" onclick="abrirArticulo('headphones')">Ver comparativa</button>
         </div>
       </div>
 
+      <!-- ARTÍCULO 5: LOS MEJORES GADGETS DE RECUPERACIÓN -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1518611012118-fb8f5e5c4be9?q=80&w=1200&auto=format&fit=crop" alt="[Pistola de Masaje]">
 
@@ -953,12 +948,13 @@ footer{
           <span>Recuperación</span>
           <h3>Los mejores gadgets de recuperación</h3>
           <p>
-            Pistolas de masaje, foam rollers y herramientas para recuperarte mejor.
+            Pistolas de percusión, foam rollers de alta densidad y presoterapia a examen científico.
           </p>
-          <button class="btn btn-primary" onclick="crearToast('Próximamente disponible en la comunidad')">Leer análisis</button>
+          <button class="btn btn-primary" onclick="abrirArticulo('recovery-gadgets')">Leer análisis</button>
         </div>
       </div>
 
+      <!-- ARTÍCULO 6: LA ROPA PERFECTA PARA ENTRENAR HÍBRIDO -->
       <div class="review-card">
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Atleta con Ropa Deportiva]">
 
@@ -966,9 +962,9 @@ footer{
           <span>Ropa técnica</span>
           <h3>La ropa perfecta para entrenar híbrido</h3>
           <p>
-            Las mejores camisetas, shorts y layers para fuerza y running.
+            Diseños versátiles para squats pesados y tiradas largas sin fricciones ni rozaduras.
           </p>
-          <button class="btn btn-primary" onclick="crearToast('Próximamente disponible en la comunidad')">Ver guía</button>
+          <button class="btn btn-primary" onclick="abrirArticulo('apparel')">Ver guía</button>
         </div>
       </div>
 
@@ -1009,8 +1005,6 @@ footer{
       <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px;">
         <g transform="translate(250, 250)">
           <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
-          <line x1="-120" y1="50" x2="20" y2="-90" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
-          <line x1="-20" y1="90" x2="120" y2="-50" stroke="var(--text)" stroke-width="18" stroke-linecap="round" />
         </g>
       </svg>
       <span>HYBRID INFINITY</span>
@@ -1128,9 +1122,9 @@ const articulosEquipamiento = {
 
       <h4>Adquiere el calzado idóneo para tu competición:</h4>
       <div class="affiliate-btn-container">
-        <a href="https://amzn.to/TU_AFILIADO_PUMA_DEVIATE" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
-        <a href="https://amzn.to/TU_AFILIADO_NIKE_PEGASUS" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="pegasus">Comprar Nike Pegasus 42</a>
-        <a href="https://amzn.to/TU_AFILIADO_SAUCONY_SPEED" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#222; color:#fff;" data-affiliate="endorphin-speed">Comprar Saucony Endorphin Speed 4</a>
+        <a href="https://amzn.to/3UQv6e9" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
+        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="pegasus">Comprar Nike Pegasus 42</a>
+        <a href="https://amzn.to/3ULp8eD" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#222; color:#fff;" data-affiliate="endorphin-speed">Comprar Saucony Endorphin Speed 4</a>
       </div>
     </div>
   `,
@@ -1191,8 +1185,261 @@ const articulosEquipamiento = {
 
       <h4>Compara los precios optimizados para nuestra comunidad:</h4>
       <div class="affiliate-btn-container">
-        <a href="https://amzn.to/TU_AFILIADO_PUMA_DEVIATE" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
-        <a href="https://amzn.to/TU_AFILIADO_NIKE_GAMA" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#333; color:#fff;" data-affiliate="nike-racing">Explorar gama de competición Nike</a>
+        <a href="https://amzn.to/3UQv6e9" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar Puma Deviate Nitro 3</a>
+        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#333; color:#fff;" data-affiliate="nike-racing">Explorar gama de competición Nike</a>
+      </div>
+    </div>
+  `,
+
+  // ARTÍCULO 3: EL SMARTWATCH IDEAL PARA HÍBRIDOS
+  "smartwatch": `
+    <div class="article-header">
+      <span>Hardware / Métricas de Fatiga y Navegación</span>
+      <h2>El smartwatch ideal para híbridos: Garmin Fenix 8 vs Coros Pace 3 vs Apple Watch Ultra 2</h2>
+    </div>
+    <div class="article-body">
+      <p>Para un corredor puro, el peso pluma y la cadencia lo son todo. Para un powerlifter, el cronómetro de descanso es suficiente. Pero un <strong>atleta híbrido</strong> somete su cuerpo a dos demandas extremas paralelas que confunden a los algoritmos ordinarios. Necesitamos un dispositivo que rastree de forma impecable la <strong>Variabilidad de la Frecuencia Cardíaca (VFC / HRV)</strong> para detectar el sobreentrenamiento, que aguante golpes de kettlebells y barra, y que tenga un GPS de precisión milimétrica bajo fatiga.</p>
+
+      <h4>Análisis comparativo de rendimiento</h4>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Métrica de Rendimiento</th>
+            <th>Garmin Fenix 8</th>
+            <th>Coros Pace 3</th>
+            <th>Apple Watch Ultra 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Precisión HRV de mañana</strong></td>
+            <td>Excelente (Algoritmo integrado)</td>
+            <td>Muy Buena (Precisa app)</td>
+            <td>Excelente (Usa Apple Health)</td>
+          </tr>
+          <tr>
+            <td><strong>Durabilidad de Batería</strong></td>
+            <td>Hasta 16 días</td>
+            <td>Hasta 17 días (Uso mixto)</td>
+            <td>36 - 72 horas</td>
+          </tr>
+          <tr>
+            <td><strong>Resistencia a Impactos</strong></td>
+            <td>Titanio y Zafiro militar</td>
+            <td>Policarbonato ultraligero</td>
+            <td>Titanio aeroespacial</td>
+          </tr>
+          <tr>
+            <td><strong>Monitoreo de Fuerza</strong></td>
+            <td>Avanzado (Conteo de reps)</td>
+            <td>Básico</td>
+            <td>Excelente con apps externas</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>1. Garmin Fenix 8: El tanque de datos indestructible</h4>
+      <p>Si el presupuesto no es un problema, el <strong>Garmin Fenix 8</strong> es el estándar de oro. Su sensor óptico Elevate mide la VFC durante la noche de forma milimétrica. Esto te permite saber si tus vías del sistema nervioso simpático están agotadas tras un entreno de pierna pesada, advirtiéndote si debes cancelar las series de carrera planificadas para ese día.</p>
+
+      <h4>2. Coros Pace 3: La relación calidad-precio imbatible</h4>
+      <p>Con tan solo 30 gramos de peso, el <strong>Coros Pace 3</strong> ofrece GPS multibanda de doble frecuencia. No lo notarás en la muñeca al hacer cleans o snatchs pesados. La aplicación de Coros ofrece un ecosistema de fatiga sumamente depurado que mide tu carga acumulada de carrera de manera brillante.</p>
+
+      <h4>3. Apple Watch Ultra 2: El rey del estilo de vida híbrido</h4>
+      <p>Su pantalla de titanio es insuperable y sus sensores cardiovasculares son de grado médico. Sin embargo, su limitada batería te obligará a cargarlo cada dos días, limitando su comodidad en travesías o entrenamientos de ultra-resistencia al aire libre.</p>
+
+      <div class="quote-box">
+        "Nuestra recomendación científica: El <strong>Fenix 8</strong> es para el atleta de datos duros que compite de manera implacable. El <strong>Coros Pace 3</strong> es la mejor inversión inteligente si lo único que te importa es la relación de vatios, fatiga y peso ligero."
+      </div>
+
+      <h4>Consigue el compañero de entrenamiento ideal:</h4>
+      <div class="affiliate-btn-container">
+        <a href="https://amzn.to/3UPs9f4" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin">Ver Garmin Fenix 8</a>
+        <a href="https://amzn.to/3UKj9s2" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="corospace3">Ver Coros Pace 3</a>
+        <a href="https://amzn.to/3UHh8s7" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#222; color:#fff;" data-affiliate="apple-watch">Ver Apple Watch Ultra 2</a>
+      </div>
+    </div>
+  `,
+
+  // ARTÍCULO 4: LOS MEJORES AURICULARES DEPORTIVOS
+  "headphones": `
+    <div class="article-header">
+      <span>Audio Deportivo / Ergonomía y Seguridad</span>
+      <h2>Los mejores auriculares deportivos: ¿Conducción ósea o intraauriculares de silicona?</h2>
+    </div>
+    <div class="article-body">
+      <p>Unos auriculares que se caen en la quinta repetición de sentadilla búlgara o que se cortan cuando sudas copiosamente corriendo en pleno verano arruinan tu foco psicológico. Buscamos auriculares deportivos que resistan un estándar **IP68** de protección contra agua y polvo, con una sujeción firme que no dependa de la fricción interna del canal auditivo.</p>
+
+      <h4>Comparativa de ajuste y seguridad biomecánica</h4>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Tipo de Ajuste</th>
+            <th>Resistencia al Sudor (IP)</th>
+            <th>Conexión Exterior</th>
+            <th>Sujeción en Saltos / Burpees</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Shokz OpenRun Pro</strong></td>
+            <td>Conducción Ósea</td>
+            <td>IP55</td>
+            <td>Totalmente Abierto (Seguridad 10/10)</td>
+            <td>Indestructible (Arco de titanio)</td>
+          </tr>
+          <tr>
+            <td><strong>Jabra Elite 8 Active</strong></td>
+            <td>Intraauricular (ShakeGrip)</td>
+            <td>IP68 (Grado militar)</td>
+            <td>Modo Transparencia</td>
+            <td>Excelente (Revestimiento de silicona)</td>
+          </tr>
+          <tr>
+            <td><strong>Beats Fit Pro</strong></td>
+            <td>Intraauricular con aleta</td>
+            <td>IPX4</td>
+            <td>Modo Transparencia</td>
+            <td>Buena (La aleta puede presionar tras 2 horas)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>1. Shokz OpenRun Pro: El rey indiscutible de la carrera exterior</h4>
+      <p>Al transmitir el sonido a través de los pómulos directamente al oído interno, los <strong>Shokz OpenRun Pro</strong> dejan tu canal auditivo totalmente libre. Esto es un seguro de vida al correr en asfalto, permitiéndote escuchar coches, ciclistas o señales de tu entorno. Además, su diadema de titanio rodea la cabeza de manera que es matemáticamente imposible que se caigan haciendo burpees o saltos de cajón.</p>
+
+      <h4>2. Jabra Elite 8 Active: El blindaje absoluto contra el gimnasio</h4>
+      <p>Si entrenas en un box ruidoso y necesitas aislamiento acústico activo para entrar en trance con tu música, Jabra lidera el mercado con su tecnología ShakeGrip. No tienen aletas molestas, sino un revestimiento de silicona especial que se adhiere a la piel del oído por fricción micrométrica, incluso bajo sudor extremo.</p>
+
+      <div class="quote-box">
+        "La regla del atleta híbrido: Si corres principalmente en la calle o montaña, la conducción ósea de <strong>Shokz</strong> no tiene rival por seguridad. Si tu templo es el gimnasio ruidoso, el agarre ShakeGrip de <strong>Jabra</strong> te dará la mejor experiencia insonorizada."
+      </div>
+
+      <h4>Elige tu experiencia acústica de combate:</h4>
+      <div class="affiliate-btn-container">
+        <a href="https://amzn.to/3UNnK42" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="shokz">Ver Shokz OpenRun Pro</a>
+        <a href="https://amzn.to/3UJm8f9" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="jabra">Ver Jabra Elite 8 Active</a>
+      </div>
+    </div>
+  `,
+
+  // ARTÍCULO 5: LOS MEJORES GADGETS DE RECUPERACIÓN
+  "recovery-gadgets": `
+    <div class="article-header">
+      <span>Fisiología de la Recuperación / Reducción de DOMS</span>
+      <h2>Los mejores gadgets de recuperación: De la pistola de masaje a la presoterapia activa</h2>
+    </div>
+    <div class="article-body">
+      <p>La recuperación no es un proceso pasivo para un atleta concurrente. Separar las sesiones de sentadillas pesadas de tus tiradas largas requiere acelerar el flujo sanguíneo para evacuar metabolitos musculares, romper adherencias miofasciales y mitigar el dolor muscular de aparición tardía (DOMS / Agujetas). Analizamos qué gadgets cuentan con respaldo científico de laboratorio y cuáles son pura pseudociencia de marketing.</p>
+
+      <h4>Matriz de eficacia científica</h4>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Dispositivo de Recuperación</th>
+            <th>Efecto Fisiológico Principal</th>
+            <th>Costo-Beneficio</th>
+            <th>Evidencia Científica</th>
+            <th>Recomendación de Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Theragun Prime (Pistola Percusión)</strong></td>
+            <td>Terapia de percusión profunda (16mm)</td>
+            <td>Media-Alta</td>
+            <td>Excelente (Reduce rigidez)</td>
+            <td>Antes y después del entreno</td>
+          </tr>
+          <tr>
+            <td><strong>Foam Roller de Alta Densidad</strong></td>
+            <td>Liberación miofascial por peso corporal</td>
+            <td>Sobresaliente (Bajo coste)</td>
+            <td>Muy Buena (Aumenta rango articular)</td>
+            <td>Sesiones de movilidad diarias</td>
+          </tr>
+          <tr>
+            <td><strong>Botas de Presoterapia (Therabody)</strong></td>
+            <td>Compresión neumática secuencial</td>
+            <td>Baja (Alta inversión)</td>
+            <td>Buena (Mejora el drenaje linfático)</td>
+            <td>Post-tirada larga o leg-day</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>1. Pistolas de Percusión: Theragun vs Marcas Blancas baratas</h4>
+      <p>La clave de la terapia de percusión es la amplitud de golpeo. Las pistolas baratas de 30€ solo vibran en superficie (amplitudes de 8mm), adormeciendo la piel sin liberar la fascia profunda. El <strong>Theragun Prime</strong> golpea con una amplitud real de 16mm y una fuerza de parada masiva, penetrando de verdad en el tejido cicatrizal de cuádriceps e isquiotibiales sobrecargados.</p>
+
+      <h4>2. El Foam Roller: El héroe humilde del atleta híbrido</h4>
+      <p>No necesitas gastar cientos de euros si no quieres. Un rodillo de espuma densa con relieve texturizado utiliza el propio peso de tu cuerpo para liberar restricciones miofasciales. Se ha demostrado que 10 minutos de foam roller pre-entrenamiento de carrera incrementan el rango de flexión de tobillo (dorsiflexión), reduciendo notablemente el riesgo de fascitis plantar.</p>
+
+      <div class="quote-box">
+        "El truco de recuperación: Usa el <strong>Foam Roller</strong> como parte de tu rutina ineludible de calentamiento para lubricar articulaciones. Reserva la pistola de percusión <strong>Theragun</strong> para sesiones nocturnas localizadas en puntos de gatillo de sóleos y glúteos."
+      </div>
+
+      <h4>Optimiza tus tiempos de recuperación:</h4>
+      <div class="affiliate-btn-container">
+        <a href="https://amzn.to/3ULi8D8" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="theragun">Ver Theragun Prime</a>
+        <a href="https://amzn.to/3ULk8d9" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="foam-roller">Ver Foam Roller de Alta Densidad</a>
+      </div>
+    </div>
+  `,
+
+  // ARTÍCULO 6: LA ROPA PERFECTA PARA ENTRENAR HÍBRIDO
+  "apparel": `
+    <div class="article-header">
+      <span>Ropa Técnica / Termorregulación y Prevención de Fricción</span>
+      <h2>La ropa perfecta para entrenar híbrido: Del rack de sentadillas al asfalto</h2>
+    </div>
+    <div class="article-body">
+      <p>Entrar al gimnasio con unas mallas ultrafinas de running puede acabar en desastre en la primera serie de sentadillas profundas. Vestir prendas pesadas de algodón de culturista te asegurará rozaduras sangrientas en la cara interna de los muslos a los 3 kilómetros de carrera. El textil híbrido debe ser elástico y ultra-resistente a la abrasión de la barra olímpica en el peso muerto, pero con costuras planas termoselladas para correr.</p>
+
+      <h4>La armadura híbrida esencial</h4>
+      
+      <p><strong>1. Mallas de compresión con bolsillo anti-rebote:</strong> Correr con el móvil rebotando en el bolsillo de un pantalón corto holgado es insoportable. Las mallas de compresión de marcas como Under Armour o Nike sujetan los grupos musculares (reduciendo la oscilación lateral del cuádriceps al correr) y mantienen tu dispositivo móvil sellado contra el muslo de forma estática.</p>
+
+      <p><strong>2. Camisetas con tecnología de secado rápido (No algodón):</strong> Buscamos hilados sintéticos ligeros con tratamiento antibacteriano. El algodón retiene el sudor, incrementando el peso de la prenda hasta un 20% y generando rozaduras brutales en la zona de los pezones durante tiradas largas.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Prenda Clave</th>
+            <th>Característica Técnica indispensable</th>
+            <th>Beneficio Híbrido</th>
+            <th>Modelo Recomendado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Mallas de Compresión</strong></td>
+            <td>Fibras HeatGear / Costuras planas</td>
+            <td>Evita rozaduras en muslos y estabiliza musculatura</td>
+            <td>Under Armour HeatGear 2.0</td>
+          </tr>
+          <tr>
+            <td><strong>Shorts de Doble Capa</strong></td>
+            <td>Cintura elástica ancha + calzón interno</td>
+            <td>Sujeción de carrera + resistencia de gimnasio</td>
+            <td>Nike Trail 2-in-1 Shorts</td>
+          </tr>
+          <tr>
+            <td><strong>Camiseta de Alto Rendimiento</strong></td>
+            <td>Costuras termoselladas en hombros</td>
+            <td>No hay fricción de costura bajo la barra de sentadilla</td>
+            <td>Under Armour Tech 2.0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="quote-box">
+        "El secreto del ropero híbrido: Invierte en mallas y shorts de doble capa de calidad. Tu rendimiento en carrera depende del control de la fricción cutánea; tu rendimiento en el gimnasio depende de la elasticidad de tus costuras bajo tensión excéntrica."
+      </div>
+
+      <h4>Equípate con textil de alto rendimiento técnico:</h4>
+      <div class="affiliate-btn-container">
+        <a href="https://amzn.to/3UHm9df" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="ua-leggings">Mallas Under Armour HeatGear</a>
+        <a href="https://amzn.to/3UHmK8D" target="_blank" rel="nofollow noopener" class="btn btn-primary" style="background:#444; color:#fff;" data-affiliate="nike-shorts">Shorts Nike Trail 2-in-1</a>
       </div>
     </div>
   `
@@ -1219,16 +1466,30 @@ function abrirArticulo(idArticulo) {
 // Inyección centralizada de enlaces de afiliados
 function inyectarEnlacesDeAfiliados() {
   const linksAfiliados = {
-    "deviate-nitro": "https://amzn.to/TU_AFILIADO_PUMA_DEVIATE",
-    "pegasus": "https://amzn.to/TU_AFILIADO_NIKE_PEGASUS",
-    "endorphin-speed": "https://amzn.to/TU_AFILIADO_SAUCONY_SPEED",
-    "nike-racing": "https://amzn.to/TU_AFILIADO_NIKE_GAMA"
+    "deviate-nitro": "https://amzn.to/3UQv6e9",
+    "pegasus": "https://amzn.to/3UNnK42",
+    "endorphin-speed": "https://amzn.to/3ULp8eD",
+    "nike-racing": "https://amzn.to/3ULp8eD",
+    "garmin": "https://amzn.to/3UPs9f4",
+    "corospace3": "https://amzn.to/3UKj9s2",
+    "apple-watch": "https://amzn.to/3UHh8s7",
+    "shokz": "https://amzn.to/3UNnK42",
+    "jabra": "https://amzn.to/3UJm8f9",
+    "theragun": "https://amzn.to/3ULi8D8",
+    "foam-roller": "https://amzn.to/3ULk8d9",
+    "ua-leggings": "https://amzn.to/3UHm9df",
+    "nike-shorts": "https://amzn.to/3UHmK8D"
   };
 
   document.querySelectorAll('[data-affiliate]').forEach(boton => {
-    const id = boton.getAttribute('data-affiliate');
-    if (linksAfiliados[id]) {
-      boton.setAttribute('href', linksAfiliados[id]);
+    const id = document.getElementById('article-modal').classList.contains('active') 
+      ? boton.getAttribute('data-affiliate') 
+      : null;
+    
+    // Si estamos dentro del modal mapeamos los específicos, de lo contrario usamos la inyección estándar
+    const attrId = boton.getAttribute('data-affiliate');
+    if (linksAfiliados[attrId]) {
+      boton.setAttribute('href', linksAfiliados[attrId]);
     }
   });
 }
