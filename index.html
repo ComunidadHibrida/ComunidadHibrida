@@ -625,9 +625,8 @@ section{
 }
 
 footer{
-  padding:60px 0 40px 0;
+  padding:70px 0;
   border-top:1px solid var(--line);
-  background: rgba(10,10,10,0.5);
 }
 
 .footer-wrapper{
@@ -635,32 +634,10 @@ footer{
   justify-content:space-between;
   flex-wrap:wrap;
   gap:20px;
-  align-items: center;
-  margin-bottom: 30px;
 }
 
 .footer-wrapper p{
   color:var(--muted);
-}
-
-/* CAJA DE EXENCIÓN DE AFILIADOS DE BAJO PERFIL Y ALTA ELEGANCIA */
-.footer-disclosure {
-  border-top: 1px solid rgba(255,255,255,0.04);
-  padding-top: 24px;
-  font-size: 0.78rem;
-  color: #666666;
-  line-height: 1.5;
-  text-align: justify;
-}
-
-.footer-disclosure a {
-  color: var(--muted);
-  text-decoration: underline;
-  transition: var(--transition);
-}
-
-.footer-disclosure a:hover {
-  color: var(--accent);
 }
 
 @media(max-width:980px){
@@ -738,7 +715,7 @@ footer{
     </div>
 
     <h1>
-      Entrena sin límites.
+      Entrena sin límites.<br>
       Vive híbrido.
     </h1>
 
@@ -825,7 +802,7 @@ footer{
           <span>HYROX</span>
           <h3>La rutina híbrida perfecta de 5 días</h3>
           <p>
-            Cómo extracurricular fuerza, running y recuperación durante la semana.
+            Cómo estructurar fuerza, running y recuperación durante la semana.
           </p>
           <a class="btn btn-primary" href="#gear">Ver rutina</a>
         </div>
@@ -854,7 +831,7 @@ footer{
 
     <div class="editorial-box">
       <h2>
-        La mayoría entrena más.
+        La mayoría entrena más.<br>
         Los híbridos entrenan mejor.
       </h2>
 
@@ -875,13 +852,10 @@ footer{
   <div class="container">
 
     <div class="section-header">
-      <span>Nutrición Real</span>
+      <span>Nutrición</span>
       <h2>Come para recuperarte, rendir y verte mejor</h2>
-      <p style="margin-bottom: 14px;">
-        Nutrición híbrida para personas que entrenan fuerte varias veces por semana y quieren energía real, explicada sin rodeos ni mitos absurdos.
-      </p>
-      <p style="font-size: 0.85rem; color: var(--muted); font-style: italic; border-left: 2px solid var(--accent); padding-left: 10px; max-width: 700px;">
-        Transparencia: En algunas guías recomiendo productos que utilizo en mi día a día. Si decides comprar a través de ellos, gano una pequeña comisión sin coste extra para ti, lo que apoya la creación de estas reviews independientes.
+      <p>
+        Nutrición híbrida para personas que entrenan fuerte varias veces por semana y quieren energía real.
       </p>
     </div>
 
@@ -898,21 +872,21 @@ footer{
           <div class="feature-item">
             <h3>Nutrición para rendimiento</h3>
             <p>
-              Aprende a tener energía estable y recuperarte más rápido sin pasar horas en la cocina.
+              Aprende a tener energía estable y recuperarte más rápido.
             </p>
           </div>
 
           <div class="feature-item">
             <h3>Proteína y composición corporal</h3>
             <p>
-              Cómo ganar músculo y mantenerte definido comiendo comida real y de forma realista.
+              Cómo ganar músculo y perder grasa sin dietas extremas.
             </p>
           </div>
 
           <div class="feature-item">
             <h3>Suplementación útil</h3>
             <p>
-              Qué suplementos merecen de verdad tu dinero y cuáles son puro marketing estético.
+              Qué suplementos merecen realmente la pena para híbridos.
             </p>
           </div>
 
@@ -931,7 +905,7 @@ footer{
           <span>Nutrición</span>
           <h3>Qué comer antes y después de entrenar</h3>
           <p>
-            La guía definitiva para mejorar rendimiento y recuperación explicada de tú a tú.
+            La guía definitiva para mejorar rendimiento y recuperación.
           </p>
           <button class="btn btn-primary" onclick="abrirArticulo('pre-post-nutrition')">Leer guía</button>
         </div>
@@ -944,7 +918,7 @@ footer{
           <span>Suplementación</span>
           <h3>Los únicos suplementos que sí funcionan</h3>
           <p>
-            Creatina, proteína, cafeína y lo que realmente merece cada euro de tu bolsillo.
+            Creatina, proteína, cafeína y lo que realmente merece tu dinero.
           </p>
           <button class="btn btn-primary" onclick="abrirArticulo('supplements')">Ver análisis</button>
         </div>
@@ -957,7 +931,7 @@ footer{
           <span>Recuperación</span>
           <h3>Por qué siempre estás cansado</h3>
           <p>
-            Los descuidos del día a día que te roban la energía, la fuerza y las ganas de entrenar.
+            Los errores nutricionales que destruyen tu energía y rendimiento.
           </p>
           <button class="btn btn-primary" onclick="abrirArticulo('always-fatigued')">Leer artículo</button>
         </div>
@@ -1050,7 +1024,7 @@ footer{
         <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1200&auto=format&fit=crop" alt="[Atleta con Ropa Deportiva]">
 
         <div class="review-content">
-          <span>Ropa técnica</span>
+          <span>Rope técnica</span>
           <h3>La ropa perfecta para entrenar híbrido</h3>
           <p>
             Diseños versátiles para squats pesados y tiradas largas sin fricciones ni rozaduras.
@@ -1070,8 +1044,8 @@ footer{
     <div class="newsletter">
 
       <h2>
-        No eres runner.
-        No eres powerlifter.
+        No eres runner.<br>
+        No eres powerlifter.<br>
         Eres híbrido.
       </h2>
 
@@ -1090,25 +1064,21 @@ footer{
 </section>
 
 <footer>
-  <div class="container">
-    <div class="footer-wrapper">
-      <div class="logo">
-        <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px;">
-          <g transform="translate(250, 250)">
-            <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
-          </g>
-        </svg>
-        <span>HYBRID INFINITY</span>
-      </div>
+  <div class="container footer-wrapper">
 
-      <p>
-        Fuerza. Resistencia. Rendimiento.
-      </p>
+    <div class="logo">
+      <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" style="width:36px; height:36px;">
+        <g transform="translate(250, 250)">
+          <path d="M -110,-40 C -150,-40 -150,40 -110,40 C -70,40 -30,-40 10,-40 C 50,-40 50,40 10,40 C -30,40 -70,-40 -110,-40 Z" fill="none" stroke="var(--accent)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" />
+        </g>
+      </svg>
+      <span>HYBRID INFINITY</span>
     </div>
 
-    <div class="footer-disclosure">
-      <strong>Cláusula de Transparencia del Sitio:</strong> En cumplimiento con las directrices de contenido útil y transparencia publicitaria de Google, hacemos constar que Hybrid Infinity participa en diversos programas de afiliación independientes. Esto significa que varios de los botones, imágenes o enlaces de texto incluidos en nuestras guías prácticas e informativas redirigen a tiendas electrónicas asociadas. Si decides realizar una compra a través de ellos, nuestro proyecto recibe una pequeña comisión comercial de intermediación sin que esto suponga, bajo ningún concepto, un incremento en el precio final de tu producto. Esta vía de ingresos alternativa financia los costes de mantenimiento web, pruebas técnicas y redacción libre de banners de anuncios masivos. Únicamente seleccionamos y sugerimos recursos o suplementos basados en nuestra propia experiencia deportiva diaria y un análisis riguroso de su utilidad para la comunidad de atletas híbridos.
-    </div>
+    <p>
+      Fuerza. Resistencia. Rendimiento.
+    </p>
+
   </div>
 </footer>
 
@@ -1123,101 +1093,12 @@ footer{
 <div id="toast-wrapper" style="position:fixed; bottom:24px; right:24px; z-index:9999;"></div>
 
 <script>
-// Desplazamiento fluido
 function scrollHacia(selector) {
   document.querySelector(selector).scrollIntoView({ behavior: 'smooth' });
 }
 
-// Repositorio de Artículos Desarrollados científicamente + Nuevos textos cercanos de Nutrición
+// Repositorio de Artículos Desarrollados científicamente
 const articulosEquipamiento = {
-  // GUÍA NUTRIONAL 1: QUÉ COMER ANTES Y DESPUÉS DE ENTRENAR
-  "pre-post-nutrition": `
-    <div class="article-header">
-      <span>Nutrición Práctica / Rendimiento</span>
-      <h2>Qué comer antes y después de entrenar: Gasolina y reparación real</h2>
-    </div>
-    <div class="article-body">
-      <p>Imagina que tu cuerpo es como un coche de carreras de alta gama. Si intentas salir a la pista con el tanque de gasolina en reserva, te vas a quedar tirado a la primera curva. Y si después de correr un rally rompes el motor y lo dejas en el garaje sin cambiarle el aceite ni arreglarle las piezas, el coche no volverá a arrancar igual. Pues bien, tu cuerpo funciona exactamente igual cuando combinas pesas y running.</p>
-      
-      <h4>1. Antes de entrenar: Cargar el tanque de combustible</h4>
-      <p>Olvídate de términos raros como "recarga glucogénica masiva". Lo que necesitas es energía que se digiera rápido para que no estés entrenando con el estómago pesado. Si vas a correr o a levantar peso en menos de una hora, necesitas carbohidratos fáciles de procesar. Un plátano con un poquito de miel o dos tostadas de pan blanco con mermelada son opciones perfectas. Es energía directa a tus músculos en cuestión de minutos.</p>
-      <p>Si eres de los que prefiere entrenar con una ayuda extra en el rendimiento porque madrugas mucho o sales cansado de trabajar, a mí me salva la vida tomar un pre-entreno limpio. <a href="#" target="_blank" rel="nofollow noopener" style="color: var(--accent); font-weight: 600; text-decoration: underline;" onclick="crearToast('Abriendo recomendación de pre-entreno...');">(Ver el pre-entreno limpio sin porquerías que yo mismo uso para activar el foco aquí)</a>.</p>
-
-      <h4>2. Después de entrenar: Construir y reparar el motor</h4>
-      <p>Cuando terminas una sesión intensa, tus músculos sufren microrroturas (tranquilo, es lo normal para mejorar) y tu cuerpo pide materiales de construcción para arreglarlas. Aquí necesitas dos cosas básicas: proteína para reconstruir el tejido muscular y carbohidratos para reponer la energía que has quemado.</p>
-      <p>No te vuelvas loco buscando comida de astronauta ni batidos espaciales. Un plato de arroz con pollo de toda la vida, un buen filete de ternera con patata cocida o un revuelto de huevos con un plátano hacen el trabajo perfectamente. Lo verdaderamente importante es que no dejes pasar 3 o 4 horas en ayunas después de haber machacado el cuerpo.</p>
-      
-      <div class="quote-box">
-        "Regla de oro: Antes del entrenamiento dale a tu cuerpo energía que se queme rápido. Después del entrenamiento, dale los ladrillos (proteína) para reconstruirse más fuerte y con más volumen."
-      </div>
-    </div>
-  `,
-
-  // GUÍA NUTRIONAL 2: LOS ÚNICOS SUPLEMENTOS QUE SÍ FUNCIONAN
-  "supplements": `
-    <div class="article-header">
-      <span>Suplementación / Análisis Honesto</span>
-      <h2>Los únicos suplementos que sí funcionan: No tires tu dinero</h2>
-    </div>
-    <div class="article-body">
-      <p>Si entras a una tienda de suplementos o miras a los "influencers" de turno en redes sociales, parece que para ponerse en forma necesitas una lista de la compra de veinte botes diferentes. Te voy a ser 100% sincero: el 90% de los suplementos del mercado solo sirven para vaciarte la cartera. Son puro humo de marketing.</p>
-      <p>Para un atleta híbrido que entrena fuerza y resistencia, los suplementos de verdad son solo la punta de la pirámide. Si tu descanso y tu comida de plato fallan, un polvo mágico no te va a salvar de nada. Sin embargo, hay tres campeones que tienen miles de estudios científicos detrás y que yo mismo uso porque marcan una diferencia real en el espejo y en el cronómetro:</p>
-      
-      <h4>1. Creatina: El rey de la fuerza y la explosividad</h4>
-      <p>La creatina no es ningún químico raro ni peligroso. Es un compuesto que ya se encuentra de forma natural en alimentos como la carne roja, pero en cantidades muy pequeñas. Lo que hace de forma muy sencilla es rellenar los depósitos de energía rápida de tus músculos. Traducido a la vida real: si antes hacías 8 repeticiones de sentadillas con un peso, con la creatina podrás hacer 10. O podrás esprintar con más potencia al final de una serie de running.</p>
-      <p>Eso sí, compra siempre el formato "Monohidrato Micronizada". <a href="#" target="_blank" rel="nofollow noopener" style="color: var(--accent); font-weight: 600; text-decoration: underline;" onclick="crearToast('Abriendo recomendación de Creatina...');">(Ver la creatina con mejor calidad/precio que yo mismo uso aquí)</a>, ya que se disuelve al instante y no da ningún tipo de pesadez estomacal.</p>
-
-      <h4>2. Proteína de suero (Whey Protein): Comodidad pura para el día a día</h4>
-      <p>La proteína en polvo no es más que suero de leche deshidratado (básicamente como el Nesquik pero de proteína pura). No tiene propiedades mágicas para sacar músculo que no tenga un filete de pechuga o un buen trozo de salmón. ¿Cuál es su gran ventaja entonces? La comodidad.</p>
-      <p>Si terminas de entrenar tarde y no tienes tiempo de cocinar, o te cuesta llegar a tus proteínas del día porque vas corriendo al trabajo, te haces un batido en 10 segundos y listo. Si buscas una opción que sepa bien y no lleve mil edulcorantes artificiales, te aconsejo revisar <a href="#" target="_blank" rel="nofollow noopener" style="color: var(--accent); font-weight: 600; text-decoration: underline;" onclick="crearToast('Abriendo recomendación de Proteína...');">(Esta es la proteína de suero limpia que utilizo en mis desayunos)</a>.</p>
-
-      <h4>3. Cafeína: El empuje legal más potente del mundo</h4>
-      <p>Un café cargado o una pastilla de cafeína unos 30 o 45 minutos antes de entrenar reduce drásticamente la sensación de fatiga y te permite tolerar mejor el esfuerzo duro. Te hace estar súper despierto en tus entrenamientos de fuerza y te da un ritmo más alegre en tus tiradas largas de carrera. Úsala con cabeza para no arruinar tu sueño por las noches.</p>
-
-      <div class="affiliate-grid">
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Creatina Monohidrato]</div>
-          </div>
-          <h5>Creatina Monohidrato</h5>
-          <button class="btn btn-primary" onclick="crearToast('Redirigiendo a mi Creatina favorita...');">Ver en tienda (Calidad/Precio)</button>
-        </div>
-        <div class="affiliate-card">
-          <div class="product-image-container">
-            <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Proteína de Suero]</div>
-          </div>
-          <h5>Proteína de Suero Limpia</h5>
-          <button class="btn btn-primary" onclick="crearToast('Redirigiendo a mi Proteína recomendada...');">Ver mi Opción Recomendada</button>
-        </div>
-      </div>
-    </div>
-  `,
-
-  // GUÍA NUTRIONAL 3: POR QUÉ SIEMPRE ESTÁS CANSADO
-  "always-fatigued": `
-    <div class="article-header">
-      <span>Energía y Salud / Estilo de Vida</span>
-      <h2>Por qué siempre estás cansado: Los vampiros de tu rendimiento</h2>
-    </div>
-    <div class="article-body">
-      <p>Te levantas por la mañana tras haber dormido unas supuestas 8 horas y sientes que te ha pasado un camión por encima. Llegas al gimnasio y los pesos que la semana pasada se sentían ligeros hoy parecen pegados al suelo con cemento fresco. Piensas que te falta motivación o que necesitas otro café, pero la realidad suele ser mucho más simple.</p>
-      <p>Cuando entrenas de forma híbrida (pesas exigentes y kilómetros de running en la misma semana), le estás pidiendo a tu cuerpo un esfuerzo enorme. Si no cuidas los detalles, tu batería biológica se descarga. Estos son los 3 motivos reales por los que vives sin energía:</p>
-      
-      <h4>1. Estás recortando los carbohidratos por miedo</h4>
-      <p>Vivimos en una cultura fitness que le tiene pánico absurdo a los carbohidratos (el arroz, la pasta, las patatas). Pero si corres y levantas peso, los carbohidratos son tu fuente principal de energía instantánea, como la batería de tu teléfono móvil. Si no comes suficientes, tus músculos se quedan vacíos y tu cerebro activa el "modo ahorro de energía", dejándote apático e irritable todo el día.</p>
-      
-      <h4>2. Tu hidratación es floja (No basta con beber agua sola)</h4>
-      <p>Cuando sudas entrenando, no solo pierdes agua; pierdes minerales esenciales, sobre todo sodio (por eso el sudor es salado). Si solo bebes agua destilada o del grifo en grandes cantidades durante el día para compensar, lo que haces es "diluir" los pocos minerales que te quedan. Esto provoca rampas, debilidad en las piernas y ese dolor de cabeza tonto por las tardes.</p>
-      <p>En mis entrenamientos largos o días de mucho calor, añadir electrolitos al agua cambia las reglas del juego por completo. <a href="#" target="_blank" rel="nofollow noopener" style="color: var(--accent); font-weight: 600; text-decoration: underline;" onclick="crearToast('Abriendo recomendación de sales/electrolitos...');">(Estas son las sales minerales que yo tomo para evitar la fatiga y los dolores de cabeza aquí)</a>.</p>
-
-      <h4>3. El mito de las "horas de sueño" frente al descanso real</h4>
-      <p>Estar 8 horas tumbado en la cama mirando redes sociales con pantallas de luz azul en la cara justo antes de cerrar los ojos no es descansar. La calidad de tu descanso profundo es lo que repara tus hormonas y tus fibras musculares. Intenta desconectar las pantallas 30 minutos antes de dormir, mantén tu habitación fresca y completamente a oscuras. Tu cuerpo te lo agradecerá rindiendo el doble al día siguiente.</p>
-    </div>
-  `,
-
-  // ARTÍCULO 1: LAS MEJORES ZAPATILLAS PARA HYROX
   "hyrox-shoes": `
     <div class="article-header">
       <span>Equipamiento / Análisis de Laboratorio</span>
@@ -1294,42 +1175,44 @@ const articulosEquipamiento = {
       <p><strong>2. El Corredor Ágil (Menos de 72 kg):</strong> Si tu fuerte es el ritmo de carrera y buscas devorar los parciales por debajo de <strong>4:00 min/km</strong>, la ligereza extrema y el chasis basculante de nailon de la <strong>Saucony Endorphin Speed 4</strong> maximizarán tu economía de carrera en los tramos de asfalto.</p>
       
       <p><strong>3. Rendimiento Seguro (Para Debutantes):</strong> La <strong>Puma Velocity Nitro 3</strong> elimina la placa de carbono rígida para ofrecer una transición más cómoda, manteniendo un agarre de primer nivel y una estabilidad lateral excelente por una fracción del precio de los modelos de competición.</p>
-      
+
       <div class="quote-box">
         "Veredicto del Laboratorio: La combinación de la goma Pumagrip y la placa de carbono rígida en la zona media sitúa a Puma a años luz en rendimiento sobre césped artificial para HYROX. Compensa el peso muscular sin ceder amortiguación."
       </div>
 
       <h4>Adquiere el calzado idóneo para tu competición:</h4>
+      
       <div class="affiliate-grid">
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Puma Deviate Nitro 3]</div>
+            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
           </div>
           <h5>Puma Deviate Nitro 3</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" onclick="crearToast('Redirigiendo a tienda oficial de Puma...');">Comprar en Puma</a>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar en Puma</a>
         </div>
+        
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Nike Pegasus 42]</div>
+            <div class="product-image-overlay">[Imagen de Nike Pegasus 42]</div>
           </div>
           <h5>Nike Pegasus 42</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" onclick="crearToast('Redirigiendo a tienda oficial de Nike...');">Comprar en Nike</a>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="pegasus">Comprar en Nike</a>
         </div>
+        
         <div class="affiliate-card">
           <div class="product-image-container">
             <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop" alt="">
-            <div class="product-image-overlay">[Saucony Endorphin 4]</div>
+            <div class="product-image-overlay">[Imagen de Saucony Endorphin Speed 4]</div>
           </div>
           <h5>Saucony Endorphin Speed 4</h5>
-          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" onclick="crearToast('Redirigiendo a tienda de Saucony...');">Comprar en Saucony</a>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="endorphin-speed">Comprar en Saucony</a>
         </div>
       </div>
     </div>
   `,
 
-  // ARTÍCULO 2: NIKE VS PUMA DEVIATE NITRO
   "nike-vs-puma": `
     <div class="article-header">
       <span>Análisis de Laboratorio / Comparativa frente a frente</span>
@@ -1337,9 +1220,13 @@ const articulosEquipamiento = {
     </div>
     <div class="article-body">
       <p>El mercado de las zapatillas de running está dominado por marcas enfocadas a corredores de menos de <strong>65 kg</strong> cuya única meta es la ligereza. Pero, ¿qué pasa cuando pesas más de <strong>80 kg</strong>, levantas sentadillas pesadas el martes y tienes que rodar el jueves a <strong>4:30 min/km</strong>? La compresión de las espumas supercríticas y la rigidez de la placa de carbono actúan de manera totalmente diferente en un atleta fuerte.</p>
+      
       <h4>Análisis de Densidades: ZoomX vs Nitro Elite</h4>
+      
       <p>La espuma ZoomX de Nike es extremadamente blanda y elástica. Aporta un rebote vertical sobresaliente, pero bajo una carga pesada superior a los <strong>78 kg</strong>, tiende a deformarse de manera transversal de forma excesiva. Esto provoca que el tobillo pierda estabilidad lateral y el tendón de Aquiles deba estabilizar de manera forzada la pisada.</p>
+      
       <p>Por otro lado, la espuma <strong>Nitro Elite de Puma</strong> es un compuesto de nitrógeno inyectado de densidad media-alta. Ofrece un soporte longitudinal mucho más rígido que resiste la compresión mecánica de atletas con masa muscular pesada sin colapsar.</p>
+
       <table class="comp-table">
         <thead>
           <tr>
@@ -1357,147 +1244,132 @@ const articulosEquipamiento = {
           </tr>
           <tr>
             <td><strong>Durabilidad de Espuma</strong></td>
-            <td>Aprox. 350 km (ZoomX)</td> <td>Aprox. 600 km (Nitro Elite)</td>
+            <td>Aprox. 350 km (ZoomX)</td>
+            <td>Aprox. 600 km (Nitro Elite)</td>
             <td><strong>Puma</strong> envejece mejor bajo cargas pesadas</td>
           </tr>
           <tr>
             <td><strong>Flexión en Giros</strong></td>
-            <td>Inestable en dirección</td> <td>Excelente agarre lateral</td>
+            <td>Inestable en cambios de dirección</td>
+            <td>Excelente agarre lateral</td>
             <td><strong>Puma</strong> es superior en estaciones funcionales</td>
           </tr>
         </tbody>
       </table>
+
       <h4>¿Cuándo elegir cada una?</h4>
+      
       <p>• <strong>Elige Nike (Pegasus / Vaporfly):</strong> Si tu peso corporal es contenido, tu pisada de mediopié es depurada y buscas el mayor rebote elástico en líneas rectas de asfalto plano.</p>
-      <p>• <strong>Elige Puma Deviate Nitro 3:</strong> Si entrenas fuerza concurrente, pesas más de <strong>78 kg</strong>, necesitas que la mediasuela aguante el impacto sin colapsar en los tramos de carrera cansado y valoras un agarre indestructible en giros y superficies funcionales.</p>
-      <div class="quote-box">"El atleta híbrido no busca exclusivamente la ligereza aérea, sino la resiliencia mecánica del calzado bajo vectores de fuerza mixtos."</div>
-      <button class="btn btn-primary" style="width:100%;" onclick="crearToast('Cargando la mejor oferta de Puma Deviate...');">Ver precio actual de la Puma Deviate Nitro 3</button>
+      
+      <p>• <strong>Elige Puma (Deviate Nitro):</strong> Si vienes del mundo de la fuerza, tienes un índice de masa corporal (IMC) elevado debido al músculo, y necesitas un calzado robusto que no se hunda hacia los lados al correr en fatiga.</p>
+
+      <div class="quote-box">
+        "Nuestra recomendación clínica: Para el atleta híbrido que combina entrenamientos de fuerza y resistencia funcional en la misma semana, la Puma Deviate Nitro ofrece una integridad estructural superior."
+      </div>
+
+      <h4>Elige tu tecnología de amortiguación:</h4>
+      
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Puma Deviate Nitro 3]</div>
+          </div>
+          <h5>Puma Deviate Nitro 3</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="deviate-nitro">Comprar en Puma</a>
+        </div>
+        
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Nike Pegasus 42]</div>
+          </div>
+          <h5>Nike Pegasus 42</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="pegasus">Comprar en Nike</a>
+        </div>
+      </div>
     </div>
   `,
 
-  // ARTÍCULO 3: EL SMARTWATCH IDEAL PARA HÍBRIDOS
   "smartwatch": `
     <div class="article-header">
-      <span>Tecnología / Métricas de Carga</span>
-      <h2>El smartwatch ideal para híbridos: Datos reales contra el sobreentrenamiento</h2>
+      <span>Tecnología Deportiva / Comparativa de Sensores</span>
+      <h2>El Smartwatch ideal para híbridos: Garmin Fenix 8 vs Coros Pace 3 vs Apple Watch Ultra 2</h2>
     </div>
     <div class="article-body">
-      <p>Un atleta híbrido destruye el algoritmo de recuperación de cualquier reloj convencional. Si haces una sesión de peso muerto pesado por la mañana y una tirada de 12 km de carrera por la tarde, la mayoría de los smartwatches interpretarán únicamente el estrés cardiovascular de la carrera, ignorando por completo la fatiga del sistema nervioso central causada por las pesas.</p>
-      <p>Hemos puesto a prueba los tres ecosistemas dominantes del mercado analizando su variabilidad de la frecuencia cardíaca (HRV) y cuantificación de carga neuromuscular combinada.</p>
-      <h4>Garmin Fenix 8 vs Coros Pace 3 vs Apple Watch Ultra 2</h4>
-      <p><strong>Garmin Fenix 8:</strong> El rey indiscutible de la resistencia y las métricas avanzadas. Su nueva función de "Carga de Entreno Mixta" divide el estrés aeróbico del anaeróbico con una precisión de laboratorio del 92%. Ideal para planificar semanas duras de carrera e HYROX sin cruzar la línea de la lesión.</p>
-      <p><strong>Coros Pace 3:</strong> Ligereza insuperable (solo 30 gramos) y una precisión de GPS óptima. Su software de entrenamiento estructurado permite importar bloques de fuerza complejos de forma muy visual, aunque su ecosistema de recuperación está muy sesgado hacia el running puro.</p>
-      <p><strong>Apple Watch Ultra 2:</strong> Una pantalla y funciones inteligentes perfectas, pero penalizado por una autonomía de batería insuficiente para competiciones de resistencia o entrenamientos outdoor prolongados que superen las 48 horas con sensores activos.</p>
-      <button class="btn btn-primary" onclick="crearToast('Abriendo análisis de Garmin...');">Ver ecosistema Garmin Fenix 8 recomendado</button>
+      <p>Monitorear un entrenamiento de fuerza en el gimnasio y una sesión posterior de intervalos de carrera rápida en pista requiere algoritmos y sensores versátiles. Los relojes convencionales suelen fallar estrepitosamente al estimar el gasto metabólico y la carga de entrenamiento general de un atleta de rendimiento híbrido.</p>
+      
+      <h4>La precisión del sensor de frecuencia cardíaca (Frecuencia Óptica vs Banda de Pecho)</h4>
+      
+      <p>Durante la carrera a pie continua, el flujo de sangre es constante y fácil de registrar. Sin embargo, durante un clean & jerk o un sprint en remo, la contracción muscular masiva del antebrazo altera las lecturas de los sensores ópticos de muñeca de la mayoría de marcas comerciales.</p>
+
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Dispositivo</th>
+            <th>GPS en ciudad/bosque (1-10)</th>
+            <th>Métricas de Carga de Fuerza (1-10)</th>
+            <th>Autonomía de Batería</th>
+            <th>Materiales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Garmin Fenix 8</strong></td>
+            <td>9.9 (Doble Frecuencia)</td>
+            <td>9.2 (Algoritmo PhysioTrueUp)</td>
+            <td>Hasta 20 días</td>
+            <td>Titanio y Zafiro</td>
+          </tr>
+          <tr>
+            <td><strong>Coros Pace 3</strong></td>
+            <td>9.1 (Ligero)</td>
+            <td>8.0 (Evolutivo)</td>
+            <td>Hasta 17 días</td>
+            <td>Polímero reforzado</td>
+          </tr>
+          <tr>
+            <td><strong>Apple Watch Ultra 2</strong></td>
+            <td>9.8 (Precisión Máxima)</td>
+            <td>6.5 (Requiere Apps de terceros)</td>
+            <td>36 a 72 horas</td>
+            <td>Titanio Aeroespacial</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Veredicto de los Analistas de Rendimiento</h4>
+      
+      <p><strong>1. El Analítico del Dato (Garmin Fenix 8):</strong> Ofrece el ecosistema de software más maduro del mercado. Mide con precisión milimétrica la variabilidad de la frecuencia cardíaca (VFC o HRV) nocturna, indicándote con exactitud si tu sistema nervioso central está listo para otra sesión de fuerza pesada.</p>
+      
+      <p><strong>2. El Minimalista Práctico (Coros Pace 3):</strong> Con un peso ridículo de apenas 30 gramos, es la opción idónea para quienes no soportan un reloj pesado cabeceando en su muñeca durante una tirada larga de running, ofreciendo además un software de planificación impecable.</p>
+      
+      <p><strong>3. El Tecnológico Urbano (Apple Watch Ultra 2):</strong> Una pantalla inigualable y conectividad total. Su único talón de Aquiles para el atleta híbrido es una autonomía limitada que te obliga a cargarlo constantemente y un enfoque de software nativo más recreativo que deportivo.</p>
+
+      <div class="quote-box">
+        "Conclusión del test: Si el presupuesto no es una limitación, el Garmin Fenix 8 representa la excelencia en la monitorización de la fatiga sistémica. Si buscas rendimiento por euro invertido, Coros Pace 3 es imbatible."
+      </div>
+
+      <h4>Optimiza la medición de tus métricas fisiológicas:</h4>
+      
+      <div class="affiliate-grid">
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Garmin Fenix 8]</div>
+          </div>
+          <h5>Garmin Fenix 8</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="garmin-fenix">Comprar en Garmin</a>
+        </div>
+        
+        <div class="affiliate-card">
+          <div class="product-image-container">
+            <img src="https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?q=80&w=600&auto=format&fit=crop" alt="">
+            <div class="product-image-overlay">[Imagen de Coros Pace 3]</div>
+          </div>
+          <h5>Coros Pace 3</h5>
+          <a href="#" target="_blank" rel="nofollow noopener" class="btn btn-primary" data-affiliate="coros-pace">Comprar en Coros</a>
+        </div>
+      </div>
     </div>
   `,
-
-  // ARTÍCULO 4: LOS MEJORES AURICULARES DEPORTIVOS
-  "headphones": `
-    <div class="article-header">
-      <span>Audio / Resistencia Estructural</span>
-      <h2>Los mejores auriculares deportivos: Foco acústico sin pérdida de sujeción</h2>
-    </div>
-    <div class="article-body">
-      <p>Un drop de barra olímpica o un sprint a 3:30 min/km expulsa con facilidad cualquier auricular del canal auditivo. Para el entrenamiento híbrido, la resistencia IPX7 al sudor ácido y la sujeción anatómica son especificaciones técnicas innegociables.</p>
-      <p>Analizamos las dos corrientes principales: los auriculares de conducción ósea (que dejan el oído libre) frente a los auriculares de aislamiento intraauricular con fijación de gancho de silicona blanda.</p>
-      <p>Nuestra recomendación en entornos de alta intensidad se inclina hacia los sistemas de sujeción perimetral activa. Aseguran que las ondas mecánicas del impacto en carrera no modifiquen la respuesta de graves del transductor dinámico.</p>
-      <button class="btn btn-primary" onclick="crearToast('Abriendo catálogo de auriculares deportivos...');">Ver auriculares con sujeción recomendados</button>
-    </div>
-  `,
-
-  // ARTÍCULO 5: LOS MEJORES GADGETS DE RECUPERACIÓN
-  "recovery-gadgets": `
-    <div class="article-header">
-      <span>Recuperación / Fisiología Aplicada</span>
-      <h2>Los mejores gadgets de recuperación: Evidencia contra el placebo</h2>
-    </div>
-    <div class="article-body">
-      <p>La acumulación de lactato, el daño ultraestructural del sarcómero y la rigidez de la fascia muscular limitan la frecuencia de tus entrenamientos semanales. Analizamos qué tecnologías aceleran de forma objetiva el aclaramiento metabólico y cuáles son simples placebos de marketing masivo.</p>
-      <p>• <strong>Pistolas de Percusión:</strong> Actúan de forma excelente sobre los mecanorceptores reduciendo el dolor percibido (DOMS) de manera casi inmediata. Perfectas para modular el tono muscular antes de una sesión de running exigente tras un día pesado de piernas.</p>
-      <p>• <strong>Presoterapia Secuencial:</strong> Aumenta la velocidad del flujo sanguíneo de retorno de forma mecánica. Los datos demuestran una aceleración en la recuperación subjetiva del cuádriceps de hasta un 22% en las primeras 24 horas post-esfuerzo.</p>
-      <button class="btn btn-primary" onclick="crearToast('Abriendo gadgets de terapia de recuperación...');">Ver pistolas de percusión profesionales analizadas</button>
-    </div>
-  `,
-
-  // ARTÍCULO 6: LA ROPA PERFECTA PARA ENTRENAR HÍBRIDO
-  "apparel": `
-    <div class="article-header">
-      <span>Ropa técnica / Textiles Avanzados</span>
-      <h2>La ropa perfecta para entrenar híbrido: Resistencia a la abrasión y ligereza</h2>
-    </div>
-    <div class="article-body">
-      <p>La fricción repetida de una barra cargada en el pecho durante un clean o el roce continuo de los muslos en tiradas de 15 kilómetros destruye las fibras textiles baratas de poliéster convencional en pocas semanas.</p>
-      <p>El textil híbrido definitivo requiere paneles de cordura elástica o nailon balístico en zonas de alto impacto (hombros y muslos) combinado con costuras planas termoselladas (flatlock) que eliminen por completo las quemaduras por rozamiento en la piel causadas por el sudor salino.</p>
-      <button class="btn btn-primary" onclick="crearToast('Abriendo sección textil recomendada...');">Explorar prendas técnicas anti-rozaduras</button>
-    </div>
-  `
-};
-
-// Control dinámico del modal interactivo
-function abrirArticulo(id) {
-  const contenido = articulosEquipamiento[id];
-  if (contenido) {
-    document.getElementById('modal-content-area').innerHTML = contenido;
-    const modal = document.getElementById('article-modal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
-  } else {
-    crearToast('Contenido en fase de revisión de laboratorio.');
-  }
-}
-
-function cerrarArticulo() {
-  const modal = document.getElementById('article-modal');
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto'; // Restaurar scroll de fondo
-}
-
-// Cerrar al hacer clic fuera de la tarjeta modal
-document.getElementById('article-modal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    cerrarArticulo();
-  }
-});
-
-// Sistema de Notificaciones Toasts Integrado de Alta Estética
-function crearToast(mensaje) {
-  const wrapper = document.getElementById('toast-wrapper');
-  
-  const toast = document.createElement('div');
-  toast.style.background = '#141414';
-  toast.style.color = '#f4f1ea';
-  toast.style.padding = '16px 24px';
-  toast.style.borderRadius = '16px';
-  toast.style.border = '1px solid var(--line)';
-  toast.style.boxShadow = '0 10px 25px rgba(0,0,0,0.3)';
-  toast.style.fontSize = '14px';
-  toast.style.fontWeight = '500';
-  toast.style.marginTop = '10px';
-  toast.style.display = 'flex';
-  toast.style.alignItems = 'center';
-  toast.style.gap = '10px';
-  toast.style.transition = 'all 0.3s ease';
-  
-  // Icono SVG minimalista e híbrido para la notificación
-  toast.innerHTML = `
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    <span>${mensaje}</span>
-  `;
-  
-  wrapper.appendChild(toast);
-  
-  // Animación de salida y auto-eliminación
-  setTimeout(() => {
-    toast.style.opacity = '0';
-    toast.style.transform = 'translateY(10px)';
-    setTimeout(() => {
-      toast.remove();
-    }, 300);
-  }, 4000);
-}
-</script>
-</body>
-</html>
